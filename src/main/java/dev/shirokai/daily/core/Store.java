@@ -5,11 +5,18 @@ import java.nio.*;
 import java.nio.channels.*;
 import java.nio.file.*;
 import java.util.*;
-/** Called only on the owned storage executor. A failed write leaves the old snapshot intact. */
+/** Owned storage executor only. A failure before replacement preserves the previous snapshot. */
 public final class Store {
     private final Path root;
+    private final boolean syncDirectory;
     private static final Gson JSON=new GsonBuilder().setPrettyPrinting().create();
-    public Store(Path root)throws IOException{this.root=root;Files.createDirectories(root);}
+    public Store(Path root)throws IOException{
+        this(root,!System.getProperty("os.name","").toLowerCase(Locale.ROOT).startsWith("windows"));
+    }
+    // Windows FileChannel cannot open directories. Never suppress errors from actual file writes.
+    Store(Path root,boolean syncDirectory)throws IOException{
+        this.root=root;this.syncDirectory=syncDirectory;Files.createDirectories(root);
+    }
     public State load(UUID id)throws IOException{
         Path p=root.resolve(id+".json");if(!Files.exists(p))return new State();
         try(var reader=Files.newBufferedReader(p)){State s=JSON.fromJson(reader,State.class);if(s==null||s.schema!=1||s.daily==null||s.playtime==null||s.hunts==null||s.transactions==null)throw new IOException("Estado inválido: "+id);return s;}
@@ -20,6 +27,8 @@ public final class Store {
         byte[] bytes=JSON.toJson(state).getBytes(java.nio.charset.StandardCharsets.UTF_8);
         try(FileChannel c=FileChannel.open(tmp,StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE)){ByteBuffer b=ByteBuffer.wrap(bytes);while(b.hasRemaining())c.write(b);c.force(true);}
         Files.move(tmp,target,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
-        try(FileChannel dir=FileChannel.open(root,StandardOpenOption.READ)){dir.force(true);}
+        // File contents are forced on every platform. Directory fsync is an additional Unix barrier;
+        // the Windows provider rejects opening directories even when the JSON write succeeded.
+        if(syncDirectory)try(FileChannel dir=FileChannel.open(root,StandardOpenOption.READ)){dir.force(true);}
     }
 }

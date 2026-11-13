@@ -1,5 +1,9 @@
 # Validação
 
+## Correção Windows — 0.1.0-alpha.2
+
+A abertura de diretório por FileChannel era rejeitada no Windows após o rename do JSON. A correção evita somente essa operação não suportada no Windows, mantendo fsync do arquivo, rename atômico e propagação de falhas reais. Foram adicionados testes de substituição/leitura pelo provider nativo, resgate/playtime/reinício sem directory fsync e falha real de escrita com preservação do snapshot anterior. A suíte passou a ter 42 verificações. O workflow `Core tests` executa a suíte em Windows e Linux; consulte o resultado da execução no GitHub para distinguir teste local de validação Windows real.
+
 ## Build da pré-release alpha em 13/11/2026
 
 No ambiente publicado, a build completa `./gradlew build` passou, incluindo compilação Fabric e `:server:remapJar`. Foi corrigida a configuração `withSourcesJar()` necessária à tarefa de fontes. Os 39 testes/verificações foram executados novamente por `./gradlew :test --rerun-tasks`, com zero falhas/erros/ignorados. O JAR foi inspecionado: ID `shirokai_daily`, environment `server`, versão 0.1.0-alpha.1, entrypoint presente e núcleo incluído como dependência aninhada. O sources JAR não contém descritor carregável. O SHA-256 acompanha o binário.
