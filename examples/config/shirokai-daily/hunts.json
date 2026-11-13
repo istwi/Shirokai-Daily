@@ -16,19 +16,25 @@
       "amount": 5,
       "weight": 4,
       "rewards": [
-        "hunt_item"
+        "hunt_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
       ]
     },
     {
       "id": "catch_fire",
       "action": "CAPTURE",
-      "species": "",
+      "species": "cobblemon:charmander",
       "type": "fire",
       "difficulty": "MEDIUM",
       "amount": 3,
       "weight": 2,
       "rewards": [
-        "hunt_item"
+        "hunt_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
       ]
     },
     {
@@ -40,7 +46,10 @@
       "amount": 10,
       "weight": 1,
       "rewards": [
-        "hunt_item"
+        "hunt_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
       ]
     }
   ]

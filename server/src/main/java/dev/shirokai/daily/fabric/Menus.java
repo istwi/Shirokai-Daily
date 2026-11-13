@@ -29,7 +29,7 @@ final class Menus {
                 for(int i=1;i<=config.daily().days();i++){
                     int day=i;boolean available=!today&&day==next;
                     String status=today&&day<=daily.day?"RESGATADO":available?"DISPONÍVEL":day==next?"PRÓXIMO":"BLOQUEADO";
-                    entries.add(entry(settings,"daily",vars("day",i,"status",status,"streak",daily.streak,"resets",daily.resets,"rewards",config.daily().rewards().get(i),"reset",config.nextReset(now)),available?"minecraft:lime_dye":status.equals("RESGATADO")?"minecraft:gray_dye":"minecraft:light_blue_dye","Dia "+i+" • "+status,List.of("Streak: "+daily.streak+" • Resets: "+daily.resets,"Recompensas: "+config.daily().rewards().get(i),"Reset: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone()))),available?()->mod.claim(player,module,""):()->{}));
+                    entries.add(entry(settings,"daily",vars("day",i,"status",status,"streak",daily.streak,"resets",daily.resets,"rewards",rewards(config,config.daily().rewards().get(i)),"reset",reset(config,now)),available?"minecraft:lime_dye":status.equals("RESGATADO")?"minecraft:gray_dye":"minecraft:light_blue_dye","Dia "+i+" • "+status,List.of("Streak: "+daily.streak+" • Resets: "+daily.resets,"Recompensas: "+config.daily().rewards().get(i),"Reset: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone()))),available?()->mod.claim(player,module,""):()->{}));
                 }
             }
             case "playtime" -> {
@@ -37,12 +37,16 @@ final class Menus {
                     long progress=switch(goal.period()){case "DAILY"->state.playtime.daily;case "WEEKLY"->state.playtime.weekly;default->state.playtime.eligible;};
                     String key=goal.period()+"/"+(goal.period().equals("DAILY")?config.day(now):goal.period().equals("WEEKLY")?config.week(now):"all")+"/"+goal.id();
                     boolean claimed=state.playtime.claimed.contains(key),available=!claimed&&progress>=goal.seconds();
-                    entries.add(entry(settings,"playtime",vars("goal",goal.id(),"status",claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","progress",progress/60,"target",goal.seconds()/60,"total",state.playtime.total/60,"eligible",state.playtime.eligible/60,"period",goal.period(),"rewards",goal.rewards()),available?"minecraft:lime_dye":"minecraft:clock",goal.id()+" • "+(claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(goal.period()+" • "+progress/60+" / "+goal.seconds()/60+" min","Total: "+state.playtime.total/60+" min • Elegível: "+state.playtime.eligible/60+" min","Recompensas: "+goal.rewards()),available?()->mod.claim(player,module,goal.id()):()->{}));
+                    entries.add(entry(settings,"playtime",vars("goal",label(goal.id()),"status",claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","progress",progress/60,"target",goal.seconds()/60,"total",state.playtime.total/60,"eligible",state.playtime.eligible/60,"period",label(goal.period()),"rewards",rewards(config,goal.rewards())),available?"minecraft:lime_dye":"minecraft:clock",goal.id()+" • "+(claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(goal.period()+" • "+progress/60+" / "+goal.seconds()/60+" min","Total: "+state.playtime.total/60+" min • Elegível: "+state.playtime.eligible/60+" min","Recompensas: "+goal.rewards()),available?()->mod.claim(player,module,goal.id()):()->{}));
                 }
             }
             case "hunts" -> state.hunts.quests.forEach((id,q)->{
                 boolean available=!q.claimed&&q.progress>=q.mission.amount();var m=q.mission;
-                entries.add(entry(settings,"hunts",vars("mission",m.id(),"status",q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","action",m.action(),"species",m.species().isEmpty()?"Qualquer espécie":m.species(),"type",m.type().isEmpty()?"qualquer":m.type(),"difficulty",m.difficulty(),"progress",q.progress,"target",m.amount(),"period",q.period,"epoch",q.epoch,"rewards",m.rewards()),available?"minecraft:lime_dye":"minecraft:compass",m.id()+" • "+(q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(m.action()+" • "+(m.species().isEmpty()?"Qualquer espécie":m.species()),"Tipo: "+(m.type().isEmpty()?"qualquer":m.type())+" • "+m.difficulty(),q.progress+" / "+m.amount()+" • "+q.period,"Período: "+q.epoch,"Recompensas: "+m.rewards()),available?()->mod.claim(player,module,id):()->{}));
+                Entry hunt=entry(settings,"hunts",vars("mission",m.id(),"status",q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","action",label(m.action()),"species",m.species().isEmpty()?"Qualquer Pokémon":label(m.species()),"type",m.type().isEmpty()?"Qualquer":label(m.type()),"difficulty",label(m.difficulty()),"progress",q.progress,"target",m.amount(),"period",label(q.period),"epoch",q.epoch,"rewards",rewards(config,m.rewards())),available?"minecraft:lime_dye":"minecraft:compass",m.id()+" • "+(q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(m.action()+" • "+(m.species().isEmpty()?"Qualquer espécie":m.species()),"Tipo: "+(m.type().isEmpty()?"qualquer":m.type())+" • "+m.difficulty(),q.progress+" / "+m.amount()+" • "+q.period,"Período: "+q.epoch,"Recompensas: "+m.rewards()),available?()->mod.claim(player,module,id):()->{});
+                // An explicitly configured icon takes priority over the automatic Pokémon model.
+                if(!m.species().isEmpty()&&!settings.icons().containsKey("hunts")&&!settings.icons().containsKey("hunts."+(q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO")))
+                    hunt=new Entry("pokemon:"+m.species(),hunt.title,hunt.lore,hunt.click);
+                entries.add(hunt);
             });
         }
         int pages=Math.max(1,(entries.size()+settings.pageSize()-1)/settings.pageSize()),current=Math.max(0,Math.min(page,pages-1));
@@ -50,7 +54,7 @@ final class Menus {
         ItemStack filler=item(settings.icon()," ",List.of());for(int i=0;i<54;i++)inventory.setStack(i,filler.copy());
         List<Integer> slots=settings.slots();
         for(int i=0;i<settings.pageSize();i++){int index=current*settings.pageSize()+i;if(index>=entries.size())break;Entry e=entries.get(index);int slot=slots.get(i);inventory.setStack(slot,item(e.icon,e.title,e.lore));actions.put(slot,e.click);}
-        Entry profile=entry(settings,"profile",vars("player",player.getGameProfile().getName(),"page",current+1,"pages",pages,"module",module,"reset",config.nextReset(now)),"minecraft:player_head",player.getGameProfile().getName(),List.of("✦ "+module,"Página "+(current+1)+" / "+pages,"Reset diário: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone())).toLocalTime()),()->{});
+        Entry profile=entry(settings,"profile",vars("player",player.getGameProfile().getName(),"page",current+1,"pages",pages,"module",module,"reset",reset(config,now)),"minecraft:player_head",player.getGameProfile().getName(),List.of("✦ "+module,"Página "+(current+1)+" / "+pages,"Reset diário: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone())).toLocalTime()),()->{});
         inventory.setStack(settings.profileSlot(),item(profile.icon,profile.title,profile.lore));
         ItemStack back=new ItemStack(Items.ARROW);
         back.set(DataComponentTypes.CUSTOM_NAME,Text.literal("VOLTAR AO MENU").formatted(Formatting.YELLOW,Formatting.BOLD));
@@ -68,13 +72,45 @@ final class Menus {
     private static String render(String template,Map<String,String> values){for(var e:values.entrySet())template=template.replace("{"+e.getKey()+"}",e.getValue());return template;}
     private static Entry entry(Config.Menu settings,String key,Map<String,String> values,String icon,String title,List<String> lore,Runnable action){
         String status=values.getOrDefault("status","");
+        values=new HashMap<>(values);
+        values.put("hint",switch(status){case "DISPONÍVEL"->"➜ Clique para resgatar!";case "RESGATADO"->"✓ Recompensa já resgatada";case "EM PROGRESSO"->"Complete o objetivo para resgatar.";default->"Aguarde para desbloquear.";});
         String configuredIcon=settings.icons().getOrDefault(key+"."+status,settings.icons().getOrDefault(key,icon));
-        return new Entry(configuredIcon,render(settings.texts().getOrDefault(key,title),values),settings.lore().getOrDefault(key,lore).stream().map(line->render(line,values)).toList(),action);
+        Map<String,String> renderedValues=values;
+        return new Entry(configuredIcon,render(settings.texts().getOrDefault(key,Config.defaultMenu("hunts").texts().getOrDefault(key,title)),values),settings.lore().getOrDefault(key,Config.defaultMenu("hunts").lore().getOrDefault(key,lore)).stream().map(line->render(line,renderedValues)).toList(),action);
+    }
+    private static String reset(Config config,Instant now){return config.nextReset(now).atZone(ZoneId.of(config.general().zone())).format(java.time.format.DateTimeFormatter.ofPattern("dd/MM HH:mm"));}
+    private static String label(String value){
+        value=value.substring(value.indexOf(':')+1);
+        return switch(value){case "fire"->"Fogo";case "water"->"Água";case "grass"->"Planta";case "electric"->"Elétrico";case "ice"->"Gelo";case "fighting"->"Lutador";case "poison"->"Veneno";case "ground"->"Terra";case "flying"->"Voador";case "psychic"->"Psíquico";case "bug"->"Inseto";case "rock"->"Pedra";case "ghost"->"Fantasma";case "dragon"->"Dragão";case "dark"->"Sombrio";case "steel"->"Aço";case "fairy"->"Fada";case "normal"->"Normal";case "first_30m"->"Primeiros 30 minutos";case "daily_hour"->"Uma hora por dia";case "weekly_6h"->"Seis horas na semana";case "diamond"->"Diamante";case "emerald"->"Esmeralda";case "gold_ingot"->"Barra de ouro";case "golden_apple"->"Maçã dourada";case "CAPTURE"->"Capture";case "DEFEAT"->"Derrote";case "EASY"->"Fácil";case "MEDIUM"->"Média";case "HARD"->"Difícil";case "DAILY"->"Diária";case "WEEKLY"->"Semanal";case "PERMANENT"->"Permanente";default->{String name=value.substring(value.indexOf(':')+1).replace('_',' ');yield name.isEmpty()?name:Character.toUpperCase(name.charAt(0))+name.substring(1);}};
+    }
+    private static String rewards(Config config,List<String> ids){
+        List<String> descriptions=new ArrayList<>();boolean random=false;
+        for(String id:ids){var reward=config.rewards().get(id);if(reward==null)continue;
+            if(reward.weight()>0){random=true;continue;}
+            String prize=switch(reward.type()){case "COMMAND"->"Recompensa especial";case "DOLLARS"->"Dollars";case "TOKENS"->"Tokens";case "CRATE_FRAGMENT"->"Fragmentos de caixa";default->label(reward.value());};
+            descriptions.add(reward.amount()+"× "+prize+(reward.chance()<1?" ("+Math.round(reward.chance()*100)+"%)":""));
+        }
+        if(random)descriptions.add("1 bônus aleatório");return String.join(" + ",descriptions);
+    }
+    /** Legacy color codes in administrator templates; reset italics on vanilla item text. */
+    private static Text styled(String value,Formatting base){
+        var result=Text.empty();var style=net.minecraft.text.Style.EMPTY.withColor(base).withItalic(false);StringBuilder part=new StringBuilder();
+        for(int i=0;i<value.length();i++){
+            char c=value.charAt(i);Formatting code=(c=='&'||c=='§')&&i+1<value.length()?Formatting.byCode(value.charAt(i+1)):null;
+            if(code!=null){result.append(Text.literal(part.toString()).setStyle(style));part.setLength(0);i++;
+                style=code==Formatting.RESET?net.minecraft.text.Style.EMPTY.withColor(base).withItalic(false):code.isColor()?net.minecraft.text.Style.EMPTY.withColor(code).withItalic(false):style.withFormatting(code);
+            }else part.append(c);
+        }
+        return result.append(Text.literal(part.toString()).setStyle(style));
     }
     private static ItemStack item(String id,String name,List<String> lore){
-        Identifier identifier=Identifier.tryParse(id);Item icon=identifier==null?Items.PAPER:Registries.ITEM.get(identifier);if(icon==Items.AIR)icon=Items.PAPER;
-        var stack=new ItemStack(icon);stack.set(DataComponentTypes.CUSTOM_NAME,Text.literal(name).formatted(Formatting.AQUA));
-        stack.set(DataComponentTypes.LORE,new LoreComponent(lore.stream().map(s->(Text)Text.literal(s).formatted(Formatting.GRAY)).toList()));return stack;
+        ItemStack stack=id.startsWith("pokemon:")?PokemonModels.create(id.substring(8)):ItemStack.EMPTY;
+        if(stack.isEmpty()){
+            Identifier identifier=Identifier.tryParse(id);Item icon=identifier==null?Items.PAPER:Registries.ITEM.get(identifier);if(icon==Items.AIR)icon=Items.PAPER;
+            stack=new ItemStack(id.startsWith("pokemon:")?Items.COMPASS:icon);
+        }
+        stack.set(DataComponentTypes.CUSTOM_NAME,styled(name,Formatting.AQUA));
+        stack.set(DataComponentTypes.LORE,new LoreComponent(lore.stream().map(line->styled(line,Formatting.GRAY)).toList()));return stack;
     }
     private static final class LockedMenu extends GenericContainerScreenHandler {
         private final Map<Integer,Runnable> actions;

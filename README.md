@@ -1,6 +1,10 @@
 # ✦ Shirokai Daily
 
-Mod exclusivamente de servidor para Minecraft 1.21.1 / Fabric / Java 21, destinado ao Cobblemon **1.8.3**. Daily, Playtime e Hunts são independentes e possuem resgate manual. Versão **alpha compilada para Fabric; ainda sem validação funcional com cliente Minecraft**.
+Mod exclusivamente de servidor para Minecraft 1.21.1 / Fabric / Java 21, destinado ao Cobblemon **1.8.3**. Daily, Playtime e Hunts são independentes e possuem resgate manual. Versão **0.1.0-alpha.3 compilada para Fabric; ainda sem validação funcional com cliente Minecraft**.
+
+## 0.1.0-alpha.3 — menus, bônus e modelos
+
+[JAR e checksum no GitHub Releases](https://github.com/istwi/Shirokai-Daily/releases/tag/v0.1.0-alpha.3). Menus com lore colorida, novos layouts, bônus ponderados para Playtime/Hunts e modelos do Cobblemon nas caçadas de espécies específicas. Build Fabric concluída e 43 verificações passaram. A renderização dos modelos ainda precisa de teste no Minecraft com Cobblemon 1.8.3. Configurações existentes são preservadas; veja a seção de menus e bônus para adotar os novos exemplos.
 
 ## Correção Windows — 0.1.0-alpha.2
 
@@ -13,7 +17,7 @@ Para atualizar, pare o servidor, faça backup de `shirokai-daily-data`, substitu
 - Núcleo Java compilado; **42 verificações passaram** (41 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
 - Implementados configuração, persistência por UUID, calendário, metas, missões, ledger de recompensas e testes.
 - Entrypoint Fabric, três inventários vanilla bloqueados, comandos, permissões e ponte de eventos Cobblemon compilados com Fabric Loom 1.8.13. Build completa e remapeamento concluídos após a liberação da rede. Ainda sem execução funcional no Minecraft.
-- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.2.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
+- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.3.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
 - A integração real com Cobblemon 1.8.3, LuckPerms e cliente sem Shirokai Daily precisa de teste no servidor. Não foi possível obter/confirmar o artefato Cobblemon 1.8.3 na rede atual.
 - Dollars e Tokens possuem adaptador da API real do Impactor 5.3.5 fornecido pelo usuário; métodos públicos foram conferidos no JAR. O adaptador de fragmentos requer a extensão pública preparada em `integrations/shirokai-crates-grant-fragments.patch`. Sem essa extensão, fragmentos ficam pendentes. As integrações ainda precisam de teste em servidor; nenhum fragmento é falsificado.
 
@@ -38,7 +42,7 @@ source scripts/cloud-env.sh
 
 O helper instala Temurin 21.0.13+9 com SHA-256 verificado, preserva TLS e usa os proxies herdados. Seu cache fica fora do checkout. Use o checkout existente; tarefas na nuvem já são isoladas e não precisam de worktree.
 
-Após a build completa, o artefato é `server/build/libs/shirokai_daily-0.1.0-alpha.2.jar` (sem `-sources`/`-dev`). Instale somente no servidor junto com Fabric API e Cobblemon 1.8.3 e suas dependências oficiais. Clientes precisam dos mods exigidos pelo próprio Cobblemon, mas não do Shirokai Daily. Os menus usam exclusivamente o protocolo vanilla de baú; isso ainda precisa de teste funcional real.
+Após a build completa, o artefato é `server/build/libs/shirokai_daily-0.1.0-alpha.3.jar` (sem `-sources`/`-dev`). Instale somente no servidor junto com Fabric API e Cobblemon 1.8.3 e suas dependências oficiais. Clientes precisam dos mods exigidos pelo próprio Cobblemon, mas não do Shirokai Daily. Os menus usam exclusivamente o protocolo vanilla de baú; isso ainda precisa de teste funcional real.
 
 ## Configuração
 
@@ -67,6 +71,24 @@ ITEM usa ID do registro Minecraft/Cobblemon. COMMAND é executado como servidor,
 Nos menus, `slots` define a sequência de posições de conteúdo; `profileSlot`, `pendingSlot`, `previousSlot`, `nextSlot` e `backSlot` posicionam controles, sem sobreposição. `icons`, `texts` e `lore` aceitam chaves `daily`, `playtime`, `hunts`, `profile`, `pending`, `previous` e `next`. Ícones podem especializar estados, por exemplo `daily.DISPONÍVEL`. Textos/lore aceitam `{day}`, `{status}`, `{streak}`, `{resets}`, `{goal}`, `{mission}`, `{action}`, `{species}`, `{type}`, `{difficulty}`, `{progress}`, `{target}`, `{period}`, `{epoch}`, `{rewards}`, `{total}`, `{eligible}` conforme a entrada; perfil aceita `{player}`, `{page}`, `{pages}`, `{module}`, `{reset}`. O botão voltar mantém o texto e o comportamento exigidos pela especificação.
 
 `config.json.permissions` permite mapear um nó lógico para outro nó real, preservando os nomes padrão quando não definido. `integrations` permite desativar `luckperms`, `cobblemon` ou providers de `rewards`; itens/comandos permanecem no núcleo.
+
+## Menus e bônus de caçadas
+
+Os menus padrão usam títulos coloridos, lore com seções de objetivo, progresso e prêmios, e instruções conforme o estado do resgate. Daily e Hunts exibem sete entradas por página; Playtime exibe três metas espaçadas. Templates aceitam cores `&`/`§` e o novo placeholder `{hint}`. Configurações próprias de texto, lore, slots e ícones continuam tendo prioridade.
+
+Hunts de uma espécie definida usam o item `POKEMON_MODEL` criado pela fábrica oficial `PokemonItem.from` do Cobblemon. A lore e o clique de resgate são mantidos. Missões de qualquer espécie/tipo usam ícone genérico; se a API de modelos estiver ausente ou incompatível, o menu usa bússola e registra um aviso. Um ícone configurado em `icons.hunts` ou `icons.hunts.<ESTADO>` tem prioridade; também é possível definir `pokemon:cobblemon:pikachu` como ícone. A renderização real ainda precisa de validação com cliente Cobblemon 1.8.3.
+
+Novas configurações incluem uma caça de Charmander e um bônus sorteado nas metas de Playtime e Hunts, além do prêmio garantido:
+
+| Bônus | Chance |
+| --- | --- |
+| 3 esmeraldas | 60% |
+| 2 diamantes | 30% |
+| 1 maçã dourada | 10% |
+
+O sorteio usa o ledger existente: abrir o menu ou reiniciar o servidor não sorteia novamente um prêmio já resgatado. Daily mantém seu prêmio garantido.
+
+Arquivos existentes não são sobrescritos. Para adotar os novos padrões em um servidor configurado, faça backup e compare os arquivos em `examples/config/shirokai-daily`: adicione os três IDs `bonus_*` em `rewards.json` e nas listas de recompensas desejadas de `playtime.json`/`hunts.json`; copie os layouts de `menus` se quiser o novo espaçamento. Para mostrar um modelo, a missão precisa de `species`, por exemplo `cobblemon:charmander`. Execute `/shirokaidaily reload` após terminar a edição. Missões já geradas mantêm seu conteúdo até a renovação do período.
 
 ## Comandos
 

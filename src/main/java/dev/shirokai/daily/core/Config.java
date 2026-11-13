@@ -40,21 +40,36 @@ public record Config(General general, Daily daily, Playtime playtime, Hunts hunt
         rewards.put("daily_item", new Reward("ITEM","minecraft:diamond",1,1,0,"",""));
         rewards.put("playtime_item",new Reward("ITEM","minecraft:emerald",2,1,0,"",""));
         rewards.put("hunt_item",new Reward("ITEM","minecraft:gold_ingot",4,1,0,"",""));
+        rewards.put("bonus_emerald",new Reward("ITEM","minecraft:emerald",3,1,60,"",""));
+        rewards.put("bonus_diamond",new Reward("ITEM","minecraft:diamond",2,1,30,"",""));
+        rewards.put("bonus_apple",new Reward("ITEM","minecraft:golden_apple",1,1,10,"",""));
         Map<Integer,List<String>> days=new LinkedHashMap<>();
         for(int i=1;i<=7;i++) days.put(i,List.of("daily_item"));
         Map<String,Menu> menus=new LinkedHashMap<>();
-        for(String m:List.of("daily","playtime","hunts")) menus.put(m,read(path.resolve("menus/"+m+".json"),Menu.class,new Menu("✦ "+m,"minecraft:cyan_stained_glass_pane",28,49)));
+        for(String m:List.of("daily","playtime","hunts")) menus.put(m,read(path.resolve("menus/"+m+".json"),Menu.class,defaultMenu(m)));
         Config c=new Config(
             read(path.resolve("config.json"),General.class,new General("America/Sao_Paulo","00:00",true,true,true)),
             read(path.resolve("daily.json"),Daily.class,new Daily(7,"RESET",1,"RESTART",days,List.of())),
-            read(path.resolve("playtime.json"),Playtime.class,new Playtime(true,300,List.of(new Goal("first_30m","PERMANENT",1800,List.of("playtime_item")),new Goal("daily_hour","DAILY",3600,List.of("playtime_item")),new Goal("weekly_6h","WEEKLY",21600,List.of("playtime_item"))))),
+            read(path.resolve("playtime.json"),Playtime.class,new Playtime(true,300,List.of(new Goal("first_30m","PERMANENT",1800,List.of("playtime_item","bonus_emerald","bonus_diamond","bonus_apple")),new Goal("daily_hour","DAILY",3600,List.of("playtime_item","bonus_emerald","bonus_diamond","bonus_apple")),new Goal("weekly_6h","WEEKLY",21600,List.of("playtime_item","bonus_emerald","bonus_diamond","bonus_apple"))))),
             read(path.resolve("hunts.json"),Hunts.class,new Hunts(3,2,true,false,true,Set.of(),Set.of(),List.of(
-                new Mission("catch_any","CAPTURE","","","EASY",5,4,List.of("hunt_item")),
-                new Mission("catch_fire","CAPTURE","","fire","MEDIUM",3,2,List.of("hunt_item")),
-                new Mission("defeat_any","DEFEAT","","","HARD",10,1,List.of("hunt_item"))))),
+                new Mission("catch_any","CAPTURE","","","EASY",5,4,List.of("hunt_item","bonus_emerald","bonus_diamond","bonus_apple")),
+                new Mission("catch_fire","CAPTURE","cobblemon:charmander","fire","MEDIUM",3,2,List.of("hunt_item","bonus_emerald","bonus_diamond","bonus_apple")),
+                new Mission("defeat_any","DEFEAT","","","HARD",10,1,List.of("hunt_item","bonus_emerald","bonus_diamond","bonus_apple"))))),
             Map.copyOf(readMap(path.resolve("rewards.json"),Reward.class,rewards)),
             Map.copyOf(readMap(path.resolve("messages.json"),String.class,Map.of("claimed","Recompensa processada; confira as pendências.","unavailable","Indisponível ou já resgatado.","pending","Entrega pendente; tente novamente neste menu."))),Map.copyOf(menus));
         c.validate(); return c;
+    }
+    public static Menu defaultMenu(String module){
+        Menu base=new Menu("✦ "+switch(module){case "daily"->"Recompensas diárias";case "playtime"->"Tempo de jogo";default->"Central de caçadas";},"minecraft:gray_stained_glass_pane",28,49);
+        var texts=Map.of("daily","&b&lDIA {day} &8• &f{status}","playtime","&b&l{goal} &8• &f{status}","hunts","&b&l{action} &f{species}","profile","&b&l{player}","pending","&6&lEntregas pendentes");
+        var lore=Map.of(
+            "daily",List.of("&8RECOMPENSA DIÁRIA","","&7Sequência: &f{streak} dias &8• &7Reinícios: &f{resets}","","&6Prêmios &8› &f{rewards}","&7Próximo reset: &f{reset}","","&e{hint}"),
+            "playtime",List.of("&8TEMPO DE JOGO • {period}","","&7Progresso: &b{progress} &7/ &f{target} min","&7Tempo elegível: &f{eligible} min","","&6Prêmios &8› &f{rewards}","","&e{hint}"),
+            "hunts",List.of("&8CAÇADA • {period}","","&7Objetivo: &f{action} {target}× {species}","&7Tipo: &f{type} &8• &7Dificuldade: &f{difficulty}","","&7Progresso: &b{progress} &7/ &f{target}","&7Estado: &f{status}","","&6Prêmios &8› &f{rewards}","","&e{hint}"),
+            "profile",List.of("&8SHIROKAI DAILY","","&7Página &f{page} &7de &f{pages}","&7Próximo reset: &f{reset}"),
+            "pending",List.of("&7Tem prêmios aguardando entrega?","","&e➜ Clique para tentar receber."));
+        List<Integer> content=module.equals("playtime")?List.of(20,22,24):List.of(19,20,21,22,23,24,25);
+        return new Menu(base.title,base.icon,content.size(),base.backSlot,content,base.profileSlot,base.pendingSlot,base.previousSlot,base.nextSlot,base.icons,texts,lore);
     }
     private static <T> T read(Path p,Class<T> t,T fallback)throws IOException {
         if(!Files.exists(p)) Files.writeString(p,JSON.toJson(fallback),StandardOpenOption.CREATE_NEW);

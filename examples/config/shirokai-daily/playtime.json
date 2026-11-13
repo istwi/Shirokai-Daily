@@ -7,7 +7,10 @@
       "period": "PERMANENT",
       "seconds": 1800,
       "rewards": [
-        "playtime_item"
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
       ]
     },
     {
@@ -15,7 +18,10 @@
       "period": "DAILY",
       "seconds": 3600,
       "rewards": [
-        "playtime_item"
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
       ]
     },
     {
@@ -23,7 +29,10 @@
       "period": "WEEKLY",
       "seconds": 21600,
       "rewards": [
-        "playtime_item"
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
       ]
     }
   ]
