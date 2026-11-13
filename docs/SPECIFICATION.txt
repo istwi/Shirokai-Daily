@@ -1,0 +1,44 @@
+CODEX — SHIROKAI DAILY
+
+OBJETIVO
+Criar mod Shirokai Daily, mod ID shirokai_daily, exclusivamente server-side, Minecraft 1.21.1, Fabric, Java 21, Cobblemon 1.8.3. Instalação apenas no servidor; cliente não precisa do Shirokai Daily. Criar somente três sistemas independentes: Daily, Playtime e Hunts. Menus separados /daily, /playtime e /hunts, todos com resgate manual.
+
+1. ARQUITETURA
+Separar Core (configuração, dados, recompensas, permissões, reset e integrações), Daily, Playtime, Hunts e adaptadores Impactor/LuckPerms/Shirokai Crates. Cada módulo ativável individualmente. Utilizar Fabric API e SGui ou equivalente de inventário vanilla server-side; fabric.mod.json environment server. Sem telas ou pacotes exigindo mod cliente.
+
+2. DAILY — /daily
+Calendários configuráveis de 7, 14 ou 30 dias; recompensa específica por dia, resgate único por período, streak por resgate, contador de reset, bônus VIP opcionais via LuckPerms, recompensas fixas e aleatórias. Estados: disponível, resgatado, bloqueado, próximo. Reset configurável por data local America/Sao_Paulo (padrão 00:00), não cooldown de 24 horas. Políticas de streak RESET, PAUSE e GRACE (tolerância configurável). Definir comportamento ao completar ciclo; persistir por UUID. Validar permissão VIP no resgate e impedir resgate duplo.
+
+3. PLAYTIME — /playtime
+Tempo total, tempo elegível e metas configuráveis (exemplos 30 min, 1h, 2h, 4h, 6h, 12h); marcos permanentes, diários e semanais com progressos e resgates independentes. Resgate manual. AFK opcional com limiar configurável (padrão 5 min), detectar atividade real e ignorar microalterações artificiais de posição/rotação. Não contar AFK quando habilitado. Evitar duplicação por reconexão ou troca de dimensão; salvar periodicamente e no shutdown. Processar em intervalos eficientes, não por jogador a cada tick.
+
+4. HUNTS — /hunts
+Missões de capturar/derrotar espécie específica, capturar/derrotar quantidade de Pokémon, capturar/derrotar Pokémon de determinado tipo. Dificuldades fácil, média e difícil; missões diárias e semanais, quantidades configuráveis (exemplo 3 diárias e 2 semanais), pools com pesos, missões fixas ou sorteadas, whitelist/blacklist, filtros de espécies/tipos, exclusão opcional de lendários/míticos. Consultar registro real de espécies Cobblemon 1.8.3, incluindo addons registrados. Registrar somente eventos confirmados server-side; evitar contagem de captura cancelada, derrotas não confirmadas, duplicações, Pokémon próprios e exploração de batalhas repetidas. Resgate manual, progresso por UUID, renovação por reset, política configurável de expiração de missões concluídas não resgatadas. Não incluir breeding, shiny, raids ou ginásios agora. Investigar API real; documentar limitações.
+
+5. RECOMPENSAS
+Sistema central com IDs estáveis, tipo, quantidade, chance, permissão e condições. Tipos: Dollars impactor:dollars, Tokens impactor:tokens, itens Minecraft/Cobblemon, fragmentos legítimos de chave Shirokai Crates, comandos administrativos configurados apenas pelo servidor. Recompensas fixas e sorteios ponderados; persistir sorteio único por resgate. Verificar elegibilidade no servidor; proteção contra duplicação; inventário cheio e entregas pendentes; logs. Integrar APIs oficiais e não falsificar fragmentos com lore/nome. Integrações opcionais com falha controlada e adaptadores documentados se API não existir. Recuperação de pendências no menu de origem ou via admin, sem quarto menu.
+
+6. MENUS
+Exatamente três menus independentes, inventário vanilla/SGui, navegação paginada, estado claro e visual clean azul/ciano, títulos com ✦, descrições curtas. Daily: calendário/streak/reset. Playtime: tempo/metas/progresso. Hunts: missões/espécie ou tipo/dificuldade/progresso/reset/recompensa. Itens decorativos não podem ser retirados ou duplicados. Botão voltar minecraft:arrow, nome <yellow><bold>VOLTAR AO MENU</bold></yellow>, lore <gray>Retornar ao menu principal., linha vazia, <yellow>➜ Clique para voltar!, clique esquerdo executa /menu. Quando adequado, perfil treinador com fontes opcionais correspondentes a %luckperms:prefix%, %dexrewards:player_dex_percent%%, %player:objective gyms%, %cobbledollars:balance%; não assumir que placeholders funcionam automaticamente no SGui.
+
+7. CONFIGURAÇÕES JSON
+config/shirokai-daily/config.json, daily.json, playtime.json, hunts.json, rewards.json, messages.json, menus/daily.json, menus/playtime.json, menus/hunts.json. Configurar módulos, horários, streak, VIP, metas, AFK, pools, dificuldades, recompensas, textos, ícones, slots, permissões e integrações. Gerar defaults funcionais; validar JSON; reload seguro sem apagar progresso nem alterar indevidamente resgates.
+
+8. COMANDOS E PERMISSÕES
+Jogadores: /daily, /playtime, /hunts.
+Admin: /shirokaidaily reload; /shirokaidaily status; /shirokaidaily daily reset <jogador>; /shirokaidaily playtime add <jogador> <minutos>; /shirokaidaily playtime set <jogador> <minutos>; /shirokaidaily hunts reset <jogador>; /shirokaidaily hunts reroll <jogador>.
+Permissões: shirokaidaily.daily, shirokaidaily.playtime, shirokaidaily.hunts, shirokaidaily.vip, shirokaidaily.admin. Validar comandos no servidor e suportar UUID de jogadores offline quando possível.
+
+9. PERSISTÊNCIA E SEGURANÇA
+Dados por UUID separados por módulo: calendário, streak, último resgate, playtime total/diário/semanal, marcos resgatados, missões/progresso, resultados de sorteios, transações e pendências. IDs estáveis não baseados em slots. Salvamento seguro, recuperação de falhas e reinício, integridade e idempotência de resgate, respeitando limitações transacionais das APIs externas. Não apagar dados ao desativar módulos. Evitar I/O pesado na thread principal e acesso a APIs de jogo fora da thread apropriada. Encerrar apenas executores próprios; sem interferir nos globais.
+
+10. DESEMPENHO
+Preparado para até 100 jogadores: eventos quando disponíveis, contagem periódica de playtime, cache de configurações, GUIs atualizadas sob demanda, evitar loops por tick e chamadas redundantes às APIs externas.
+
+11. TESTES
+Daily: resgate único, reset, streak e faltas, VIP, ciclo completo, reinício. Playtime: acumulado, diário/semanal, AFK, reconexão, reinício e resgate. Hunts: captura/derrota confirmada, filtros, geração, reset, progressão, exploração e resgate. Recompensas: moedas, itens, fragmentos, permissões, inventário cheio, pendências, integrações ausentes, duplicação. Server-side: cliente sem Shirokai Daily entra e acessa os três menus sem telas/pacotes personalizados.
+
+12. ENTREGA
+Criar projeto Gradle, implementar módulos, configs, GUIs, comandos, integrações e testes. Compilar em Java 21, gerar JAR Fabric 1.21.1, documentar instalação/configuração, publicar release no GitHub somente se repositório e permissões estiverem disponíveis. Não afirmar testes que não foram executados. Não adicionar rankings, conquistas, eventos ou outros módulos fora do escopo.
+
+PRIORIDADES: 100% server-side, estabilidade, integridade de dados, resgate manual e configuração simples.

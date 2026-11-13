@@ -1,0 +1,13 @@
+{
+  "zone": "America/Sao_Paulo",
+  "resetTime": "00:00",
+  "daily": true,
+  "playtime": true,
+  "hunts": true,
+  "permissions": {},
+  "integrations": {
+    "cobblemon": true,
+    "rewards": true,
+    "luckperms": true
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "days": 7,
+  "streakPolicy": "RESET",
+  "graceDays": 1,
+  "completion": "RESTART",
+  "rewards": {
+    "1": [
+      "daily_item"
+    ],
+    "2": [
+      "daily_item"
+    ],
+    "3": [
+      "daily_item"
+    ],
+    "4": [
+      "daily_item"
+    ],
+    "5": [
+      "daily_item"
+    ],
+    "6": [
+      "daily_item"
+    ],
+    "7": [
+      "daily_item"
+    ]
+  },
+  "vipRewards": []
+}

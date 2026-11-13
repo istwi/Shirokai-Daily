@@ -1,0 +1,7 @@
+{
+ "schemaVersion":1,"id":"shirokai_daily","version":"${version}","name":"Shirokai Daily",
+ "description":"Server-side Daily, Playtime and Hunts with manual rewards.","environment":"server",
+ "entrypoints":{"server":["dev.shirokai.daily.fabric.ShirokaiDaily"]},
+ "depends":{"fabricloader":">=0.17.2","minecraft":"1.21.1","java":">=21","fabric-api":"*","cobblemon":"1.8.3"},
+ "suggests":{"luckperms":"*","impactor":"*","shirokaicrates":"*"}
+}

@@ -1,0 +1,29 @@
+{
+  "daily_item": {
+    "type": "ITEM",
+    "value": "minecraft:diamond",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_item": {
+    "type": "ITEM",
+    "value": "minecraft:emerald",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_item": {
+    "type": "ITEM",
+    "value": "minecraft:gold_ingot",
+    "amount": 4,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  }
+}

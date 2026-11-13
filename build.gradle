@@ -1,0 +1,17 @@
+plugins { id 'java-library' }
+group = 'dev.shirokai'
+version = '0.1.0-alpha.1'
+repositories { mavenCentral() }
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) }; withSourcesJar() }
+dependencies { api 'com.google.code.gson:gson:2.11.0'; testImplementation 'com.github.javaparser:javaparser-core:3.26.3'; testImplementation platform('org.junit:junit-bom:5.11.4'); testImplementation 'org.junit.jupiter:junit-jupiter'; testRuntimeOnly 'org.junit.platform:junit-platform-launcher' }
+test { useJUnitPlatform(); inputs.files(fileTree('server/src/main/java') { include '**/*.java' }) }
+tasks.register('generateExamples', JavaExec) {
+ dependsOn classes
+ classpath = sourceSets.main.runtimeClasspath
+ mainClass = 'dev.shirokai.daily.core.Defaults'
+}
+tasks.register('projectArchive', Zip) {
+ archiveFileName = "shirokai-daily-${project.version}-project.zip"
+ destinationDirectory = layout.buildDirectory.dir('distributions')
+ from(projectDir) { exclude '.git/**', '.gradle/**', '**/build/**', 'server/run/**', '.idea/**', '*.log' }
+}

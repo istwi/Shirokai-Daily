@@ -1,0 +1,27 @@
+--- a/src/main/java/dev/shirokaicrates/service/CrateService.java
++++ b/src/main/java/dev/shirokaicrates/service/CrateService.java
+@@ -357,6 +357,24 @@
+         busy.add(player.getUuid());
+         checkpoint(player,()->{busy.remove(player.getUuid());tell(player,"Fragmentos convertidos em "+crate.key().name()+".");});
+     }
++    /** Trusted server integration entrypoint; false guarantees no inventory mutation.
++     * Call on the server thread. Completion acknowledges the playerdata checkpoint.
++     * A failed future has an uncertain result and MUST NOT be retried automatically.
++     */
++    public CompletableFuture<Boolean> grantFragments(ServerPlayerEntity target,String id,int count) {
++        if(!server.isOnThread())throw new IllegalStateException("Server thread required");
++        if(target.isDisconnected() || count<1 || count>2304 || !healthy())return CompletableFuture.completedFuture(false);
++        Crate crate=active.crates().get(id);if(crate==null)return CompletableFuture.completedFuture(false);
++        ItemStack stack=tokens.create(crate,true,count);
++        if(!Rewards.fits(target,stack) || !busy.add(target.getUuid()))return CompletableFuture.completedFuture(false);
++        try {
++            Rewards.insert(target,stack);
++            return checkpoints.save(target,true).thenApply(ignored->true).whenComplete((result,error)->
++                    server.execute(()->busy.remove(target.getUuid())));
++        } catch(Exception | LinkageError failure) {
++            busy.remove(target.getUuid());return CompletableFuture.failedFuture(failure);
++        }
++    }
+     public void give(ServerPlayerEntity admin,ServerPlayerEntity target,String id,int count,boolean fragment) {
+         if(!allowed(admin,"shirokaicrates.give") || !healthy())return;
+         Crate crate=active.crates().get(id);if(crate==null) { message(admin,"unknownId");return; }

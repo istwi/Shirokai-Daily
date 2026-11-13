@@ -1,0 +1,30 @@
+{
+  "afk": true,
+  "afkSeconds": 300,
+  "goals": [
+    {
+      "id": "first_30m",
+      "period": "PERMANENT",
+      "seconds": 1800,
+      "rewards": [
+        "playtime_item"
+      ]
+    },
+    {
+      "id": "daily_hour",
+      "period": "DAILY",
+      "seconds": 3600,
+      "rewards": [
+        "playtime_item"
+      ]
+    },
+    {
+      "id": "weekly_6h",
+      "period": "WEEKLY",
+      "seconds": 21600,
+      "rewards": [
+        "playtime_item"
+      ]
+    }
+  ]
+}
