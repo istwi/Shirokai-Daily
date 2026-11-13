@@ -2,7 +2,7 @@
 
 ## Correção Windows — 0.1.0-alpha.2
 
-A abertura de diretório por FileChannel era rejeitada no Windows após o rename do JSON. A correção evita somente essa operação não suportada no Windows, mantendo fsync do arquivo, rename atômico e propagação de falhas reais. Foram adicionados testes de substituição/leitura pelo provider nativo, resgate/playtime/reinício sem directory fsync e falha real de escrita com preservação do snapshot anterior. A suíte passou a ter 42 verificações. O workflow `Core tests` executa a suíte em Windows e Linux; consulte o resultado da execução no GitHub para distinguir teste local de validação Windows real.
+A abertura de diretório por FileChannel era rejeitada no Windows após o rename do JSON. A correção evita somente essa operação não suportada no Windows, mantendo fsync do arquivo, rename atômico e propagação de falhas reais. Foram adicionados testes de substituição/leitura pelo provider nativo, resgate/playtime/reinício sem directory fsync e falha real de escrita com preservação do snapshot anterior. A suíte passou a ter 42 verificações e a build Fabric alpha.2 passou. O workflow [Core tests](https://github.com/istwi/Shirokai-Daily/actions/runs/43402393985), commit `9d9b4bc60296d651df72f539b246f0795aa45940`, concluiu com sucesso os testes em Windows e Linux. A verificação remota do JAR também confirmou o SHA-256 `9e7fbb3b0772524b309a53ba9594021f6c6a4cd02611e276814e324d58f31382`.
 
 ## Build da pré-release alpha em 13/11/2026
 
