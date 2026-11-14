@@ -16,7 +16,7 @@ class ProfileUpdateTest {
  void catalog(Engine e){e.species(java.util.stream.IntStream.range(0,12).mapToObj(i->new Engine.Species("addon:species_"+i,Set.of("grass"),false)).toList());}
  @Test void defaultsShowThirtyDaysHoursAndSmallGreyHunts(){
   assertEquals(30,config.daily().days());assertEquals(30,config.daily().rewards().size());assertEquals(30,config.menus().get("daily").pageSize());
-  assertEquals(List.of(1L,6L,12L,24L,60L,100L,250L,500L,1000L),config.playtime().goals().stream().map(g->g.seconds()/3600).toList());
+  assertEquals(List.of(1L,3L,6L,12L,24L,36L,48L,60L,80L,100L,150L,200L,250L,350L,500L,650L,800L,1000L,1250L,1500L,1750L,2000L,2500L,3000L,3500L,4000L,4500L,5000L),config.playtime().goals().stream().map(g->g.seconds()/3600).toList());
   assertTrue(config.playtime().goals().size()<=config.menus().get("playtime").pageSize());
   assertEquals(3,config.menus().get("hunts").rows());assertEquals(3600,config.hunts().rotationSeconds());assertEquals(3,config.hunts().hourlyCount());
   config.menus().values().forEach(m->{assertEquals("minecraft:gray_stained_glass_pane",m.icon());assertTrue(m.slots().stream().allMatch(i->i<m.rows()*9));});
@@ -64,13 +64,13 @@ class ProfileUpdateTest {
   write("playtime.json",new Config.Playtime(true,300,List.of(new Config.Goal("first_30m","PERMANENT",1800,List.of("playtime_item")),new Config.Goal("daily_hour","DAILY",3600,List.of("playtime_item")),new Config.Goal("weekly_6h","WEEKLY",21600,List.of("playtime_item")))));
   for(String module:List.of("daily","playtime","hunts")){JsonObject menu=json.toJsonTree(new Config.Menu("✦ "+module,"minecraft:cyan_stained_glass_pane",28,49)).getAsJsonObject();menu.remove("rows");write("menus/"+module+".json",menu);}
   engine.time(player,3600,3600,before);Path playerFile=root.resolve("data").resolve(player+".json");String data=Files.readString(playerFile);
-  Config next=Config.load(root.resolve("config"));assertEquals(30,next.daily().days());assertEquals(9,next.playtime().goals().size());assertEquals(3,next.menus().get("hunts").rows());assertEquals(data,Files.readString(playerFile));
-  Path backup=root.resolve("config/daily.json.pre-alpha5.bak");String original=Files.readString(backup);Config.load(root.resolve("config"));assertEquals(original,Files.readString(backup));
+  Config next=Config.load(root.resolve("config"));assertEquals(30,next.daily().days());assertEquals(28,next.playtime().goals().size());assertEquals(3,next.menus().get("hunts").rows());assertEquals(data,Files.readString(playerFile));
+  Path backup=root.resolve("config/daily.json.pre-alpha6.bak");String original=Files.readString(backup);Config.load(root.resolve("config"));assertEquals(original,Files.readString(backup));
  }
  @Test void customDailyAndMenuArePreserved()throws Exception{
   Map<Integer,List<String>> rewards=new LinkedHashMap<>();for(int i=1;i<=7;i++)rewards.put(i,List.of("playtime_item"));write("daily.json",new Config.Daily(7,"PAUSE",1,"RESTART",rewards,List.of()));
   write("menus/daily.json",new Config.Menu("Meu calendário","minecraft:stone",28,49));
-  Config next=Config.load(root.resolve("config"));assertEquals(7,next.daily().days());assertEquals("minecraft:stone",next.menus().get("daily").icon());assertFalse(Files.exists(root.resolve("config/daily.json.pre-alpha5.bak")));
+  Config next=Config.load(root.resolve("config"));assertEquals(7,next.daily().days());assertEquals("minecraft:stone",next.menus().get("daily").icon());assertFalse(Files.exists(root.resolve("config/daily.json.pre-alpha6.bak")));
  }
  @Test void oldHuntsUpgradeToHourlyDollarsAndKeepPendingSnapshot()throws Exception{
   Config.Hunts old=new Config.Hunts(3,2,true,false,true,Set.of(),Set.of(),List.of(new Config.Mission("catch_any","CAPTURE","","","EASY",5,4,List.of("hunt_item")),new Config.Mission("catch_fire","CAPTURE","","fire","MEDIUM",3,2,List.of("hunt_item")),new Config.Mission("defeat_any","DEFEAT","","","HARD",10,1,List.of("hunt_item"))));
@@ -78,10 +78,10 @@ class ProfileUpdateTest {
   State state=new State();var transaction=new State.Transaction("hunts");transaction.deliveries.add(new State.Delivery("hunt_item",config.rewards().get("hunt_item")));state.transactions.put("hunts/legacy",transaction);store.save(player,state);
   Config upgraded=Config.load(root.resolve("config"));assertEquals(3,upgraded.hunts().hourlyCount());assertEquals(0,upgraded.hunts().dailyCount());assertEquals(3600,upgraded.hunts().rotationSeconds());
   upgraded.hunts().pool().forEach(m->assertEquals("DOLLARS",upgraded.rewards().get(m.rewards().getFirst()).type()));
-  assertEquals("ITEM",store.load(player).transactions.get("hunts/legacy").deliveries.getFirst().reward.type());assertTrue(Files.exists(root.resolve("config/hunts.json.pre-alpha5.bak")));
+  assertEquals("ITEM",store.load(player).transactions.get("hunts/legacy").deliveries.getFirst().reward.type());assertTrue(Files.exists(root.resolve("config/hunts.json.pre-alpha6.bak")));
  }
- @Test void maxPlaytimeGoalIsOneThousandHours()throws Exception{
-  var tooLong=new Config.Playtime(true,300,List.of(new Config.Goal("too_long","PERMANENT",3_600_001,List.of("playtime_item"))));
+ @Test void maxPlaytimeGoalIsFiveThousandHours()throws Exception{
+  var tooLong=new Config.Playtime(true,300,List.of(new Config.Goal("too_long","PERMANENT",18_000_001,List.of("playtime_item"))));
   var bad=new Config(config.general(),config.daily(),tooLong,config.hunts(),config.rewards(),config.messages(),config.menus());assertThrows(IllegalArgumentException.class,bad::validate);
  }
  @Test void publishedAlpha4ProfilesMigrateWithoutDroppingBonusDefinitions()throws Exception{
@@ -89,7 +89,7 @@ class ProfileUpdateTest {
    try(var input=getClass().getResourceAsStream("/migrations/alpha4/"+file)){assertNotNull(input);Files.write(root.resolve("config").resolve(file),input.readAllBytes());}
   }
   var rewards=new LinkedHashMap<>(config.rewards());rewards.keySet().removeIf(key->key.startsWith("hunt_dollars_"));write("rewards.json",rewards);
-  Config next=Config.load(root.resolve("config"));assertEquals(3,next.menus().get("hunts").rows());assertEquals(9,next.playtime().goals().size());assertEquals(3,next.hunts().hourlyCount());
+  Config next=Config.load(root.resolve("config"));assertEquals(3,next.menus().get("hunts").rows());assertEquals(28,next.playtime().goals().size());assertEquals(3,next.hunts().hourlyCount());
   assertTrue(next.playtime().goals().getFirst().rewards().contains("bonus_diamond"));assertTrue(next.hunts().pool().getFirst().rewards().contains("bonus_apple"));
   next.hunts().pool().forEach(m->m.rewards().forEach(id->assertTrue(next.rewards().containsKey(id))));assertEquals("&b{species}",next.menus().get("hunts").texts().get("hunts"));
  }

@@ -9,10 +9,10 @@ final class ConfigMigration {
  static void upgradeShippedDefaults(Path root)throws IOException{
   Map<Path,JsonObject> changes=new LinkedHashMap<>();
   JsonObject daily=read(root.resolve("daily.json"));
-  if(daily!=null&&daily.get("days").getAsInt()==7){
-   var days=daily.getAsJsonObject("rewards");boolean original=days!=null&&days.size()==7;
-   if(original)for(int i=1;i<=7;i++)original&=Objects.equals(days.get(Integer.toString(i)),JSON.toJsonTree(List.of("daily_item")));
-   if(original){daily.addProperty("days",30);for(int i=8;i<=30;i++)days.add(Integer.toString(i),JSON.toJsonTree(List.of("daily_item")));changes.put(root.resolve("daily.json"),daily);}
+  if(daily!=null&&Set.of(7,30).contains(daily.get("days").getAsInt())){
+   var days=daily.getAsJsonObject("rewards");int count=daily.get("days").getAsInt();boolean original=days!=null&&days.size()==count;
+   if(original)for(int i=1;i<=count;i++)original&=Objects.equals(days.get(Integer.toString(i)),JSON.toJsonTree(List.of("daily_item")));
+   if(original){daily.addProperty("days",30);daily.add("rewards",JSON.toJsonTree(Config.defaultDaily().rewards()));changes.put(root.resolve("daily.json"),daily);}
   }
   JsonObject play=read(root.resolve("playtime.json"));
   if(play!=null){
@@ -36,14 +36,15 @@ final class ConfigMigration {
    // Only replace the exact original layout. Administrator customizations remain untouched.
    JsonObject old=JSON.toJsonTree(new Config.Menu("✦ "+module,"minecraft:cyan_stained_glass_pane",28,49)).getAsJsonObject();old.remove("rows");
    boolean original=menu!=null&&menu.equals(old);old.addProperty("rows",6);
-   if(original||menu!=null&&menu.equals(old)||shipped("menus/"+module+".json",menu,null))changes.put(p,JSON.toJsonTree(Config.defaultMenu(module)).getAsJsonObject());
+   JsonObject next=JSON.toJsonTree(Config.defaultMenu(module)).getAsJsonObject();
+   if((original||menu!=null&&menu.equals(old)||shipped("menus/"+module+".json",menu,null))&&!next.equals(menu))changes.put(p,next);
   }
   Path playMenu=root.resolve("menus/playtime.json");
   if(changes.containsKey(root.resolve("playtime.json"))&&!changes.containsKey(playMenu)){
    JsonObject custom=read(playMenu);
    if(custom!=null&&custom.get("pageSize").getAsInt()<Config.defaultPlaytime().goals().size())changes.remove(root.resolve("playtime.json"));
   }
-  if(changes.containsKey(root.resolve("playtime.json"))||changes.containsKey(root.resolve("hunts.json"))){
+  if(changes.containsKey(root.resolve("daily.json"))||changes.containsKey(root.resolve("playtime.json"))||changes.containsKey(root.resolve("hunts.json"))){
    Path p=root.resolve("rewards.json");JsonObject rewards=changes.containsKey(p)?changes.get(p):read(p);
    if(rewards!=null){
     var bonuses=Map.of("bonus_emerald",new Config.Reward("ITEM","minecraft:emerald",3,1,60,"",""),"bonus_diamond",new Config.Reward("ITEM","minecraft:diamond",2,1,30,"",""),"bonus_apple",new Config.Reward("ITEM","minecraft:golden_apple",1,1,10,"",""));
@@ -53,13 +54,13 @@ final class ConfigMigration {
   // Add reward definitions before profiles referencing them; interruption cannot leave missing IDs.
   List<Map.Entry<Path,JsonObject>> ordered=new ArrayList<>(changes.entrySet());ordered.sort(Comparator.comparingInt(e->e.getKey().getFileName().toString().equals("rewards.json")?0:1));
   for(var e:ordered){
-   Path p=e.getKey(),backup=p.resolveSibling(p.getFileName()+".pre-alpha5.bak");if(!Files.exists(backup))Files.copy(p,backup);
+   Path p=e.getKey(),backup=p.resolveSibling(p.getFileName()+".pre-alpha6.bak");if(!Files.exists(backup))Files.copy(p,backup);
    Path tmp=p.resolveSibling(p.getFileName()+".upgrade.tmp");Files.writeString(tmp,JSON.toJson(e.getValue()));Files.move(tmp,p,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
   }
  }
  private static boolean shipped(String file,JsonElement actual,String field)throws IOException{
   if(actual==null)return false;
-  for(String version:List.of("alpha3","alpha4"))try(var in=ConfigMigration.class.getResourceAsStream("/migrations/"+version+"/"+file)){
+  for(String version:List.of("alpha3","alpha4","alpha5"))try(var in=ConfigMigration.class.getResourceAsStream("/migrations/"+version+"/"+file)){
    if(in==null)continue;
    try(var reader=new java.io.InputStreamReader(in,java.nio.charset.StandardCharsets.UTF_8)){
     JsonObject expected=JsonParser.parseReader(reader).getAsJsonObject();if(actual.equals(field==null?expected:expected.get(field)))return true;

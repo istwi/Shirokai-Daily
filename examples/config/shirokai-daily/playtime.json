@@ -14,6 +14,17 @@
       ]
     },
     {
+      "id": "hours_3",
+      "period": "PERMANENT",
+      "seconds": 10800,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
       "id": "hours_6",
       "period": "PERMANENT",
       "seconds": 21600,
@@ -47,9 +58,42 @@
       ]
     },
     {
+      "id": "hours_36",
+      "period": "PERMANENT",
+      "seconds": 129600,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_48",
+      "period": "PERMANENT",
+      "seconds": 172800,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
       "id": "hours_60",
       "period": "PERMANENT",
       "seconds": 216000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_80",
+      "period": "PERMANENT",
+      "seconds": 288000,
       "rewards": [
         "playtime_item",
         "bonus_emerald",
@@ -69,9 +113,42 @@
       ]
     },
     {
+      "id": "hours_150",
+      "period": "PERMANENT",
+      "seconds": 540000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_200",
+      "period": "PERMANENT",
+      "seconds": 720000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
       "id": "hours_250",
       "period": "PERMANENT",
       "seconds": 900000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_350",
+      "period": "PERMANENT",
+      "seconds": 1260000,
       "rewards": [
         "playtime_item",
         "bonus_emerald",
@@ -91,9 +168,141 @@
       ]
     },
     {
+      "id": "hours_650",
+      "period": "PERMANENT",
+      "seconds": 2340000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_800",
+      "period": "PERMANENT",
+      "seconds": 2880000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
       "id": "hours_1000",
       "period": "PERMANENT",
       "seconds": 3600000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_1250",
+      "period": "PERMANENT",
+      "seconds": 4500000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_1500",
+      "period": "PERMANENT",
+      "seconds": 5400000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_1750",
+      "period": "PERMANENT",
+      "seconds": 6300000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_2000",
+      "period": "PERMANENT",
+      "seconds": 7200000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_2500",
+      "period": "PERMANENT",
+      "seconds": 9000000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_3000",
+      "period": "PERMANENT",
+      "seconds": 10800000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_3500",
+      "period": "PERMANENT",
+      "seconds": 12600000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_4000",
+      "period": "PERMANENT",
+      "seconds": 14400000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_4500",
+      "period": "PERMANENT",
+      "seconds": 16200000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_5000",
+      "period": "PERMANENT",
+      "seconds": 18000000,
       "rewards": [
         "playtime_item",
         "bonus_emerald",

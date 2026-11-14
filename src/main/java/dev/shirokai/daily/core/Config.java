@@ -39,11 +39,11 @@ public record Config(General general, Daily daily, Playtime playtime, Hunts hunt
         private static List<Integer> defaultSlots(){List<Integer> result=new ArrayList<>();for(int r=1;r<=4;r++)for(int c=1;c<=7;c++)result.add(r*9+c);return List.copyOf(result);}
     }
     public static Daily defaultDaily(){
-        Map<Integer,List<String>> days=new LinkedHashMap<>();for(int i=1;i<=30;i++)days.put(i,List.of("daily_item"));
+        Map<Integer,List<String>> days=new LinkedHashMap<>();for(int i=1;i<=30;i++)days.put(i,List.of("daily_item","bonus_emerald","bonus_diamond","bonus_apple"));
         return new Daily(30,"RESET",1,"RESTART",days,List.of());
     }
     public static Playtime defaultPlaytime(){
-        return new Playtime(true,300,java.util.stream.LongStream.of(1,6,12,24,60,100,250,500,1000)
+        return new Playtime(true,300,java.util.stream.LongStream.of(1,3,6,12,24,36,48,60,80,100,150,200,250,350,500,650,800,1000,1250,1500,1750,2000,2500,3000,3500,4000,4500,5000)
                 .mapToObj(hours->new Goal("hours_"+hours,"PERMANENT",hours*3600,List.of("playtime_item","bonus_emerald","bonus_diamond","bonus_apple"))).toList());
     }
     public static Hunts defaultHunts(){return new Hunts(0,0,true,false,true,Set.of(),Set.of(),List.of(
@@ -134,7 +134,7 @@ public record Config(General general, Daily daily, Playtime playtime, Hunts hunt
         require(hunts.hourlyCount>=0&&hunts.hourlyCount<=7&&(hunts.hourlyCount==0||hunts.rotationSeconds>=60),"Rotation/count de Hunts inválidos");
         require(playtime.goals.size()<=menus.get("playtime").pageSize,"Metas de Playtime devem caber em uma página");
         var ids=new HashSet<String>();
-        for(Goal g:playtime.goals){require(ids.add(g.id)&&!g.id.isBlank()&&g.seconds>0&&g.seconds<=3_600_000&&Set.of("PERMANENT","DAILY","WEEKLY").contains(g.period),"Meta inválida/duplicada");refs(g.rewards);}
+        for(Goal g:playtime.goals){require(ids.add(g.id)&&!g.id.isBlank()&&g.seconds>0&&g.seconds<=18_000_000&&Set.of("PERMANENT","DAILY","WEEKLY").contains(g.period),"Meta inválida/duplicada");refs(g.rewards);}
         ids.clear();
         for(Mission m:hunts.pool){require(ids.add(m.id)&&!m.id.isBlank()&&m.amount>0&&m.weight>0&&Set.of("CAPTURE","DEFEAT").contains(m.action)&&Set.of("EASY","MEDIUM","HARD").contains(m.difficulty),"Missão inválida/duplicada");refs(m.rewards);}
         require(hunts.dailyCount+hunts.weeklyCount+hunts.hourlyCount==0||!hunts.pool.isEmpty(),"Pool vazio");

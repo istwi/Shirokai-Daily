@@ -1,0 +1,99 @@
+{
+  "days": 30,
+  "streakPolicy": "RESET",
+  "graceDays": 1,
+  "completion": "RESTART",
+  "rewards": {
+    "1": [
+      "daily_item"
+    ],
+    "2": [
+      "daily_item"
+    ],
+    "3": [
+      "daily_item"
+    ],
+    "4": [
+      "daily_item"
+    ],
+    "5": [
+      "daily_item"
+    ],
+    "6": [
+      "daily_item"
+    ],
+    "7": [
+      "daily_item"
+    ],
+    "8": [
+      "daily_item"
+    ],
+    "9": [
+      "daily_item"
+    ],
+    "10": [
+      "daily_item"
+    ],
+    "11": [
+      "daily_item"
+    ],
+    "12": [
+      "daily_item"
+    ],
+    "13": [
+      "daily_item"
+    ],
+    "14": [
+      "daily_item"
+    ],
+    "15": [
+      "daily_item"
+    ],
+    "16": [
+      "daily_item"
+    ],
+    "17": [
+      "daily_item"
+    ],
+    "18": [
+      "daily_item"
+    ],
+    "19": [
+      "daily_item"
+    ],
+    "20": [
+      "daily_item"
+    ],
+    "21": [
+      "daily_item"
+    ],
+    "22": [
+      "daily_item"
+    ],
+    "23": [
+      "daily_item"
+    ],
+    "24": [
+      "daily_item"
+    ],
+    "25": [
+      "daily_item"
+    ],
+    "26": [
+      "daily_item"
+    ],
+    "27": [
+      "daily_item"
+    ],
+    "28": [
+      "daily_item"
+    ],
+    "29": [
+      "daily_item"
+    ],
+    "30": [
+      "daily_item"
+    ]
+  },
+  "vipRewards": []
+}

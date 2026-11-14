@@ -1,0 +1,105 @@
+{
+  "afk": true,
+  "afkSeconds": 300,
+  "goals": [
+    {
+      "id": "hours_1",
+      "period": "PERMANENT",
+      "seconds": 3600,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_6",
+      "period": "PERMANENT",
+      "seconds": 21600,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_12",
+      "period": "PERMANENT",
+      "seconds": 43200,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_24",
+      "period": "PERMANENT",
+      "seconds": 86400,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_60",
+      "period": "PERMANENT",
+      "seconds": 216000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_100",
+      "period": "PERMANENT",
+      "seconds": 360000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_250",
+      "period": "PERMANENT",
+      "seconds": 900000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_500",
+      "period": "PERMANENT",
+      "seconds": 1800000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    },
+    {
+      "id": "hours_1000",
+      "period": "PERMANENT",
+      "seconds": 3600000,
+      "rewards": [
+        "playtime_item",
+        "bonus_emerald",
+        "bonus_diamond",
+        "bonus_apple"
+      ]
+    }
+  ]
+}

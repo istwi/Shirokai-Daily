@@ -2,6 +2,25 @@
 
 Mod exclusivamente de servidor para Minecraft 1.21.1 / Fabric / Java 21, destinado ao Cobblemon **1.8.3**. Daily, Playtime e Hunts são independentes e possuem resgate manual. Versão **alpha compilada para Fabric; ainda sem validação funcional com cliente Minecraft**.
 
+## Daily com bônus e Playtime completo — 0.1.0-alpha.6
+
+O Daily agora oferece o prêmio fixo de cada dia **mais um único bônus aleatório**: 3 esmeraldas (60%), 2 diamantes (30%) ou 1 maçã dourada (10%). As opções e chances aparecem na lore com o mesmo visual de Playtime. O sorteio só acontece no resgate e permanece salvo para recuperação de entrega.
+
+Playtime preenche as quatro linhas internas de sete slots, sem segunda página:
+
+| Linha | Metas |
+| --- | --- |
+| 1 | 1h · 3h · 6h · 12h · 24h · 36h · 48h |
+| 2 | 60h · 80h · 100h · 150h · 200h · 250h · 350h |
+| 3 | 500h · 650h · 800h · 1000h · 1250h · 1500h · 1750h |
+| 4 | 2000h · 2500h · 3000h · 3500h · 4000h · 4500h · 5000h |
+
+As nove metas anteriores preservam seus IDs e limites; prêmios já resgatados não são liberados de novo. O tempo acumulado não é reduzido. As novas metas usam o progresso já existente e continuam com resgate manual e o mesmo bônus ponderado.
+
+Atualização: pare o servidor, faça backup e substitua o JAR antigo pelo alpha.6. Padrões reconhecidos da alpha.5 migram com backup `*.pre-alpha6.bak`; configurações personalizadas permanecem intactas. Um Daily já resgatado hoje só terá bônus no próximo resgate elegível; entregas antigas pendentes não recebem um segundo sorteio retroativo. Se personalizou as recompensas, adicione os IDs de bônus no seu próprio `daily.json` usando os exemplos como referência.
+
+O JAR Fabric atual é `server/build/libs/shirokai_daily-0.1.0-alpha.6.jar`. Foram executadas 70 verificações, sem falhas ou ignorados. A distribuição de 28 metas usa o mesmo contador periódico de tempo; aparência e interação no cliente Minecraft ainda precisam de conferência no jogo.
+
 ## Novos menus — 0.1.0-alpha.5
 
 - Decoração padrão com `minecraft:gray_stained_glass_pane` nos três menus.
@@ -27,10 +46,10 @@ Para atualizar, pare o servidor, faça backup de `shirokai-daily-data`, substitu
 
 ## Estado real da entrega
 
-- Núcleo Java compilado; **64 verificações passaram** (63 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
+- Núcleo Java compilado; **70 verificações passaram** (69 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
 - Implementados configuração, persistência por UUID, calendário, metas, missões, ledger de recompensas e testes.
 - Entrypoint Fabric, três inventários vanilla bloqueados, comandos, permissões e ponte de eventos Cobblemon compilados com Fabric Loom 1.8.13. Build completa e remapeamento concluídos após a liberação da rede. Ainda sem execução funcional no Minecraft.
-- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.5.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
+- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.6.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
 - A integração real com Cobblemon 1.8.3, LuckPerms e cliente sem Shirokai Daily precisa de teste no servidor. Não foi possível obter/confirmar o artefato Cobblemon 1.8.3 na rede atual.
 - Dollars e Tokens possuem adaptador da API real do Impactor 5.3.5 fornecido pelo usuário; métodos públicos foram conferidos no JAR. O adaptador de fragmentos requer a extensão pública preparada em `integrations/shirokai-crates-grant-fragments.patch`. Sem essa extensão, fragmentos ficam pendentes. As integrações ainda precisam de teste em servidor; nenhum fragmento é falsificado.
 
@@ -73,7 +92,7 @@ Primeira inicialização gera `config/shirokai-daily/`:
 
 Exemplos gerados pelo mesmo código de inicialização em [examples/config/shirokai-daily](examples/config/shirokai-daily). IDs de espécies precisam de namespace (`cobblemon:charmander`, `addon:species`); tipos usam nome simples (`fire`). Dificuldades: EASY, MEDIUM, HARD. Ações: CAPTURE, DEFEAT. Pool aleatório permite repetições quando há mais slots que modelos. No modo fixo, percorre o pool em ordem.
 
-Defaults: reset às 00:00 em America/Sao_Paulo; calendário de 30 dias; metas permanentes de 1h até 1000h em uma página; AFK de 300 segundos; 3 Hunts de captura por hora com Impactor Dollars. Daily e Playtime usam itens vanilla por padrão. Períodos diários/semanais continuam disponíveis para configurações personalizadas.
+Defaults: reset às 00:00 em America/Sao_Paulo; calendário de 30 dias; 28 metas permanentes de 1h até 5000h em uma página; AFK de 300 segundos; 3 Hunts de captura por hora com Impactor Dollars. Daily e Playtime usam itens vanilla por padrão. Períodos diários/semanais continuam disponíveis para configurações personalizadas.
 
 Recompensas com `weight=0` fazem sorteios independentes por `chance`. Entre recompensas com peso positivo no mesmo resgate, seleciona-se uma por peso e depois aplica-se sua chance. O resultado e o conteúdo da recompensa são persistidos antes da entrega; reload não refaz sorteios. `permission` vazia libera; `condition` aceita vazio ou VIP. Recompensas ineligíveis não entram no sorteio.
 

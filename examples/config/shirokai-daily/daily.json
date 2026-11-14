@@ -5,94 +5,184 @@
   "completion": "RESTART",
   "rewards": {
     "1": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "2": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "3": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "4": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "5": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "6": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "7": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "8": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "9": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "10": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "11": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "12": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "13": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "14": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "15": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "16": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "17": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "18": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "19": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "20": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "21": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "22": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "23": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "24": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "25": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "26": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "27": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "28": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "29": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ],
     "30": [
-      "daily_item"
+      "daily_item",
+      "bonus_emerald",
+      "bonus_diamond",
+      "bonus_apple"
     ]
   },
   "vipRewards": []

@@ -1,5 +1,11 @@
 # Validação
 
+## Daily com bônus e metas até 5000h — 0.1.0-alpha.6
+
+70 verificações passaram. Os testes adicionados comprovam um único bônus por resgate Daily, chances padrão 60/30/10, preservação do sorteio após reinício, migração da alpha.5 sem modificar o snapshot por UUID, ausência de bônus retroativo em entregas antigas, ocupação dos 28 slots da página, ordenação das metas, manutenção dos nove IDs antigos, bloqueio de novo resgate de meta antiga e preservação de recompensas personalizadas e backups em recargas repetidas. O limite máximo de configuração passou para 18.000.000 segundos (5000h).
+
+O bônus é adicional ao prêmio fixo, não um prêmio para cada opção da lista. O tempo acumulado e as transações existentes são preservados. Não houve teste visual no cliente Minecraft nesta alteração.
+
 ## Menus e rotação horária — 0.1.0-alpha.5
 
 Adicionados testes para: defaults cinza/30 dias/metas até 1000h/baú de 27 slots; ciclo completo de 30 dias; sorteio horário estável após reinício/reload; troca na fronteira da hora sem repetir alvos quando o pool permite; captura somente da espécie correta; resgate manual em Dollars; preservação de entregas pendentes após expiração; ausência temporária de registro sem sortear missões vazias; filtros e pool pequeno sem alvos duplicados; migração com backup sem tocar dados por UUID; preservação de configuração personalizada; migração de Hunts antigos preservando o conteúdo de entregas já sorteadas; limite máximo de meta.
