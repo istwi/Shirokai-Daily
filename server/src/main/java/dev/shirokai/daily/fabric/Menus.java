@@ -92,7 +92,7 @@ final class Menus {
         List<String> descriptions=new ArrayList<>();boolean random=false;
         for(String id:ids){var reward=config.rewards().get(id);if(reward==null)continue;
             if(reward.weight()>0){random=true;continue;}
-            String prize=switch(reward.type()){case "COMMAND"->"Recompensa especial";case "DOLLARS"->"Dollars";case "TOKENS"->"Tokens";case "CRATE_FRAGMENT"->"Fragmentos de caixa";default->label(reward.value());};
+            String prize=switch(reward.type()){case "CRATE_KEY"->MenuText.keyName(reward.value());case "COMMAND"->"Recompensa especial";case "DOLLARS"->"Dollars";case "TOKENS"->"Tokens";case "CRATE_FRAGMENT"->"Fragmentos de caixa";default->label(reward.value());};
             descriptions.add(reward.amount()+"× "+prize+(reward.chance()<1?" ("+Math.round(reward.chance()*100)+"%)":""));
         }
         if(random)descriptions.add("1 bônus aleatório");return String.join(" + ",descriptions);

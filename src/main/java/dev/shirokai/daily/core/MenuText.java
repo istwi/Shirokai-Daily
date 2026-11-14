@@ -52,13 +52,29 @@ public final class MenuText {
     private static String percent(double value){return String.format(Locale.ROOT,value==Math.rint(value)?"%.0f":"%.1f",value);}
     private static String prize(Config.Reward reward){
         String name=switch(reward.type()){
-            case "CRATE_KEY"->"Chave: "+reward.value();case "RANDOM_LEGENDARY_SHINY_6IV"->"Lendário aleatório shiny 6IV";case "COMMAND"->vipLabel(reward.value());case "DOLLARS"->"Dollars";case "TOKENS"->"Tokens";case "CRATE_FRAGMENT"->"Fragmentos de caixa";
+            case "CRATE_KEY"->keyName(reward.value());case "RANDOM_LEGENDARY_SHINY_6IV"->"Lendário aleatório shiny 6IV";case "COMMAND"->vipLabel(reward.value());case "DOLLARS"->"Dollars";case "TOKENS"->"Tokens";case "CRATE_FRAGMENT"->"Fragmentos de caixa";
             default->switch(reward.value()){
                 case "cobblemon:poke_ball"->"Poké Ball";case "cobblemon:great_ball"->"Great Ball";case "cobblemon:ultra_ball"->"Ultra Ball";case "cobblemon:rare_candy"->"Rare Candy";case "cobblemon:master_ball"->"Master Ball";case "minecraft:diamond"->"Diamante";case "minecraft:emerald"->"Esmeralda";case "minecraft:gold_ingot"->"Barra de ouro";case "minecraft:golden_apple"->"Maçã dourada";
                 default->{String id=reward.value();String label=id.substring(id.indexOf(':')+1).replace('_',' ');yield label.isEmpty()?"Item":Character.toUpperCase(label.charAt(0))+label.substring(1);}
             };
         };
         return "&8• &a"+reward.amount()+"× &7"+name;
+    }
+    /** Display names only; crate IDs remain untouched in configuration and delivery. */
+    public static String keyName(String id){
+        String name=id.substring(id.indexOf(':')+1);
+        if(name.startsWith("caixa_"))name=name.substring(6);
+        name=switch(name){
+            case "inicial_rara","basica"->"Básica";
+            case "epica","epic"->"Épica";
+            case "paradoxo"->"Paradoxo";
+            case "ultra_beasts","ultra_beast"->"Ultra Beast";
+            case "mitica"->"Mítica";
+            case "lendaria"->"Lendária";
+            case "shiny"->"Shiny";
+            default->{String label=name.replace('_',' ').strip();yield label.isEmpty()?"Caixa":Character.toUpperCase(label.charAt(0))+label.substring(1);}
+        };
+        return "Chave: "+name;
     }
     private static String vipLabel(String command){
         var parts=command.split(" ");
