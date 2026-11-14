@@ -2,6 +2,7 @@ package dev.shirokai.daily.fabric;
 import dev.shirokai.daily.core.*;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.LoreComponent;
+import net.minecraft.component.type.ProfileComponent;
 import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
@@ -30,7 +31,7 @@ final class Menus {
                     int day=i;boolean available=!today&&day==next;
                     String status=MenuText.dailyStatus(today,day,previous,next);
                     List<String> rewardIds=new ArrayList<>(config.daily().rewards().get(i));if(permissions.contains("shirokaidaily.vip"))rewardIds.addAll(config.daily().vipRewards());
-                    entries.add(entry(settings,"daily",vars("day",i,"status",status,"streak",daily.streak,"resets",daily.resets,"rewards",rewards(config,rewardIds),"reward_lines",String.join("\n",MenuText.rewardLines(config,rewardIds,permissions)),"reset",reset(config,now)),available?"minecraft:lime_dye":status.equals("RESGATADO")?"minecraft:gray_dye":"minecraft:light_blue_dye","Dia "+i+" • "+status,List.of("Streak: "+daily.streak+" • Resets: "+daily.resets,"Recompensas: "+config.daily().rewards().get(i),"Reset: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone()))),available?()->mod.claim(player,module,""):()->{}));
+                    entries.add(entry(settings,"daily",vars("day",i,"status",status,"streak",daily.streak,"resets",daily.resets,"rewards",rewards(config,rewardIds),"reward_lines",String.join("\n",MenuText.rewardLines(config,rewardIds,permissions)),"reset",reset(config,now)),available?"cobblemon:beast_ball":status.equals("RESGATADO")?"cobblemon:master_ball":"cobblemon:ancient_heavy_ball","Dia "+i+" • "+status,List.of("Streak: "+daily.streak+" • Resets: "+daily.resets,"Recompensas: "+config.daily().rewards().get(i),"Reset: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone()))),available?()->mod.claim(player,module,""):()->{}));
                 }
             }
             case "playtime" -> {
@@ -38,7 +39,7 @@ final class Menus {
                     long progress=switch(goal.period()){case "DAILY"->state.playtime.daily;case "WEEKLY"->state.playtime.weekly;default->state.playtime.eligible;};
                     String key=goal.period()+"/"+(goal.period().equals("DAILY")?config.day(now):goal.period().equals("WEEKLY")?config.week(now):"all")+"/"+goal.id();
                     boolean claimed=state.playtime.claimed.contains(key),available=!claimed&&progress>=goal.seconds();
-                    entries.add(entry(settings,"playtime",vars("goal",hours(goal.seconds()),"status",claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","progress",hours(progress),"target",hours(goal.seconds()),"total",hours(state.playtime.total),"eligible",hours(state.playtime.eligible),"period",label(goal.period()),"rewards",rewards(config,goal.rewards()),"reward_lines",String.join("\n",MenuText.rewardLines(config,goal.rewards(),permissions)),"renewal",MenuText.renewal(config,goal.period(),now)),available?"minecraft:lime_dye":"minecraft:clock",hours(goal.seconds())+" • "+(claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(goal.period()+" • "+hours(progress)+" / "+hours(goal.seconds())+"","Total: "+hours(state.playtime.total)+" • Elegível: "+hours(state.playtime.eligible)+"","Recompensas: "+goal.rewards()),available?()->mod.claim(player,module,goal.id()):()->{}));
+                    entries.add(entry(settings,"playtime",vars("goal",hours(goal.seconds()),"status",claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","progress",hours(progress),"target",hours(goal.seconds()),"total",hours(state.playtime.total),"eligible",hours(state.playtime.eligible),"period",label(goal.period()),"rewards",rewards(config,goal.rewards()),"reward_lines",String.join("\n",MenuText.rewardLines(config,goal.rewards(),permissions)),"renewal",MenuText.renewal(config,goal.period(),now)),claimed?"cobblemon:master_ball":available?"cobblemon:beast_ball":"cobblemon:ancient_heavy_ball",hours(goal.seconds())+" • "+(claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(goal.period()+" • "+hours(progress)+" / "+hours(goal.seconds())+"","Total: "+hours(state.playtime.total)+" • Elegível: "+hours(state.playtime.eligible)+"","Recompensas: "+goal.rewards()),available?()->mod.claim(player,module,goal.id()):()->{}));
                 }
             }
             case "hunts" -> state.hunts.quests.forEach((id,q)->{
@@ -57,7 +58,9 @@ final class Menus {
         List<Integer> slots=settings.slots();
         for(int i=0;i<settings.pageSize();i++){int index=current*settings.pageSize()+i;if(index>=entries.size())break;Entry e=entries.get(index);int slot=slots.get(i);inventory.setStack(slot,item(mod,e.icon,e.title,e.lore));actions.put(slot,e.click);}
         Entry profile=entry(settings,"profile",vars("player",player.getGameProfile().getName(),"page",current+1,"pages",pages,"module",module,"reset",module.equals("hunts")?config.nextHuntReset(now).atZone(ZoneId.of(config.general().zone())).format(java.time.format.DateTimeFormatter.ofPattern("dd/MM HH:mm")):reset(config,now)),"minecraft:player_head",player.getGameProfile().getName(),List.of("✦ "+module,"Página "+(current+1)+" / "+pages,"Reset diário: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone())).toLocalTime()),()->{});
-        inventory.setStack(settings.profileSlot(),item(mod,profile.icon,profile.title,profile.lore));
+        ItemStack profileStack=item(mod,profile.icon,profile.title,profile.lore);
+        if(profileStack.isOf(Items.PLAYER_HEAD))profileStack.set(DataComponentTypes.PROFILE,new ProfileComponent(player.getGameProfile()));
+        inventory.setStack(settings.profileSlot(),profileStack);
         ItemStack back=new ItemStack(Items.ARROW);
         back.set(DataComponentTypes.CUSTOM_NAME,styled("&e&lVOLTAR AO MENU",Formatting.YELLOW));
         back.set(DataComponentTypes.LORE,new LoreComponent(List.of(Text.literal("Retornar ao menu principal.").formatted(Formatting.GRAY),Text.empty(),Text.literal("➜ Clique para voltar!").formatted(Formatting.YELLOW))));
