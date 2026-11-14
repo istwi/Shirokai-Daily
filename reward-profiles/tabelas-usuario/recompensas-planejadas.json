@@ -1,0 +1,2773 @@
+{
+  "format": "shirokai-reward-plan-v1",
+  "status": "REVIEWED_SOURCE_TABLE_NOT_RUNTIME_CONFIG",
+  "bonusPolicy": "ONE_WEIGHTED_OPTION_IN_ADDITION_TO_ALL_FIXED_REWARDS",
+  "notes": [
+    "5000h: VIP removido; alternativa de peso 10 permanece sem bônus.",
+    "Básica = inicial_rara; Shiny = shiny.",
+    "Runtime: Daily alpha.8; instalar somente os arquivos na pasta config/shirokai-daily."
+  ],
+  "daily": [
+    {
+      "day": 1,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:poke_ball",
+          "amount": 8
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 5000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:great_ball",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:great_ball",
+          "amount": 3
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 7000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:poke_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 8000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:great_ball",
+          "amount": 3
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 10000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 2
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 12000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:great_ball",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:great_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 15000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "basica",
+          "id": "inicial_rara",
+          "amount": 1
+        },
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 3
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 20000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 3
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 15000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:great_ball",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 9,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:great_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 18000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 4
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 10,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 3
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 20000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 11,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 4
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 22000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:great_ball",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 12,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:great_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 25000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 13,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 28000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 6
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 14,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "epica",
+          "id": "caixa_epica",
+          "amount": 1
+        },
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 40000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:master_ball",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 15,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 30000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 16,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 32000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 6
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 17,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 6
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 35000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 18,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 38000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 8
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 19,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 8
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 40000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 8
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 20,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 8
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 45000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 10
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "paradoxo",
+              "id": "caixa_paradoxo",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 21,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "paradoxo",
+          "id": "caixa_paradoxo",
+          "amount": 1
+        },
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 8
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 60000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:master_ball",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 22,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 10
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 50000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 8
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 23,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 8
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 55000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 10
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 24,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 10
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 60000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 10
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "paradoxo",
+              "id": "caixa_paradoxo",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 25,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 10
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 65000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 12
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "shiny",
+              "id": "shiny",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 26,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 12
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 70000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 10
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "paradoxo",
+              "id": "caixa_paradoxo",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 27,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 10
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 80000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 15
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "paradoxo",
+              "id": "caixa_paradoxo",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 28,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 15
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 90000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 12
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "shiny",
+              "id": "shiny",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 29,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 12
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 100000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 15
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "shiny",
+              "id": "shiny",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 30,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "ultra_beast",
+          "id": "caixa_ultra_beasts",
+          "amount": 1
+        },
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 15
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 150000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "shiny",
+              "id": "shiny",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "playtime": [
+    {
+      "hours": 1,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:poke_ball",
+          "amount": 16
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 10000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:great_ball",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 2,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:great_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 15000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 3,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:great_ball",
+          "amount": 8
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 25000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 5,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 30000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "basica",
+              "id": "inicial_rara",
+              "amount": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 8,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 6
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 50000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 10
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 12,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:ultra_ball",
+          "amount": 10
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 75000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 8
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 18,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 10
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 100000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:ultra_ball",
+              "amount": 16
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 24,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "epica",
+          "id": "caixa_epica",
+          "amount": 1
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 150000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 12
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "paradoxo",
+              "id": "caixa_paradoxo",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 36,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 15
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 200000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "epica",
+              "id": "caixa_epica",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "paradoxo",
+              "id": "caixa_paradoxo",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 48,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "epica",
+          "id": "caixa_epica",
+          "amount": 2
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 250000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 20
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "paradoxo",
+              "id": "caixa_paradoxo",
+              "amount": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 72,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "paradoxo",
+          "id": "caixa_paradoxo",
+          "amount": 1
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 350000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 25
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "ultra_beast",
+              "id": "caixa_ultra_beasts",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 100,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 25
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 500000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "ultra_beast",
+              "id": "caixa_ultra_beasts",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 150,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "ultra_beast",
+          "id": "caixa_ultra_beasts",
+          "amount": 1
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 8
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 30
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "mitica",
+              "id": "caixa_mitica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 200,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "paradoxo",
+          "id": "caixa_paradoxo",
+          "amount": 2
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 10
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 750000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "mitica",
+              "id": "caixa_mitica",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 300,
+      "fixed": [
+        {
+          "kind": "ITEM",
+          "id": "cobblemon:rare_candy",
+          "amount": 40
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 15
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "ultra_beast",
+              "id": "caixa_ultra_beasts",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "lendaria",
+              "id": "caixa_lendaria",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 400,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "mitica",
+          "id": "caixa_mitica",
+          "amount": 1
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 20
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 50
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "lendaria",
+              "id": "caixa_lendaria",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 500,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "lendaria",
+          "id": "caixa_lendaria",
+          "amount": 1
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 30
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 1500000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "shiny",
+              "id": "shiny",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 750,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "mitica",
+          "id": "caixa_mitica",
+          "amount": 2
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 40
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "lendaria",
+              "id": "caixa_lendaria",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "shiny",
+              "id": "shiny",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 1000,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "shiny",
+          "id": "shiny",
+          "amount": 1
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 60
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 100
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "lendaria",
+              "id": "caixa_lendaria",
+              "amount": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 1250,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "lendaria",
+          "id": "caixa_lendaria",
+          "amount": 2
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 70
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 3000000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "LUCKPERMS_GROUP",
+              "group": "magma",
+              "durationDays": 7,
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 1500,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "mitica",
+          "id": "caixa_mitica",
+          "amount": 3
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 90
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "lendaria",
+              "id": "caixa_lendaria",
+              "amount": 3
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "LUCKPERMS_GROUP",
+              "group": "magma",
+              "durationDays": 15,
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 2000,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "shiny",
+          "id": "shiny",
+          "amount": 2
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 120
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 150
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "LUCKPERMS_GROUP",
+              "group": "aqua",
+              "durationDays": 15,
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 2500,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "lendaria",
+          "id": "caixa_lendaria",
+          "amount": 4
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 150
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 5000000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "LUCKPERMS_GROUP",
+              "group": "aqua",
+              "durationDays": 30,
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 3000,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "shiny",
+          "id": "shiny",
+          "amount": 3
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 200
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "lendaria",
+              "id": "caixa_lendaria",
+              "amount": 5
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "LUCKPERMS_GROUP",
+              "group": "plasma",
+              "durationDays": 15,
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 3500,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "lendaria",
+          "id": "caixa_lendaria",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 250
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 8000000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "LUCKPERMS_GROUP",
+              "group": "plasma",
+              "durationDays": 30,
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 4000,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "shiny",
+          "id": "shiny",
+          "amount": 4
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 300
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "ITEM",
+              "id": "cobblemon:rare_candy",
+              "amount": 200
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "LUCKPERMS_GROUP",
+              "group": "plasma",
+              "durationDays": 30,
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 4500,
+      "fixed": [
+        {
+          "kind": "CRATE_KEY",
+          "name": "shiny",
+          "id": "shiny",
+          "amount": 5
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 400
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "lendaria",
+              "id": "caixa_lendaria",
+              "amount": 8
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "LUCKPERMS_GROUP",
+              "group": "plasma",
+              "durationDays": 60,
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hours": 5000,
+      "fixed": [
+        {
+          "kind": "POKEMON",
+          "selection": "RANDOM_LEGENDARY",
+          "shiny": true,
+          "ivs": {
+            "hp": 31,
+            "attack": 31,
+            "defence": 31,
+            "special_attack": 31,
+            "special_defence": 31,
+            "speed": 31
+          },
+          "amount": 1
+        },
+        {
+          "kind": "TOKENS",
+          "currency": "impactor:tokens",
+          "amount": 500
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 750
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "CRATE_KEY",
+              "name": "shiny",
+              "id": "shiny",
+              "amount": 7
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": []
+        }
+      ]
+    }
+  ],
+  "hunts": [
+    {
+      "difficulty": "EASY",
+      "fixed": [
+        {
+          "kind": "DOLLARS",
+          "currency": "impactor:dollars",
+          "amount": 700
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 450
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 900
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 2000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "difficulty": "MEDIUM",
+      "fixed": [
+        {
+          "kind": "DOLLARS",
+          "currency": "impactor:dollars",
+          "amount": 1200
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 600
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 1200
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "difficulty": "HARD",
+      "fixed": [
+        {
+          "kind": "DOLLARS",
+          "currency": "impactor:dollars",
+          "amount": 2000
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 1000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 2000
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "difficulty": "VERY_HARD",
+      "fixed": [
+        {
+          "kind": "DOLLARS",
+          "currency": "impactor:dollars",
+          "amount": 3500
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 1800
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 3500
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "difficulty": "EXTREME",
+      "fixed": [
+        {
+          "kind": "DOLLARS",
+          "currency": "impactor:dollars",
+          "amount": 5500
+        }
+      ],
+      "bonus": [
+        {
+          "weight": 60,
+          "rewards": [
+            {
+              "kind": "DOLLARS",
+              "currency": "impactor:dollars",
+              "amount": 3000
+            }
+          ]
+        },
+        {
+          "weight": 30,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "weight": 10,
+          "rewards": [
+            {
+              "kind": "TOKENS",
+              "currency": "impactor:tokens",
+              "amount": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

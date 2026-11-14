@@ -136,10 +136,14 @@ public record Config(General general, Daily daily, Playtime playtime, Hunts hunt
         var ids=new HashSet<String>();
         for(Goal g:playtime.goals){require(ids.add(g.id)&&!g.id.isBlank()&&g.seconds>0&&g.seconds<=18_000_000&&Set.of("PERMANENT","DAILY","WEEKLY").contains(g.period),"Meta inválida/duplicada");refs(g.rewards);}
         ids.clear();
-        for(Mission m:hunts.pool){require(ids.add(m.id)&&!m.id.isBlank()&&m.amount>0&&m.weight>0&&Set.of("CAPTURE","DEFEAT").contains(m.action)&&Set.of("EASY","MEDIUM","HARD").contains(m.difficulty),"Missão inválida/duplicada");refs(m.rewards);}
+        for(Mission m:hunts.pool){require(ids.add(m.id)&&!m.id.isBlank()&&m.amount>0&&m.weight>0&&Set.of("CAPTURE","DEFEAT").contains(m.action)&&Set.of("EASY","MEDIUM","HARD","VERY_HARD","EXTREME").contains(m.difficulty),"Missão inválida/duplicada");refs(m.rewards);}
         require(hunts.dailyCount+hunts.weeklyCount+hunts.hourlyCount==0||!hunts.pool.isEmpty(),"Pool vazio");
         for(int i=1;i<=daily.days;i++){require(daily.rewards.containsKey(i),"Falta recompensa dia "+i);refs(daily.rewards.get(i));}refs(daily.vipRewards);
-        rewards.forEach((id,r)->require(!id.isBlank()&&Set.of("ITEM","COMMAND","DOLLARS","TOKENS","CRATE_FRAGMENT").contains(r.type)&&r.value!=null&&r.amount>0&&Double.isFinite(r.chance)&&r.chance>=0&&r.chance<=1&&r.weight>=0&&r.permission!=null&&r.condition!=null&&Set.of("","VIP").contains(r.condition),"Recompensa inválida: "+id));
+        rewards.forEach((id,r)->require(!id.isBlank()&&Set.of("ITEM","COMMAND","DOLLARS","TOKENS","CRATE_FRAGMENT","CRATE_KEY","RANDOM_LEGENDARY_SHINY_6IV").contains(r.type)&&r.value!=null&&r.amount>0&&Double.isFinite(r.chance)&&r.chance>=0&&r.chance<=1&&r.weight>=0&&r.permission!=null&&r.condition!=null&&Set.of("","VIP").contains(r.condition),"Recompensa inválida: "+id));
+        rewards.forEach((id,r)->{
+            if(r.type.equals("CRATE_KEY"))require(!r.value.isBlank(),"ID de caixa ausente: "+id);
+            if(r.type.equals("RANDOM_LEGENDARY_SHINY_6IV"))require(r.amount==1&&r.value.equals("legendary"),"Lendário aleatório: use amount=1, value=legendary: "+id);
+        });
         require(messages.keySet().containsAll(Set.of("claimed","unavailable","pending")),"Mensagens obrigatórias ausentes");
         menus.values().forEach(m->{
             require(m.pageSize>=1&&m.pageSize<=45&&m.slots!=null&&m.slots.size()>=m.pageSize&&m.slots.size()<=54&&m.icons!=null&&m.texts!=null&&m.lore!=null,"Menu inválido");

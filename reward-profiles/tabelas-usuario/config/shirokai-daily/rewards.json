@@ -1,0 +1,2315 @@
+{
+  "daily_1_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:poke_ball",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_1_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 5000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_1_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_1_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_2_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_2_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 7000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_2_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_2_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_3_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:poke_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_3_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 8000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_3_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_3_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_4_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_4_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 10000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_4_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_4_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_5_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_5_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 12000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_5_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_5_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_6_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_6_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 15000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_6_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_6_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_7_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_7_fixed_2": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_7_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 20000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_7_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_7_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_8_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_8_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 15000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_8_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_8_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_9_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_9_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 18000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_9_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 4,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_9_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_10_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_10_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 20000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_10_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_10_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_11_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 4,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_11_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 22000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_11_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_11_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_12_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_12_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 25000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_12_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_12_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_13_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_13_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 28000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_13_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 6,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_13_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_14_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_14_fixed_2": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_14_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_14_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 40000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_14_bonus_10": {
+    "type": "ITEM",
+    "value": "cobblemon:master_ball",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_15_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_15_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 30000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_15_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_15_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_16_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_16_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 32000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_16_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 6,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_16_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_17_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 6,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_17_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 35000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_17_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_17_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_18_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_18_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 38000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_18_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_18_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_19_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_19_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 40000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_19_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_19_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_20_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_20_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 45000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_20_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_20_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_21_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_21_fixed_2": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_21_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_21_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 60000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_21_bonus_10": {
+    "type": "ITEM",
+    "value": "cobblemon:master_ball",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_22_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_22_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 50000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_22_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_22_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_23_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_23_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 55000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_23_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_23_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_24_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_24_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 60000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_24_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_24_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_25_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_25_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 65000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_25_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 12,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_25_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_26_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 12,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_26_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 70000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_26_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_26_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_27_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_27_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 80000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_27_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 15,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_27_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_28_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 15,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_28_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 90000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_28_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 12,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_28_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_29_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 12,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_29_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 100000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_29_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 15,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_29_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_30_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_ultra_beasts",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_30_fixed_2": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 15,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_30_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_30_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 150000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "daily_30_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:poke_ball",
+    "amount": 16,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 10000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 15000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:great_ball",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3_bonus_60": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 25000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 30000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "inicial_rara",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_8_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 6,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_8_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 50000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_8_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_8_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_12_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_12_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 75000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_12_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_12_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_18_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_18_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 100000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_18_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:ultra_ball",
+    "amount": 16,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_18_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_24_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_24_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 150000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_24_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 12,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_24_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_36_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 15,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_36_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 200000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_36_bonus_30": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_36_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_48_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_epica",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_48_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 250000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_48_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 20,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_48_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_72_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_72_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 350000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_72_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 25,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_72_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_ultra_beasts",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_100_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 25,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_100_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_100_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 500000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_100_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_ultra_beasts",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_150_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_ultra_beasts",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_150_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_150_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 30,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_150_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_mitica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_200_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_paradoxo",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_200_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 10,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_200_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 750000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_200_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_mitica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_300_fixed_1": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 40,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_300_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 15,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_300_bonus_30": {
+    "type": "CRATE_KEY",
+    "value": "caixa_ultra_beasts",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_300_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_400_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_mitica",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_400_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 20,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_400_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 50,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_400_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_500_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_500_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 30,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_500_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 1500000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_500_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_750_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_mitica",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_750_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 40,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_750_bonus_30": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_750_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1000_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1000_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 60,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1000_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 100,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1000_bonus_10": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1250_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1250_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 70,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1250_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 3000000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1250_bonus_10": {
+    "type": "COMMAND",
+    "value": "lp user {uuid} parent addtemp magma 7d accumulate",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1500_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_mitica",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1500_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 90,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1500_bonus_30": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_1500_bonus_10": {
+    "type": "COMMAND",
+    "value": "lp user {uuid} parent addtemp magma 15d accumulate",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2000_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2000_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 120,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2000_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 150,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2000_bonus_10": {
+    "type": "COMMAND",
+    "value": "lp user {uuid} parent addtemp aqua 15d accumulate",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2500_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 4,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2500_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 150,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2500_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 5000000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_2500_bonus_10": {
+    "type": "COMMAND",
+    "value": "lp user {uuid} parent addtemp aqua 30d accumulate",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3000_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3000_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 200,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3000_bonus_30": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3000_bonus_10": {
+    "type": "COMMAND",
+    "value": "lp user {uuid} parent addtemp plasma 15d accumulate",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3500_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3500_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 250,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3500_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 8000000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_3500_bonus_10": {
+    "type": "COMMAND",
+    "value": "lp user {uuid} parent addtemp plasma 30d accumulate",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_4000_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 4,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_4000_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 300,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_4000_bonus_30": {
+    "type": "ITEM",
+    "value": "cobblemon:rare_candy",
+    "amount": 200,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_4000_bonus_10": {
+    "type": "COMMAND",
+    "value": "lp user {uuid} parent addtemp plasma 30d accumulate",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_4500_fixed_1": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_4500_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 400,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_4500_bonus_30": {
+    "type": "CRATE_KEY",
+    "value": "caixa_lendaria",
+    "amount": 8,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_4500_bonus_10": {
+    "type": "COMMAND",
+    "value": "lp user {uuid} parent addtemp plasma 60d accumulate",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5000_fixed_1": {
+    "type": "RANDOM_LEGENDARY_SHINY_6IV",
+    "value": "legendary",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5000_fixed_2": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 500,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5000_bonus_60": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 750,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5000_bonus_30": {
+    "type": "CRATE_KEY",
+    "value": "shiny",
+    "amount": 7,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "playtime_5000_bonus_10": {
+    "type": "ITEM",
+    "value": "minecraft:paper",
+    "amount": 1,
+    "chance": 0.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_easy_fixed_1": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 700,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_easy_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 450,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_easy_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 900,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_easy_bonus_10": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 2000,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_medium_fixed_1": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 1200,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_medium_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 600,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_medium_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 1200,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_medium_bonus_10": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 1,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_hard_fixed_1": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 2000,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_hard_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 1000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_hard_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 2000,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_hard_bonus_10": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_very_hard_fixed_1": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 3500,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_very_hard_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 1800,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_very_hard_bonus_30": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 3500,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_very_hard_bonus_10": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 3,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_extreme_fixed_1": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 5500,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_extreme_bonus_60": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 3000,
+    "chance": 1.0,
+    "weight": 60,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_extreme_bonus_30": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 2,
+    "chance": 1.0,
+    "weight": 30,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_extreme_bonus_10": {
+    "type": "TOKENS",
+    "value": "impactor:tokens",
+    "amount": 5,
+    "chance": 1.0,
+    "weight": 10,
+    "permission": "",
+    "condition": ""
+  }
+}

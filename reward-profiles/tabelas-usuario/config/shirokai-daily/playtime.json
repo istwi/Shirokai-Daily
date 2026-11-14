@@ -1,0 +1,315 @@
+{
+  "afk": true,
+  "afkSeconds": 300,
+  "goals": [
+    {
+      "id": "hours_1",
+      "period": "PERMANENT",
+      "seconds": 3600,
+      "rewards": [
+        "playtime_1_fixed_1",
+        "playtime_1_bonus_60",
+        "playtime_1_bonus_30",
+        "playtime_1_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_2",
+      "period": "PERMANENT",
+      "seconds": 7200,
+      "rewards": [
+        "playtime_2_fixed_1",
+        "playtime_2_bonus_60",
+        "playtime_2_bonus_30",
+        "playtime_2_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_3",
+      "period": "PERMANENT",
+      "seconds": 10800,
+      "rewards": [
+        "playtime_3_fixed_1",
+        "playtime_3_bonus_60",
+        "playtime_3_bonus_30",
+        "playtime_3_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_5",
+      "period": "PERMANENT",
+      "seconds": 18000,
+      "rewards": [
+        "playtime_5_fixed_1",
+        "playtime_5_bonus_60",
+        "playtime_5_bonus_30",
+        "playtime_5_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_8",
+      "period": "PERMANENT",
+      "seconds": 28800,
+      "rewards": [
+        "playtime_8_fixed_1",
+        "playtime_8_bonus_60",
+        "playtime_8_bonus_30",
+        "playtime_8_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_12",
+      "period": "PERMANENT",
+      "seconds": 43200,
+      "rewards": [
+        "playtime_12_fixed_1",
+        "playtime_12_bonus_60",
+        "playtime_12_bonus_30",
+        "playtime_12_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_18",
+      "period": "PERMANENT",
+      "seconds": 64800,
+      "rewards": [
+        "playtime_18_fixed_1",
+        "playtime_18_bonus_60",
+        "playtime_18_bonus_30",
+        "playtime_18_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_24",
+      "period": "PERMANENT",
+      "seconds": 86400,
+      "rewards": [
+        "playtime_24_fixed_1",
+        "playtime_24_bonus_60",
+        "playtime_24_bonus_30",
+        "playtime_24_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_36",
+      "period": "PERMANENT",
+      "seconds": 129600,
+      "rewards": [
+        "playtime_36_fixed_1",
+        "playtime_36_bonus_60",
+        "playtime_36_bonus_30",
+        "playtime_36_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_48",
+      "period": "PERMANENT",
+      "seconds": 172800,
+      "rewards": [
+        "playtime_48_fixed_1",
+        "playtime_48_bonus_60",
+        "playtime_48_bonus_30",
+        "playtime_48_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_72",
+      "period": "PERMANENT",
+      "seconds": 259200,
+      "rewards": [
+        "playtime_72_fixed_1",
+        "playtime_72_bonus_60",
+        "playtime_72_bonus_30",
+        "playtime_72_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_100",
+      "period": "PERMANENT",
+      "seconds": 360000,
+      "rewards": [
+        "playtime_100_fixed_1",
+        "playtime_100_bonus_60",
+        "playtime_100_bonus_30",
+        "playtime_100_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_150",
+      "period": "PERMANENT",
+      "seconds": 540000,
+      "rewards": [
+        "playtime_150_fixed_1",
+        "playtime_150_bonus_60",
+        "playtime_150_bonus_30",
+        "playtime_150_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_200",
+      "period": "PERMANENT",
+      "seconds": 720000,
+      "rewards": [
+        "playtime_200_fixed_1",
+        "playtime_200_bonus_60",
+        "playtime_200_bonus_30",
+        "playtime_200_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_300",
+      "period": "PERMANENT",
+      "seconds": 1080000,
+      "rewards": [
+        "playtime_300_fixed_1",
+        "playtime_300_bonus_60",
+        "playtime_300_bonus_30",
+        "playtime_300_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_400",
+      "period": "PERMANENT",
+      "seconds": 1440000,
+      "rewards": [
+        "playtime_400_fixed_1",
+        "playtime_400_bonus_60",
+        "playtime_400_bonus_30",
+        "playtime_400_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_500",
+      "period": "PERMANENT",
+      "seconds": 1800000,
+      "rewards": [
+        "playtime_500_fixed_1",
+        "playtime_500_bonus_60",
+        "playtime_500_bonus_30",
+        "playtime_500_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_750",
+      "period": "PERMANENT",
+      "seconds": 2700000,
+      "rewards": [
+        "playtime_750_fixed_1",
+        "playtime_750_bonus_60",
+        "playtime_750_bonus_30",
+        "playtime_750_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_1000",
+      "period": "PERMANENT",
+      "seconds": 3600000,
+      "rewards": [
+        "playtime_1000_fixed_1",
+        "playtime_1000_bonus_60",
+        "playtime_1000_bonus_30",
+        "playtime_1000_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_1250",
+      "period": "PERMANENT",
+      "seconds": 4500000,
+      "rewards": [
+        "playtime_1250_fixed_1",
+        "playtime_1250_bonus_60",
+        "playtime_1250_bonus_30",
+        "playtime_1250_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_1500",
+      "period": "PERMANENT",
+      "seconds": 5400000,
+      "rewards": [
+        "playtime_1500_fixed_1",
+        "playtime_1500_bonus_60",
+        "playtime_1500_bonus_30",
+        "playtime_1500_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_2000",
+      "period": "PERMANENT",
+      "seconds": 7200000,
+      "rewards": [
+        "playtime_2000_fixed_1",
+        "playtime_2000_bonus_60",
+        "playtime_2000_bonus_30",
+        "playtime_2000_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_2500",
+      "period": "PERMANENT",
+      "seconds": 9000000,
+      "rewards": [
+        "playtime_2500_fixed_1",
+        "playtime_2500_bonus_60",
+        "playtime_2500_bonus_30",
+        "playtime_2500_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_3000",
+      "period": "PERMANENT",
+      "seconds": 10800000,
+      "rewards": [
+        "playtime_3000_fixed_1",
+        "playtime_3000_bonus_60",
+        "playtime_3000_bonus_30",
+        "playtime_3000_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_3500",
+      "period": "PERMANENT",
+      "seconds": 12600000,
+      "rewards": [
+        "playtime_3500_fixed_1",
+        "playtime_3500_bonus_60",
+        "playtime_3500_bonus_30",
+        "playtime_3500_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_4000",
+      "period": "PERMANENT",
+      "seconds": 14400000,
+      "rewards": [
+        "playtime_4000_fixed_1",
+        "playtime_4000_bonus_60",
+        "playtime_4000_bonus_30",
+        "playtime_4000_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_4500",
+      "period": "PERMANENT",
+      "seconds": 16200000,
+      "rewards": [
+        "playtime_4500_fixed_1",
+        "playtime_4500_bonus_60",
+        "playtime_4500_bonus_30",
+        "playtime_4500_bonus_10"
+      ]
+    },
+    {
+      "id": "hours_5000",
+      "period": "PERMANENT",
+      "seconds": 18000000,
+      "rewards": [
+        "playtime_5000_fixed_1",
+        "playtime_5000_fixed_2",
+        "playtime_5000_bonus_60",
+        "playtime_5000_bonus_30",
+        "playtime_5000_bonus_10"
+      ]
+    }
+  ]
+}

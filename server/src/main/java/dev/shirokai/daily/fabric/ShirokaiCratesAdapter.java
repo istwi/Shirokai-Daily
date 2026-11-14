@@ -4,8 +4,9 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import java.util.concurrent.*;
 /** Requires the explicit public API extension in integrations/shirokai-crates-grant-fragments.patch. */
 final class ShirokaiCratesAdapter implements RewardAdapter {
-    public boolean supports(String type){return type.equals("CRATE_FRAGMENT");}
+    public boolean supports(String type){return type.equals("CRATE_FRAGMENT")||type.equals("CRATE_KEY");}
     @SuppressWarnings("unchecked") public CompletionStage<String> deliver(ServerPlayerEntity player,Config.Reward reward,String transactionId){
+        if(reward.type().equals("CRATE_KEY"))return CompletableFuture.completedFuture(CrateKeys.deliver(player,reward));
         Object service;java.lang.reflect.Method grant;
         try {
             service=Class.forName("dev.shirokaicrates.ShirokaiCrates").getMethod("service").invoke(null);

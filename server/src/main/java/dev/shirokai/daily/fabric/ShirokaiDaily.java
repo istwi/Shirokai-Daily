@@ -152,6 +152,10 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
     }
     private CompletionStage<String> give(ServerPlayerEntity p,Config.Reward r,String key)throws Exception{
         if(r.type().equals("ITEM"))return CompletableFuture.completedFuture(giveItem(p,r));
+        if(r.type().equals("RANDOM_LEGENDARY_SHINY_6IV")){
+            if(!FabricLoader.getInstance().isModLoaded("cobblemon"))return CompletableFuture.completedFuture("PENDING");
+            return CompletableFuture.completedFuture(PokemonReward.deliver(p,r,key));
+        }
         if(r.type().equals("COMMAND")){
             if(!p.getGameProfile().getName().matches("[A-Za-z0-9_]{1,16}"))return CompletableFuture.completedFuture("PENDING");
             String command=r.value().replace("{uuid}",p.getUuidAsString()).replace("{player}",p.getGameProfile().getName()).replace("{amount}",Integer.toString(r.amount())).replace("{transaction}",key);

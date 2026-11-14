@@ -1,0 +1,89 @@
+{
+  "dailyCount": 0,
+  "weeklyCount": 0,
+  "random": true,
+  "retainCompleted": false,
+  "excludeLegendary": true,
+  "whitelist": [],
+  "blacklist": [],
+  "hourlyCount": 3,
+  "rotationSeconds": 3600,
+  "randomSpecies": true,
+  "pool": [
+    {
+      "id": "capture_easy",
+      "action": "CAPTURE",
+      "species": "",
+      "type": "",
+      "difficulty": "EASY",
+      "amount": 1,
+      "weight": 8,
+      "rewards": [
+        "hunt_easy_fixed_1",
+        "hunt_easy_bonus_60",
+        "hunt_easy_bonus_30",
+        "hunt_easy_bonus_10"
+      ]
+    },
+    {
+      "id": "capture_medium",
+      "action": "CAPTURE",
+      "species": "",
+      "type": "",
+      "difficulty": "MEDIUM",
+      "amount": 2,
+      "weight": 5,
+      "rewards": [
+        "hunt_medium_fixed_1",
+        "hunt_medium_bonus_60",
+        "hunt_medium_bonus_30",
+        "hunt_medium_bonus_10"
+      ]
+    },
+    {
+      "id": "capture_hard",
+      "action": "CAPTURE",
+      "species": "",
+      "type": "",
+      "difficulty": "HARD",
+      "amount": 3,
+      "weight": 3,
+      "rewards": [
+        "hunt_hard_fixed_1",
+        "hunt_hard_bonus_60",
+        "hunt_hard_bonus_30",
+        "hunt_hard_bonus_10"
+      ]
+    },
+    {
+      "id": "capture_very_hard",
+      "action": "CAPTURE",
+      "species": "",
+      "type": "",
+      "difficulty": "VERY_HARD",
+      "amount": 4,
+      "weight": 2,
+      "rewards": [
+        "hunt_very_hard_fixed_1",
+        "hunt_very_hard_bonus_60",
+        "hunt_very_hard_bonus_30",
+        "hunt_very_hard_bonus_10"
+      ]
+    },
+    {
+      "id": "capture_extreme",
+      "action": "CAPTURE",
+      "species": "",
+      "type": "",
+      "difficulty": "EXTREME",
+      "amount": 5,
+      "weight": 1,
+      "rewards": [
+        "hunt_extreme_fixed_1",
+        "hunt_extreme_bonus_60",
+        "hunt_extreme_bonus_30",
+        "hunt_extreme_bonus_10"
+      ]
+    }
+  ]
+}

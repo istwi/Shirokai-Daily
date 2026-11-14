@@ -37,7 +37,7 @@ public final class MenuText {
         long total=weighted.stream().mapToLong(Config.Reward::weight).sum();
         if(total>0){
             lines.add(weighted.stream().allMatch(r->r.chance()==1)?"&7Bônus &8• &7uma destas opções:":"&7Bônus &8• &7até uma opção:");
-            for(var reward:weighted)lines.add(prize(reward)+" &8("+percent(100.0*reward.weight()/total*reward.chance())+"%)");
+            for(var reward:weighted)lines.add(reward.chance()==0?"&8• &7Sem bônus &8("+percent(100.0*reward.weight()/total)+"%)":prize(reward)+" &8("+percent(100.0*reward.weight()/total*reward.chance())+"%)");
         }
         if(lines.isEmpty())lines.add("&8Nenhuma recompensa disponível para você.");
         return List.copyOf(lines);
@@ -52,12 +52,21 @@ public final class MenuText {
     private static String percent(double value){return String.format(Locale.ROOT,value==Math.rint(value)?"%.0f":"%.1f",value);}
     private static String prize(Config.Reward reward){
         String name=switch(reward.type()){
-            case "COMMAND"->"Recompensa especial";case "DOLLARS"->"Dollars";case "TOKENS"->"Tokens";case "CRATE_FRAGMENT"->"Fragmentos de caixa";
+            case "CRATE_KEY"->"Chave: "+reward.value();case "RANDOM_LEGENDARY_SHINY_6IV"->"Lendário aleatório shiny 6IV";case "COMMAND"->vipLabel(reward.value());case "DOLLARS"->"Dollars";case "TOKENS"->"Tokens";case "CRATE_FRAGMENT"->"Fragmentos de caixa";
             default->switch(reward.value()){
-                case "minecraft:diamond"->"Diamante";case "minecraft:emerald"->"Esmeralda";case "minecraft:gold_ingot"->"Barra de ouro";case "minecraft:golden_apple"->"Maçã dourada";
+                case "cobblemon:poke_ball"->"Poké Ball";case "cobblemon:great_ball"->"Great Ball";case "cobblemon:ultra_ball"->"Ultra Ball";case "cobblemon:rare_candy"->"Rare Candy";case "cobblemon:master_ball"->"Master Ball";case "minecraft:diamond"->"Diamante";case "minecraft:emerald"->"Esmeralda";case "minecraft:gold_ingot"->"Barra de ouro";case "minecraft:golden_apple"->"Maçã dourada";
                 default->{String id=reward.value();String label=id.substring(id.indexOf(':')+1).replace('_',' ');yield label.isEmpty()?"Item":Character.toUpperCase(label.charAt(0))+label.substring(1);}
             };
         };
         return "&8• &a"+reward.amount()+"× &7"+name;
     }
+    private static String vipLabel(String command){
+        var parts=command.split(" ");
+        if(parts.length==8&&parts[0].equals("lp")&&parts[3].equals("parent")&&parts[4].equals("addtemp")){
+            String group=switch(parts[5]){case "magma"->"Básico";case "aqua"->"Médio";case "plasma"->"Top";default->parts[5];};
+            return "VIP "+group+" ("+parts[6].replace("d"," dias")+")";
+        }
+        return "Recompensa especial";
+    }
+
 }

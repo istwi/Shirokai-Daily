@@ -146,3 +146,7 @@ Estados de entrega:
 Após queda, EXECUTING/UNCERTAIN **não são repetidos automaticamente**. Não existe transação atômica entre JSON, inventário vanilla e APIs externas. Confira inventário, extrato/API e logs; faça backup com servidor parado e reconcilie a linha do ledger para DONE se entregue ou PENDING somente após provar que não houve entrega. Não remova a transação inteira nem refaça o sorteio. Use `/shirokaidaily status <UUID>` para consultar as últimas 20 transações e `/shirokaidaily reconcile <UUID> "<chave>" <índice>` com DONE ou PENDING. Índices começam em zero; o comando só aceita EXECUTING/UNCERTAIN e registra o administrador nos logs. A conferência do efeito permanece manual.
 
 Faça backup da pasta de dados e das configurações. Desabilitar módulos não remove seus dados. IDs de Pokémon vistos são duráveis para impedir reutilização após reset/reinício; esse histórico cresce e ainda precisa de índice/medição em servidores de longa duração. Não há benchmark de 100 jogadores.
+
+## Perfil de recompensas do servidor
+
+A [tabela de recompensas personalizada](reward-profiles/tabelas-usuario/README.md) contém os JSONs opcionais de 30 dias de Daily, 28 marcos até 5.000h e cinco dificuldades de Hunts. Requer alpha.8. O perfil não substitui automaticamente configurações existentes.
