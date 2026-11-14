@@ -1,6 +1,6 @@
 {
-  "title": "✦ playtime",
-  "icon": "minecraft:cyan_stained_glass_pane",
+  "title": "✦ Playtime",
+  "icon": "minecraft:gray_stained_glass_pane",
   "pageSize": 28,
   "backSlot": 49,
   "slots": [
@@ -39,5 +39,6 @@
   "nextSlot": 53,
   "icons": {},
   "texts": {},
-  "lore": {}
+  "lore": {},
+  "rows": 6
 }

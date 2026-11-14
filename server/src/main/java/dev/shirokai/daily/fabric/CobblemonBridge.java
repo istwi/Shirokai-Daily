@@ -10,25 +10,47 @@ import net.minecraft.server.network.ServerPlayerEntity;
 final class CobblemonBridge implements AutoCloseable {
     private final ShirokaiDaily mod;
     private final List<Runnable> cleanup=new ArrayList<>();
+    private final Map<String,Object> registered=new HashMap<>();
+    private final Map<String,net.minecraft.item.ItemStack> models=new HashMap<>();
     private final Set<String> species=new HashSet<>(),types=new HashSet<>();
     private String status="não iniciado"; private boolean healthy;
     CobblemonBridge(ShirokaiDaily mod){this.mod=mod;}
     String status(){return status;}
     void start(){
+        close();
         try {
             Class<?> registry=Class.forName("com.cobblemon.mod.common.api.pokemon.PokemonSpecies");
             Object instance=registry.getField("INSTANCE").get(null);
-            species.clear();types.clear();
+            species.clear();types.clear();registered.clear();models.clear();
+            List<Engine.Species> catalog=new ArrayList<>();
             for(Object s:(Iterable<?>)get(instance,"getSpecies")){
-                species.add(get(s,"getResourceIdentifier").toString());
-                for(Object type:(Iterable<?>)get(s,"getTypes"))types.add(get(type,"getName").toString().toLowerCase(Locale.ROOT));
+                String id=get(s,"getResourceIdentifier").toString();species.add(id);registered.put(id,s);
+                Set<String> pokemonTypes=new HashSet<>();for(Object type:(Iterable<?>)get(s,"getTypes")){String name=get(type,"getName").toString().toLowerCase(Locale.ROOT);types.add(name);pokemonTypes.add(name);}
+                Set<?> labels=(Set<?>)get(s,"getLabels");
+                if((boolean)get(s,"getImplemented"))catalog.add(new Engine.Species(id,Set.copyOf(pokemonTypes),labels.contains("legendary")||labels.contains("mythical")));
             }
             if(species.isEmpty())throw new IllegalStateException("Registro de espécies vazio");
             validate(mod.config());
+            mod.species(catalog);
             subscribe("POKEMON_CAPTURED",this::captured);subscribe("BATTLE_VICTORY",this::victory);
             healthy=true;status="API conectada, "+species.size()+" espécies; validar em servidor 1.8.3";
             ShirokaiDaily.LOG.info("Cobblemon: {}",status);
         }catch(Exception e){close();status="Hunts sem eventos: API incompatível";ShirokaiDaily.LOG.error(status,e);}
+    }
+    net.minecraft.item.ItemStack model(String id){
+        try{
+            Object target=registered.get(id);if(target==null)return new net.minecraft.item.ItemStack(net.minecraft.item.Items.PAPER);
+            var cached=models.get(id);
+            if(cached==null){
+                Class<?> pokemonItem=Class.forName("com.cobblemon.mod.common.item.PokemonItem");
+                cached=(net.minecraft.item.ItemStack)pokemonItem.getMethod("from",Class.forName("com.cobblemon.mod.common.pokemon.Species"),String[].class).invoke(null,target,new String[0]);
+                models.put(id,cached.copy());
+            }return cached.copy();
+        }catch(ReflectiveOperationException|LinkageError failure){
+            ShirokaiDaily.LOG.warn("Modelo Cobblemon indisponível para {}",id,failure);
+            models.put(id,new net.minecraft.item.ItemStack(net.minecraft.item.Items.PAPER));
+            return models.get(id).copy();
+        }
     }
     boolean registryReady(){return !species.isEmpty();}
     void validate(Config config){
@@ -85,5 +107,5 @@ final class CobblemonBridge implements AutoCloseable {
         return new Engine.HuntEvent(id,action,name,types,legendary,owned,true);
     }
     private static Object get(Object value,String method)throws ReflectiveOperationException{return value.getClass().getMethod(method).invoke(value);}
-    @Override public void close(){healthy=false;cleanup.forEach(Runnable::run);cleanup.clear();}
+    @Override public void close(){healthy=false;cleanup.forEach(Runnable::run);cleanup.clear();mod.species(List.of());}
 }

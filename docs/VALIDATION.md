@@ -1,5 +1,11 @@
 # Validação
 
+## Menus e rotação horária — 0.1.0-alpha.3
+
+Adicionados testes para: defaults cinza/30 dias/metas até 1000h/baú de 27 slots; ciclo completo de 30 dias; sorteio horário estável após reinício/reload; troca na fronteira da hora sem repetir alvos quando o pool permite; captura somente da espécie correta; resgate manual em Dollars; preservação de entregas pendentes após expiração; ausência temporária de registro sem sortear missões vazias; filtros e pool pequeno sem alvos duplicados; migração com backup sem tocar dados por UUID; preservação de configuração personalizada; migração de Hunts antigos preservando o conteúdo de entregas já sorteadas; limite máximo de meta.
+
+O JAR oficial Cobblemon 1.8.3 foi obtido via HTTPS, conferido contra seu SHA-256 publicado e inspecionado com javap. Confirmadas as assinaturas de `PokemonItem.from(Species, String...)`, `Species.getImplemented()`, `Species.getLabels()` e `PokemonSpecies.getSpecies()`. Não houve teste visual de cliente Minecraft nem teste nativo Windows nesta sessão. Não foi feita publicação remota.
+
 ## Correção Windows — 0.1.0-alpha.2
 
 A abertura de diretório por FileChannel era rejeitada no Windows após o rename do JSON. A correção evita somente essa operação não suportada no Windows, mantendo fsync do arquivo, rename atômico e propagação de falhas reais. Foram adicionados testes de substituição/leitura pelo provider nativo, resgate/playtime/reinício sem directory fsync e falha real de escrita com preservação do snapshot anterior. A suíte passou a ter 42 verificações e a build Fabric alpha.2 passou. O workflow [Core tests](https://github.com/istwi/Shirokai-Daily/actions/runs/43402393985), commit `9d9b4bc60296d651df72f539b246f0795aa45940`, concluiu com sucesso os testes em Windows e Linux. A verificação remota do JAR também confirmou o SHA-256 `9e7fbb3b0772524b309a53ba9594021f6c6a4cd02611e276814e324d58f31382`.

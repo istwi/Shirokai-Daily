@@ -41,6 +41,7 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
         adapters.add(new ImpactorAdapter());
         adapters.add(new ShirokaiCratesAdapter());
         ServerLifecycleEvents.SERVER_STARTED.register(s->{server=s;bridge=new CobblemonBridge(this);if(config.general().integrations().getOrDefault("cobblemon",true))bridge.start();});
+        ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((s,resources,success)->{if(success&&bridge!=null&&config.general().integrations().getOrDefault("cobblemon",true))bridge.start();});
         ServerLifecycleEvents.SERVER_STOPPING.register(s->{
             for(var p:s.getPlayerManager().getPlayerList())sample(p);
             if(bridge!=null)bridge.close();io.shutdown();
@@ -49,7 +50,7 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
         });
         ServerPlayConnectionEvents.JOIN.register((h,sender,s)->sessions.put(h.player.getUuid(),new Activity(System.nanoTime(),h.player.getX(),h.player.getY(),h.player.getZ(),h.player.getWorld().getRegistryKey().getValue().toString())));
         ServerPlayConnectionEvents.DISCONNECT.register((h,s)->{sample(h.player);sessions.remove(h.player.getUuid());});
-        ServerTickEvents.END_SERVER_TICK.register(s->{if(++ticks%200==0)for(var p:s.getPlayerManager().getPlayerList())sample(p);});
+        ServerTickEvents.END_SERVER_TICK.register(s->{if(++ticks%200==0)for(var p:s.getPlayerManager().getPlayerList()){sample(p);if(Menus.refreshHunts(p,config,Instant.now()))refreshHunts(p);}});
         UseItemCallback.EVENT.register((p,w,h)->{if(p instanceof ServerPlayerEntity sp)active(sp);return TypedActionResult.pass(p.getStackInHand(h));});
         AttackEntityCallback.EVENT.register((p,w,h,e,hit)->{if(p instanceof ServerPlayerEntity sp)active(sp);return ActionResult.PASS;});
         UseBlockCallback.EVENT.register((p,w,h,hit)->{if(p instanceof ServerPlayerEntity sp)active(sp);return ActionResult.PASS;});
@@ -115,6 +116,13 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
         if(!enabled(module)||!Permissions.has(p,"shirokaidaily."+module)){p.sendMessage(Text.literal("Módulo indisponível."),false);return;}
         active(p);UUID id=p.getUuid();work(()->engine.view(id,Instant.now()),state->{if(!p.isDisconnected())Menus.open(this,p,module,page,state,config);});
     }
+    private void refreshHunts(ServerPlayerEntity p){
+        if(!enabled("hunts")||!Permissions.has(p,"shirokaidaily.hunts"))return;
+        var previous=p.currentScreenHandler;
+        work(()->engine.view(p.getUuid(),Instant.now()),state->{
+            if(!p.isDisconnected()&&p.currentScreenHandler==previous)Menus.open(this,p,"hunts",0,state,config);
+        });
+    }
     private boolean enabled(String module){return switch(module){case "daily"->config.general().daily();case "playtime"->config.general().playtime();case "hunts"->config.general().hunts();default->false;};}
     void claim(ServerPlayerEntity p,String origin,String target){
         if(!enabled(origin)||!Permissions.has(p,"shirokaidaily."+origin))return;
@@ -162,6 +170,8 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
         int count=r.amount();while(count>0){int n=Math.min(item.getMaxCount(),count);ItemStack stack=new ItemStack(item,n);if(!p.getInventory().insertStack(stack)||!stack.isEmpty())return "UNCERTAIN";count-=n;}
         p.getInventory().markDirty();return "DONE";
     }
+    void species(List<Engine.Species> registered){work(()->{engine.species(registered);return true;},ignored->{});}
+    ItemStack model(String species){return bridge==null?new ItemStack(Items.PAPER):bridge.model(species);}
     void hunt(UUID id,Engine.HuntEvent event){if(!config.general().integrations().getOrDefault("cobblemon",true))return;work(()->{engine.hunt(id,event,Instant.now());return true;},ignored->{});}
     <T> void work(Callable<T> operation,Consumer<T> done){
         if(io.isShutdown())return;

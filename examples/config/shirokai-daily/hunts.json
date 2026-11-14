@@ -1,6 +1,6 @@
 {
-  "dailyCount": 3,
-  "weeklyCount": 2,
+  "dailyCount": 0,
+  "weeklyCount": 0,
   "random": true,
   "retainCompleted": false,
   "excludeLegendary": true,
@@ -8,40 +8,43 @@
   "blacklist": [],
   "pool": [
     {
-      "id": "catch_any",
+      "id": "capture_easy",
       "action": "CAPTURE",
       "species": "",
       "type": "",
       "difficulty": "EASY",
-      "amount": 5,
+      "amount": 1,
       "weight": 4,
       "rewards": [
-        "hunt_item"
+        "hunt_dollars_easy"
       ]
     },
     {
-      "id": "catch_fire",
+      "id": "capture_medium",
       "action": "CAPTURE",
       "species": "",
-      "type": "fire",
+      "type": "",
       "difficulty": "MEDIUM",
-      "amount": 3,
+      "amount": 2,
       "weight": 2,
       "rewards": [
-        "hunt_item"
+        "hunt_dollars_medium"
       ]
     },
     {
-      "id": "defeat_any",
-      "action": "DEFEAT",
+      "id": "capture_hard",
+      "action": "CAPTURE",
       "species": "",
       "type": "",
       "difficulty": "HARD",
-      "amount": 10,
+      "amount": 3,
       "weight": 1,
       "rewards": [
-        "hunt_item"
+        "hunt_dollars_hard"
       ]
     }
-  ]
+  ],
+  "hourlyCount": 3,
+  "rotationSeconds": 3600,
+  "randomSpecies": true
 }

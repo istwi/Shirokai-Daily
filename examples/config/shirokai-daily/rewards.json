@@ -25,5 +25,32 @@
     "weight": 0,
     "permission": "",
     "condition": ""
+  },
+  "hunt_dollars_hard": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 1500,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_dollars_easy": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 500,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
+  },
+  "hunt_dollars_medium": {
+    "type": "DOLLARS",
+    "value": "impactor:dollars",
+    "amount": 1000,
+    "chance": 1.0,
+    "weight": 0,
+    "permission": "",
+    "condition": ""
   }
 }
