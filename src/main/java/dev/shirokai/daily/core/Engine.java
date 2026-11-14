@@ -7,8 +7,8 @@ import java.util.random.RandomGenerator;
 
 /** All methods execute on one owned worker; no Minecraft API access here. */
 public final class Engine {
-    private Config config; private final Store store; private final RandomGenerator random;
-    public Engine(Config config,Store store,RandomGenerator random){this.config=config;this.store=store;this.random=random;}
+    private Config config; private final Store store; private final RandomGenerator random;private final SourceExclusions excluded;
+    public Engine(Config config,Store store,RandomGenerator random)throws IOException{this.config=config;this.store=store;this.random=random;this.excluded=store.loadExclusions();}
     public record Species(String id,Set<String> types,boolean legendary){}
     private List<Species> species=List.of();
     public void species(List<Species> registered){species=List.copyOf(registered);}
@@ -83,8 +83,17 @@ public final class Engine {
         }
         roll(s,now);store.save(id,s);
     }
-    public record HuntEvent(String uniqueId,String action,String species,Set<String> types,boolean legendary,boolean owned,boolean confirmed){}
+    public enum HuntOrigin { NORMAL, RAID, UNKNOWN }
+    public record HuntEvent(String uniqueId,String action,String species,Set<String> types,boolean legendary,boolean owned,boolean confirmed,UUID battleId,HuntOrigin origin){
+        public HuntEvent(String uniqueId,String action,String species,Set<String> types,boolean legendary,boolean owned,boolean confirmed){this(uniqueId,action,species,types,legendary,owned,confirmed,null,HuntOrigin.NORMAL);}
+    }
+    public void excludeRaid(UUID battle,Set<UUID> pokemon)throws IOException{
+        boolean changed=battle!=null&&excluded.battles.add(battle);
+        for(UUID id:pokemon)changed|=excluded.pokemon.add("pokemon/"+id);
+        if(changed)store.saveExclusions(excluded);
+    }
     public void hunt(UUID id,HuntEvent event,Instant now)throws IOException{
+        if(event.origin()!=HuntOrigin.NORMAL||event.battleId()!=null&&excluded.battles.contains(event.battleId())||excluded.pokemon.contains(event.uniqueId()))return;
         if(!config.general().hunts()||!event.confirmed||event.owned||event.uniqueId==null||event.uniqueId.isBlank())return;
         var c=config.hunts();if(c.excludeLegendary()&&event.legendary||c.blacklist().contains(event.species)||!c.whitelist().isEmpty()&&!c.whitelist().contains(event.species))return;
         State s=store.load(id);roll(s,now);if(!s.hunts.seen.add(event.uniqueId))return;

@@ -3,5 +3,5 @@
  "description":"Server-side Daily, Playtime and Hunts with manual rewards.","environment":"server",
  "entrypoints":{"server":["dev.shirokai.daily.fabric.ShirokaiDaily"]},
  "depends":{"fabricloader":">=0.17.2","minecraft":"1.21.1","java":">=21","fabric-api":"*","cobblemon":"1.8.3"},
- "suggests":{"luckperms":"*","impactor":"*","shirokaicrates":"*"}
+ "suggests":{"luckperms":"*","impactor":"*","shirokaicrates":"*","shirokai_raids":"*"}
 }

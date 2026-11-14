@@ -1,111 +1,138 @@
 package dev.shirokai.daily.fabric;
-import dev.shirokai.daily.core.Engine;
-import dev.shirokai.daily.core.Config;
-import java.lang.reflect.*;
+import com.cobblemon.mod.common.api.Priority;
+import com.cobblemon.mod.common.api.battles.model.PokemonBattle;
+import com.cobblemon.mod.common.api.battles.model.actor.*;
+import com.cobblemon.mod.common.api.events.CobblemonEvents;
+import com.cobblemon.mod.common.api.events.battles.BattleVictoryEvent;
+import com.cobblemon.mod.common.api.events.pokemon.PokemonCapturedEvent;
+import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
+import com.cobblemon.mod.common.api.reactive.Observable;
+import com.cobblemon.mod.common.api.reactive.ObservableSubscription;
+import com.cobblemon.mod.common.item.PokemonItem;
+import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
+import com.cobblemon.mod.common.pokemon.*;
+import dev.shirokai.daily.core.*;
+import dev.shirokai.daily.core.integration.EventIsolation;
+import dev.shirokai.daily.core.integration.RaidBattleGate;
+import net.minecraft.item.*;
 import java.util.*;
 import java.util.function.Consumer;
-import net.minecraft.server.network.ServerPlayerEntity;
 
-/** Guarded optional linkage. Unknown API shapes stop Hunts instead of accepting guessed events. */
+/** Typed Cobblemon PUBLIC API; private actor implementations are never reflected on. */
 final class CobblemonBridge implements AutoCloseable {
-    private final ShirokaiDaily mod;
-    private final List<Runnable> cleanup=new ArrayList<>();
-    private final Map<String,Object> registered=new HashMap<>();
-    private final Map<String,net.minecraft.item.ItemStack> models=new HashMap<>();
-    private final Set<String> species=new HashSet<>(),types=new HashSet<>();
-    private String status="não iniciado"; private boolean healthy;
-    CobblemonBridge(ShirokaiDaily mod){this.mod=mod;}
-    String status(){return status;}
-    void start(){
-        close();
-        try {
-            Class<?> registry=Class.forName("com.cobblemon.mod.common.api.pokemon.PokemonSpecies");
-            Object instance=registry.getField("INSTANCE").get(null);
-            species.clear();types.clear();registered.clear();models.clear();
-            List<Engine.Species> catalog=new ArrayList<>();
-            for(Object s:(Iterable<?>)get(instance,"getSpecies")){
-                String id=get(s,"getResourceIdentifier").toString();species.add(id);registered.put(id,s);
-                Set<String> pokemonTypes=new HashSet<>();for(Object type:(Iterable<?>)get(s,"getTypes")){String name=get(type,"getName").toString().toLowerCase(Locale.ROOT);types.add(name);pokemonTypes.add(name);}
-                Set<?> labels=(Set<?>)get(s,"getLabels");
-                if((boolean)get(s,"getImplemented"))catalog.add(new Engine.Species(id,Set.copyOf(pokemonTypes),labels.contains("legendary")||labels.contains("mythical")));
-            }
-            if(species.isEmpty())throw new IllegalStateException("Registro de espécies vazio");
-            validate(mod.config());
-            mod.species(catalog);
-            subscribe("POKEMON_CAPTURED",this::captured);subscribe("BATTLE_VICTORY",this::victory);
-            healthy=true;status="API conectada, "+species.size()+" espécies; validar em servidor 1.8.3";
-            ShirokaiDaily.LOG.info("Cobblemon: {}",status);
-        }catch(Exception e){close();status="Hunts sem eventos: API incompatível";ShirokaiDaily.LOG.error(status,e);}
+ private final ShirokaiDaily mod;
+ private final ShirokaiRaidsAdapter raids=new ShirokaiRaidsAdapter();
+ private final EventIsolation events=new EventIsolation(System::nanoTime,(message,error)->ShirokaiDaily.LOG.warn(message,error));
+ private final List<ObservableSubscription<?>> subscriptions=new ArrayList<>();
+ private final Map<String,Species> registered=new HashMap<>();
+ private final Map<String,ItemStack> models=new HashMap<>();
+ private final Set<String> types=new HashSet<>();
+ private final Set<UUID> excludedPokemon=new HashSet<>();
+ private final RaidBattleGate<BattleActor> battleGate=new RaidBattleGate<>(this::exclude);
+ private String status="não iniciado";private boolean healthy;
+ CobblemonBridge(ShirokaiDaily mod){this.mod=mod;}
+ String status(){return status+" | eventos ignorados="+events.failures();}
+ void start(){
+  close();
+  try{
+   registered.clear();models.clear();types.clear();List<Engine.Species> catalog=new ArrayList<>();
+   for(Species s:PokemonSpecies.getSpecies()){
+    String id=s.getResourceIdentifier().toString();registered.put(id,s);Set<String> pokemonTypes=new HashSet<>();
+    for(var type:s.getTypes()){String name=type.getName().toLowerCase(Locale.ROOT);types.add(name);pokemonTypes.add(name);}
+    if(s.getImplemented())catalog.add(new Engine.Species(id,Set.copyOf(pokemonTypes),s.getLabels().contains("legendary")||s.getLabels().contains("mythical")));
+   }
+   if(registered.isEmpty())throw new IllegalStateException("Registro de espécies vazio");
+   validate(mod.config());mod.species(catalog);
+   // Observe at creation, before any other mod can remove sessions/entities at battle end.
+   subscribe("battle-start-pre",CobblemonEvents.BATTLE_STARTED_PRE,e->observe(e.getBattle()));
+   subscribe("battle-start-post",CobblemonEvents.BATTLE_STARTED_POST,e->observe(e.getBattle()));
+   subscribe("capture",CobblemonEvents.POKEMON_CAPTURED,this::captured);
+   subscribe("victory",CobblemonEvents.BATTLE_VICTORY,this::victory);
+   healthy=true;status="API pública conectada, "+registered.size()+" espécies; filtro de Raids ativo";ShirokaiDaily.LOG.info("Cobblemon: {}",status);
+  }catch(Exception|LinkageError e){close();status="Hunts sem eventos: falha de inicialização da API";ShirokaiDaily.LOG.error(status,e);}
+ }
+ private <T> void subscribe(String kind,Observable<T> observable,Consumer<T> callback){
+  subscriptions.add(observable.subscribe(Priority.HIGHEST,(Consumer<T>)event->{if(healthy)events.run(kind,()->callback.accept(event));}));
+ }
+ private void serverThread(){if(!mod.server().isOnThread())throw new IllegalStateException("Evento Cobblemon fora da thread do servidor; ignorado");}
+ private void exclude(UUID battle,Set<UUID> pokemon){
+  excludedPokemon.addAll(pokemon);mod.excludeRaid(battle,Set.copyOf(pokemon));
+ }
+ /** Public API calls are evaluated for all actors, including actors that did not lose. */
+ private boolean observe(PokemonBattle battle){
+  serverThread();return battleGate.allow(battle.getBattleId(),battle.getActors(),actor->{
+   var entity=actor instanceof EntityBackedBattleActor<?> backed?backed.getEntity():null;
+   boolean raid=ShirokaiRaidsAdapter.marked(entity);
+   if(!raid)raid=raids.raidActor(actor);
+   Set<UUID> pokemon=new HashSet<>();
+   if(entity instanceof PokemonEntity anchor){
+    UUID id=anchor.getPokemon().getUuid();pokemon.add(id);
+    if(!raid)raid=RaidBattleGate.knownRaidTarget(actor.getType().name(),anchor.getPokemon().isWild(),excludedPokemon.contains(id));
+   }
+   for(var bp:actor.getPokemonList()){
+    UUID original=bp.getOriginalPokemon().getUuid(),effected=bp.getEffectedPokemon().getUuid();
+    boolean known=excludedPokemon.contains(original)||excludedPokemon.contains(effected);
+    if(RaidBattleGate.sourceIdentity(bp.getOriginalPokemon().isWild(),known,ShirokaiRaidsAdapter.marked(bp.getEntity()))){pokemon.add(original);pokemon.add(effected);}
+    if(!raid)raid=RaidBattleGate.knownRaidTarget(actor.getType().name(),bp.getOriginalPokemon().isWild(),known)||ShirokaiRaidsAdapter.marked(bp.getEntity());
+   }
+   return new RaidBattleGate.Evidence(raid,pokemon);
+  },actor->{
+   Set<UUID> targets=new HashSet<>();
+   if(actor instanceof EntityBackedBattleActor<?> backed&&backed.getEntity() instanceof PokemonEntity anchor&&anchor.getPokemon().isWild())targets.add(anchor.getPokemon().getUuid());
+   for(var bp:actor.getPokemonList())if(bp.getOriginalPokemon().isWild()){
+    targets.add(bp.getOriginalPokemon().getUuid());targets.add(bp.getEffectedPokemon().getUuid());
+   }return targets;
+  });
+ }
+ private void captured(PokemonCapturedEvent event){
+  serverThread();Pokemon pokemon=event.getPokemon();
+  if(excludedPokemon.contains(pokemon.getUuid())||ShirokaiRaidsAdapter.marked(event.getPokeBallEntity())||ShirokaiRaidsAdapter.marked(pokemon.getEntity())){
+   exclude(null,Set.of(pokemon.getUuid()));return;
+  }
+  mod.hunt(event.getPlayer().getUuid(),event(pokemon,"CAPTURE",null));
+ }
+ private record Credit(UUID player,Engine.HuntEvent event){}
+ private void victory(BattleVictoryEvent event){
+  PokemonBattle battle=event.getBattle();
+  if(!observe(battle)||event.getWasWildCapture())return;
+  // Reflection on actor.getClass() caused IllegalAccessException for private Raid actors.
+  // Invocation is now through the public BattleActor API, after the Raid exclusion barrier.
+  Set<UUID> winners=new LinkedHashSet<>();
+  for(BattleActor actor:event.getWinners())if(actor.getType()==ActorType.PLAYER)actor.getPlayerUUIDs().forEach(winners::add);
+  List<Credit> staged=new ArrayList<>();Set<UUID> stagedPokemon=new HashSet<>();
+  try{
+   for(BattleActor loser:event.getLosers()){
+    if(loser.getType()!=ActorType.WILD)continue; // NPC and player losses retain their existing exclusion.
+    for(var bp:loser.getPokemonList()){
+     Pokemon pokemon=bp.getOriginalPokemon();if(bp.getHealth()>0||!pokemon.isWild()||!stagedPokemon.add(pokemon.getUuid()))continue;
+     Engine.HuntEvent progress=event(pokemon,"DEFEAT",battle.getBattleId());for(UUID player:winners)staged.add(new Credit(player,progress));
     }
-    net.minecraft.item.ItemStack model(String id){
-        try{
-            Object target=registered.get(id);if(target==null)return new net.minecraft.item.ItemStack(net.minecraft.item.Items.PAPER);
-            var cached=models.get(id);
-            if(cached==null){
-                Class<?> pokemonItem=Class.forName("com.cobblemon.mod.common.item.PokemonItem");
-                cached=(net.minecraft.item.ItemStack)pokemonItem.getMethod("from",Class.forName("com.cobblemon.mod.common.pokemon.Species"),String[].class).invoke(null,target,new String[0]);
-                models.put(id,cached.copy());
-            }return cached.copy();
-        }catch(ReflectiveOperationException|LinkageError failure){
-            ShirokaiDaily.LOG.warn("Modelo Cobblemon indisponível para {}",id,failure);
-            models.put(id,new net.minecraft.item.ItemStack(net.minecraft.item.Items.PAPER));
-            return models.get(id).copy();
-        }
-    }
-    boolean registryReady(){return !species.isEmpty();}
-    void validate(Config config){
-        Set<String> configured=new HashSet<>();configured.addAll(config.hunts().whitelist());configured.addAll(config.hunts().blacklist());
-        for(var mission:config.hunts().pool()){
-            if(!mission.species().isEmpty())configured.add(mission.species());
-            if(!mission.type().isEmpty()&&!types.contains(mission.type()))throw new IllegalArgumentException("Tipo não registrado: "+mission.type());
-        }
-        for(String name:configured)if(!species.contains(name))throw new IllegalArgumentException("Espécie não registrada: "+name+" (use namespace:espécie)");
-    }
-    private void subscribe(String field,Consumer<Object> callback)throws Exception {
-        Object observable=Class.forName("com.cobblemon.mod.common.api.events.CobblemonEvents").getField(field).get(null);
-        Class<?> function=Class.forName("kotlin.jvm.functions.Function1"),priority=Class.forName("com.cobblemon.mod.common.api.Priority");
-        Object normal=priority.getField("NORMAL").get(null);
-        Object handler=Proxy.newProxyInstance(function.getClassLoader(),new Class<?>[]{function},(proxy,method,args)->{
-            if(method.getName().equals("invoke")){
-                if(healthy){try{callback.accept(args[0]);}catch(Exception e){healthy=false;status="Hunts pausadas: falha na API";ShirokaiDaily.LOG.error(status,e);}}
-                return Class.forName("kotlin.Unit").getField("INSTANCE").get(null);
-            }
-            return switch(method.getName()){case "toString"->"ShirokaiDailyEventHandler";case "hashCode"->System.identityHashCode(proxy);case "equals"->proxy==args[0];default->null;};
-        });
-        Object subscription=observable.getClass().getMethod("subscribe",priority,function).invoke(observable,normal,handler);
-        cleanup.add(()->{try{get(subscription,"unsubscribe");}catch(Exception e){ShirokaiDaily.LOG.warn("Não foi possível cancelar inscrição Cobblemon",e);}});
-    }
-    private void captured(Object event){
-        try {
-            Object player=get(event,"getPlayer"),pokemon=get(event,"getPokemon");
-            if(!(player instanceof ServerPlayerEntity p)||!mod.server().isOnThread())throw new IllegalStateException("Evento fora da thread do servidor");
-            mod.hunt(p.getUuid(),event(pokemon,"pokemon/"+get(pokemon,"getUuid"),"CAPTURE",false));
-        }catch(ReflectiveOperationException e){throw new IllegalStateException(e);}
-    }
-    private void victory(Object event){
-        try {
-            if(!mod.server().isOnThread())throw new IllegalStateException("Evento fora da thread do servidor");
-            if((boolean)get(event,"getWasWildCapture"))return;
-            List<UUID> winners=new ArrayList<>();
-            for(Object actor:(Iterable<?>)get(event,"getWinners"))if(get(actor,"getType").toString().equals("PLAYER"))for(Object id:(Iterable<?>)get(actor,"getPlayerUUIDs"))winners.add((UUID)id);
-            // PvP and NPC battles do not count. Only actually fainted, unowned wild Pokémon.
-            for(Object loser:(Iterable<?>)get(event,"getLosers")){
-                if(!get(loser,"getType").toString().equals("WILD"))continue;
-                for(Object battlePokemon:(Iterable<?>)get(loser,"getPokemonList")){
-                    if(((Number)get(battlePokemon,"getHealth")).intValue()>0)continue;
-                    Object pokemon=get(battlePokemon,"getOriginalPokemon");if(!(boolean)get(pokemon,"isWild"))continue;
-                    var progress=event(pokemon,"pokemon/"+get(pokemon,"getUuid"),"DEFEAT",false);
-                    for(UUID player:winners)mod.hunt(player,progress);
-                }
-            }
-        }catch(ReflectiveOperationException e){throw new IllegalStateException(e);}
-    }
-    private Engine.HuntEvent event(Object pokemon,String id,String action,boolean owned)throws ReflectiveOperationException {
-        String name=get(get(pokemon,"getSpecies"),"getResourceIdentifier").toString();if(!species.contains(name))throw new IllegalStateException("Espécie não registrada: "+name);
-        Set<String> types=new HashSet<>();for(Object type:(Iterable<?>)get(pokemon,"getTypes"))types.add(get(type,"getName").toString().toLowerCase(Locale.ROOT));
-        boolean legendary=(boolean)get(pokemon,"isLegendary")||(boolean)get(pokemon,"isMythical");
-        return new Engine.HuntEvent(id,action,name,types,legendary,owned,true);
-    }
-    private static Object get(Object value,String method)throws ReflectiveOperationException{return value.getClass().getMethod(method).invoke(value);}
-    @Override public void close(){healthy=false;cleanup.forEach(Runnable::run);cleanup.clear();mod.species(List.of());}
+   }
+  }catch(RuntimeException|Error error){battleGate.block(battle.getBattleId(),Set.of());throw error;}
+  // No partial credit if a later actor in the same event cannot be inspected.
+  for(Credit credit:staged)mod.hunt(credit.player(),credit.event());
+ }
+ private Engine.HuntEvent event(Pokemon pokemon,String action,UUID battle){
+  String species=pokemon.getSpecies().getResourceIdentifier().toString();if(!registered.containsKey(species))throw new IllegalStateException("Espécie não registrada: "+species);
+  Set<String> types=new HashSet<>();for(var type:pokemon.getTypes())types.add(type.getName().toLowerCase(Locale.ROOT));
+  return new Engine.HuntEvent("pokemon/"+pokemon.getUuid(),action,species,types,pokemon.isLegendary()||pokemon.isMythical(),false,true,battle,Engine.HuntOrigin.NORMAL);
+ }
+ ItemStack model(String id){
+  Species species=registered.get(id);if(species==null)return new ItemStack(Items.PAPER);ItemStack cached=models.get(id);
+  if(cached==null){
+   try{cached=PokemonItem.from(species,new String[0]);}
+   catch(Exception|LinkageError error){events.run("model",()->{throw new IllegalStateException("Modelo Cobblemon indisponível: "+id,error);});cached=new ItemStack(Items.PAPER);}
+   models.put(id,cached.copy());
+  }return cached.copy();
+ }
+ boolean registryReady(){return !registered.isEmpty();}
+ void validate(Config config){
+  Set<String> configured=new HashSet<>();configured.addAll(config.hunts().whitelist());configured.addAll(config.hunts().blacklist());
+  for(var mission:config.hunts().pool()){
+   if(!mission.species().isEmpty())configured.add(mission.species());
+   if(!mission.type().isEmpty()&&!types.contains(mission.type()))throw new IllegalArgumentException("Tipo não registrado: "+mission.type());
+  }
+  for(String id:configured)if(!registered.containsKey(id))throw new IllegalArgumentException("Espécie não registrada: "+id);
+ }
+ @Override public void close(){healthy=false;for(var subscription:subscriptions)subscription.unsubscribe();subscriptions.clear();mod.species(List.of());}
 }

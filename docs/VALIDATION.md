@@ -1,5 +1,9 @@
 # Validação
 
+## Compatibilidade Daily + Raids — 0.1.0-alpha.7
+
+Build/remapJar passaram; 91 verificações do Daily e 125 testes do Raids 0.1.20-dev auditado passaram, sem falhas, erros ou ignorados. O Raids foi recompilado sem alterações no commit `1a5e9ab1f0f0372750ff8d7ae4bfdde03da0a92e`; os dois predicados públicos foram conferidos no JAR resultante. As regressões incluem os cenários obrigatórios de exclusão, continuidade de Hunts normais, falha isolada, múltiplos participantes, deduplicação e reinício. Detalhes, escopo de fixtures e limitações de validação em [RAIDS_COMPATIBILITY.md](RAIDS_COMPATIBILITY.md). Não foram executados ensaios com clientes reais ou sessões de jogo nesta alteração.
+
 ## Daily com bônus e metas até 5000h — 0.1.0-alpha.6
 
 70 verificações passaram. Os testes adicionados comprovam um único bônus por resgate Daily, chances padrão 60/30/10, preservação do sorteio após reinício, migração da alpha.5 sem modificar o snapshot por UUID, ausência de bônus retroativo em entregas antigas, ocupação dos 28 slots da página, ordenação das metas, manutenção dos nove IDs antigos, bloqueio de novo resgate de meta antiga e preservação de recompensas personalizadas e backups em recargas repetidas. O limite máximo de configuração passou para 18.000.000 segundos (5000h).

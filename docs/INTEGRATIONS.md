@@ -2,7 +2,7 @@
 
 ## Cobblemon
 
-A investigação utilizou o código público upstream de `Cobblemon-Global/Cobblemon`, branch `main`, HEAD `75bb1a6c2fe92ef54951fb68d16d21f290a9ee88`, em 13/11/2026. Isso **não confirma compatibilidade binária com 1.8.3**. A consulta de tags `*1.8*` não retornou uma tag correspondente; a API Modrinth foi bloqueada por política de rede. O projeto Shirokai-Crates fornecido pelo usuário declara o artefato `com.cobblemon:fabric:1.8.3+1.21.1` em `https://artefacts.cobblemon.com/releases`, também bloqueado pelo proxy. O descritor exige exatamente 1.8.3 para não alegar suporte a outras versões.
+A ponte atual usa os tipos públicos do artefato oficial `com.cobblemon:fabric:1.8.3+1.21.1`, validado por compilação e inspeção de ABI. A auditoria inicial em upstream main foi substituída pela dependência exata de compilação. O mod continua exclusivamente server-side.
 
 Fontes consultadas (nenhum código upstream foi copiado):
 
@@ -12,7 +12,7 @@ Fontes consultadas (nenhum código upstream foi copiado):
 - [PokemonSpecies](https://github.com/Cobblemon-Global/Cobblemon/blob/main/common/src/main/kotlin/com/cobblemon/mod/common/api/pokemon/PokemonSpecies.kt)
 - [Observable](https://github.com/Cobblemon-Global/Cobblemon/blob/main/common/src/main/kotlin/com/cobblemon/mod/common/api/reactive/Observable.kt)
 
-A ponte tenta vincular os eventos oficiais via reflexão, validando o registro real de espécies no startup, incluindo namespaces de addons já registrados. API desconhecida, registro vazio ou exceção suspendem o recebimento de eventos e aparecem em status/logs. Espécies e tipos configurados são revalidados no reload contra o registro observado no startup. Essa validação ainda não acompanha datapack reload; precisa ser completada com o artefato real disponível.
+Getters e eventos são chamados diretamente pelas APIs públicas, sem reflexão em implementações privadas. Exceções de evento não desativam o módulo: são isoladas e registradas com limite de frequência. O catálogo real de espécies é atualizado no startup/reload de datapacks. A exclusão explícita de Shirokai Raids 0.1.20-dev está documentada em [RAIDS_COMPATIBILITY.md](RAIDS_COMPATIBILITY.md).
 
 CAPTURE usa somente POKEMON_CAPTURED, sem eventos de tentativa/cálculo canceláveis. DEFEAT usa BATTLE_VICTORY: exclui vitória por captura, PvP e NPC, exige perdedor WILD, Pokémon sem dono e HP confirmado zero. Vencedores jogadores recebem o evento; batalhas cooperativas precisam de teste. UUID do Pokémon é deduplicado permanentemente por jogador, inclusive entre captura/derrota. Liberar/recapturar o mesmo Pokémon não aumenta progresso após sua primeira contagem. A ponte depende da garantia do evento oficial de captura de que não se captura Pokémon já pertencente a treinador; esse contrato precisa ser verificado em 1.8.3. Não conta breeding, shiny, raids ou ginásios.
 

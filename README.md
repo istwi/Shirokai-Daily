@@ -2,6 +2,16 @@
 
 Mod exclusivamente de servidor para Minecraft 1.21.1 / Fabric / Java 21, destinado ao Cobblemon **1.8.3**. Daily, Playtime e Hunts são independentes e possuem resgate manual. Versão **alpha compilada para Fabric; ainda sem validação funcional com cliente Minecraft**.
 
+## Compatibilidade com Shirokai Raids — 0.1.0-alpha.7
+
+Corrige IllegalAccessException do ator privado de boss e remove a pausa global das Hunts por falha em um único evento. Batalhas e capturas de Raid são filtradas antes de qualquer crédito, usando os predicados públicos do Raids 0.1.20-dev, marcadores de entidades/bolas e identidades persistentes. Erros são isolados e os logs limitados por categoria.
+
+Troque somente o JAR Daily pelo alpha.7 e mantenha seu Raids 0.1.20-dev. Recompensas e comportamento do Raids não foram alterados. Batalhas/capturas normais, metas e resgates existentes são preservados. O arquivo novo `shirokai-daily-data/excluded-raid-sources.json` deve acompanhar o backup da pasta de dados. Progresso histórico não é apagado automaticamente.
+
+**91 verificações do Daily passaram**, além dos 125 testes disponíveis do Raids recompilado sem mudanças. A compatibilidade foi validada por compilação/ABI e testes automatizados; ainda sem ensaio com clientes Minecraft. Consulte [a análise e o roteiro de conferência](docs/RAIDS_COMPATIBILITY.md).
+
+JAR: `server/build/libs/shirokai_daily-0.1.0-alpha.7.jar`.
+
 ## Daily com bônus e Playtime completo — 0.1.0-alpha.6
 
 O Daily agora oferece o prêmio fixo de cada dia **mais um único bônus aleatório**: 3 esmeraldas (60%), 2 diamantes (30%) ou 1 maçã dourada (10%). As opções e chances aparecem na lore com o mesmo visual de Playtime. O sorteio só acontece no resgate e permanece salvo para recuperação de entrega.
@@ -46,10 +56,10 @@ Para atualizar, pare o servidor, faça backup de `shirokai-daily-data`, substitu
 
 ## Estado real da entrega
 
-- Núcleo Java compilado; **70 verificações passaram** (69 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
+- Núcleo Java compilado; **91 verificações passaram** (90 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
 - Implementados configuração, persistência por UUID, calendário, metas, missões, ledger de recompensas e testes.
 - Entrypoint Fabric, três inventários vanilla bloqueados, comandos, permissões e ponte de eventos Cobblemon compilados com Fabric Loom 1.8.13. Build completa e remapeamento concluídos após a liberação da rede. Ainda sem execução funcional no Minecraft.
-- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.6.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
+- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.7.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
 - A integração real com Cobblemon 1.8.3, LuckPerms e cliente sem Shirokai Daily precisa de teste no servidor. Não foi possível obter/confirmar o artefato Cobblemon 1.8.3 na rede atual.
 - Dollars e Tokens possuem adaptador da API real do Impactor 5.3.5 fornecido pelo usuário; métodos públicos foram conferidos no JAR. O adaptador de fragmentos requer a extensão pública preparada em `integrations/shirokai-crates-grant-fragments.patch`. Sem essa extensão, fragmentos ficam pendentes. As integrações ainda precisam de teste em servidor; nenhum fragmento é falsificado.
 

@@ -172,6 +172,7 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
     }
     void species(List<Engine.Species> registered){work(()->{engine.species(registered);return true;},ignored->{});}
     ItemStack model(String species){return bridge==null?new ItemStack(Items.PAPER):bridge.model(species);}
+    void excludeRaid(UUID battle,Set<UUID> pokemon){work(()->{engine.excludeRaid(battle,pokemon);return true;},ignored->{});}
     void hunt(UUID id,Engine.HuntEvent event){if(!config.general().integrations().getOrDefault("cobblemon",true))return;work(()->{engine.hunt(id,event,Instant.now());return true;},ignored->{});}
     <T> void work(Callable<T> operation,Consumer<T> done){
         if(io.isShutdown())return;

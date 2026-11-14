@@ -24,7 +24,18 @@ public final class Store {
     }
     public void save(UUID id,State state)throws IOException{
         Path target=root.resolve(id+".json"),tmp=root.resolve(id+".tmp");
-        byte[] bytes=JSON.toJson(state).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        write(target,tmp,state);
+    }
+    public SourceExclusions loadExclusions()throws IOException{
+        Path p=root.resolve("excluded-raid-sources.json");if(!Files.exists(p))return new SourceExclusions();
+        try(var reader=Files.newBufferedReader(p)){
+            SourceExclusions value=JSON.fromJson(reader,SourceExclusions.class);
+            if(value==null||value.schema!=1||value.battles==null||value.pokemon==null)throw new IOException("Invalid Raid exclusion journal");return value;
+        }catch(JsonParseException e){throw new IOException("Corrupt Raid exclusion journal preserved",e);}
+    }
+    public void saveExclusions(SourceExclusions data)throws IOException{write(root.resolve("excluded-raid-sources.json"),root.resolve("excluded-raid-sources.tmp"),data);}
+    private void write(Path target,Path tmp,Object data)throws IOException{
+        byte[] bytes=JSON.toJson(data).getBytes(java.nio.charset.StandardCharsets.UTF_8);
         try(FileChannel c=FileChannel.open(tmp,StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE)){ByteBuffer b=ByteBuffer.wrap(bytes);while(b.hasRemaining())c.write(b);c.force(true);}
         Files.move(tmp,target,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
         // File contents are forced on every platform. Directory fsync is an additional Unix barrier;
