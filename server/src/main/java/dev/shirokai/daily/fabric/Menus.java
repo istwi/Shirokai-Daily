@@ -18,7 +18,7 @@ import java.util.*;
 final class Menus {
     record Entry(String icon,String title,List<String> lore,Runnable click){}
     static void open(ShirokaiDaily mod,ServerPlayerEntity player,String module,int page,State state,Config config){
-        Config.Menu settings=config.menus().get(module);List<Entry> entries=new ArrayList<>();Instant now=Instant.now();
+        Config.Menu settings=config.menus().get(module);List<Entry> entries=new ArrayList<>();Instant now=Instant.now();Set<String> permissions=mod.permissions(player);
         switch(module){
             case "daily" -> {
                 var daily=state.daily;boolean today=daily.last.equals(config.day(now).toString());
@@ -28,8 +28,9 @@ final class Menus {
                 int next=previous>=config.daily().days()?(config.daily().completion().equals("STOP")?-1:1):previous+1;
                 for(int i=1;i<=config.daily().days();i++){
                     int day=i;boolean available=!today&&day==next;
-                    String status=today&&day<=daily.day?"RESGATADO":available?"DISPONÍVEL":day==next?"PRÓXIMO":"BLOQUEADO";
-                    entries.add(entry(settings,"daily",vars("day",i,"status",status,"streak",daily.streak,"resets",daily.resets,"rewards",rewards(config,config.daily().rewards().get(i)),"reset",reset(config,now)),available?"minecraft:lime_dye":status.equals("RESGATADO")?"minecraft:gray_dye":"minecraft:light_blue_dye","Dia "+i+" • "+status,List.of("Streak: "+daily.streak+" • Resets: "+daily.resets,"Recompensas: "+config.daily().rewards().get(i),"Reset: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone()))),available?()->mod.claim(player,module,""):()->{}));
+                    String status=MenuText.dailyStatus(today,day,previous,next);
+                    List<String> rewardIds=new ArrayList<>(config.daily().rewards().get(i));if(permissions.contains("shirokaidaily.vip"))rewardIds.addAll(config.daily().vipRewards());
+                    entries.add(entry(settings,"daily",vars("day",i,"status",status,"streak",daily.streak,"resets",daily.resets,"rewards",rewards(config,rewardIds),"reward_lines",String.join("\n",MenuText.rewardLines(config,rewardIds,permissions)),"reset",reset(config,now)),available?"minecraft:lime_dye":status.equals("RESGATADO")?"minecraft:gray_dye":"minecraft:light_blue_dye","Dia "+i+" • "+status,List.of("Streak: "+daily.streak+" • Resets: "+daily.resets,"Recompensas: "+config.daily().rewards().get(i),"Reset: "+config.nextReset(now).atZone(ZoneId.of(config.general().zone()))),available?()->mod.claim(player,module,""):()->{}));
                 }
             }
             case "playtime" -> {
@@ -37,12 +38,12 @@ final class Menus {
                     long progress=switch(goal.period()){case "DAILY"->state.playtime.daily;case "WEEKLY"->state.playtime.weekly;default->state.playtime.eligible;};
                     String key=goal.period()+"/"+(goal.period().equals("DAILY")?config.day(now):goal.period().equals("WEEKLY")?config.week(now):"all")+"/"+goal.id();
                     boolean claimed=state.playtime.claimed.contains(key),available=!claimed&&progress>=goal.seconds();
-                    entries.add(entry(settings,"playtime",vars("goal",label(goal.id()),"status",claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","progress",progress/60,"target",goal.seconds()/60,"total",state.playtime.total/60,"eligible",state.playtime.eligible/60,"period",label(goal.period()),"rewards",rewards(config,goal.rewards())),available?"minecraft:lime_dye":"minecraft:clock",goal.id()+" • "+(claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(goal.period()+" • "+progress/60+" / "+goal.seconds()/60+" min","Total: "+state.playtime.total/60+" min • Elegível: "+state.playtime.eligible/60+" min","Recompensas: "+goal.rewards()),available?()->mod.claim(player,module,goal.id()):()->{}));
+                    entries.add(entry(settings,"playtime",vars("goal",label(goal.id()),"status",claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","progress",progress/60,"target",goal.seconds()/60,"total",state.playtime.total/60,"eligible",state.playtime.eligible/60,"period",label(goal.period()),"rewards",rewards(config,goal.rewards()),"reward_lines",String.join("\n",MenuText.rewardLines(config,goal.rewards(),permissions)),"renewal",MenuText.renewal(config,goal.period(),now)),available?"minecraft:lime_dye":"minecraft:clock",goal.id()+" • "+(claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(goal.period()+" • "+progress/60+" / "+goal.seconds()/60+" min","Total: "+state.playtime.total/60+" min • Elegível: "+state.playtime.eligible/60+" min","Recompensas: "+goal.rewards()),available?()->mod.claim(player,module,goal.id()):()->{}));
                 }
             }
             case "hunts" -> state.hunts.quests.forEach((id,q)->{
                 boolean available=!q.claimed&&q.progress>=q.mission.amount();var m=q.mission;
-                Entry hunt=entry(settings,"hunts",vars("mission",m.id(),"status",q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","action",label(m.action()),"species",m.species().isEmpty()?"Qualquer Pokémon":label(m.species()),"type",m.type().isEmpty()?"Qualquer":label(m.type()),"difficulty",label(m.difficulty()),"progress",q.progress,"target",m.amount(),"period",label(q.period),"epoch",q.epoch,"rewards",rewards(config,m.rewards())),available?"minecraft:lime_dye":"minecraft:compass",m.id()+" • "+(q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(m.action()+" • "+(m.species().isEmpty()?"Qualquer espécie":m.species()),"Tipo: "+(m.type().isEmpty()?"qualquer":m.type())+" • "+m.difficulty(),q.progress+" / "+m.amount()+" • "+q.period,"Período: "+q.epoch,"Recompensas: "+m.rewards()),available?()->mod.claim(player,module,id):()->{});
+                Entry hunt=entry(settings,"hunts",vars("mission",m.id(),"status",q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO","action",label(m.action()),"species",m.species().isEmpty()?"Qualquer Pokémon":label(m.species()),"type",m.type().isEmpty()?"Qualquer":label(m.type()),"difficulty",label(m.difficulty()),"progress",q.progress,"target",m.amount(),"period",label(q.period),"epoch",q.epoch,"rewards",rewards(config,m.rewards()),"reward_lines",String.join("\n",MenuText.rewardLines(config,m.rewards(),permissions)),"renewal",MenuText.renewal(config,q.period,now),"objective",MenuText.objective(label(m.action()),m.amount(),m.species().isEmpty()?"":label(m.species()),m.type().isEmpty()?"":label(m.type()))),available?"minecraft:lime_dye":"minecraft:compass",m.id()+" • "+(q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO"),List.of(m.action()+" • "+(m.species().isEmpty()?"Qualquer espécie":m.species()),"Tipo: "+(m.type().isEmpty()?"qualquer":m.type())+" • "+m.difficulty(),q.progress+" / "+m.amount()+" • "+q.period,"Período: "+q.epoch,"Recompensas: "+m.rewards()),available?()->mod.claim(player,module,id):()->{});
                 // An explicitly configured icon takes priority over the automatic Pokémon model.
                 if(!m.species().isEmpty()&&!settings.icons().containsKey("hunts")&&!settings.icons().containsKey("hunts."+(q.claimed?"RESGATADO":available?"DISPONÍVEL":"EM PROGRESSO")))
                     hunt=new Entry("pokemon:"+m.species(),hunt.title,hunt.lore,hunt.click);
@@ -64,19 +65,19 @@ final class Menus {
         Entry pending=entry(settings,"pending",Map.of(),"minecraft:chest","Entregas pendentes",List.of("Clique para tentar entregar novamente.","Moedas/fragmentos exigem integração oficial."),()->{});
         inventory.setStack(settings.pendingSlot(),item(pending.icon,pending.title,pending.lore));
         actions.put(settings.pendingSlot(),()->mod.deliver(player,module));
-        if(current>0){inventory.setStack(settings.previousSlot(),item(settings.icons().getOrDefault("previous","minecraft:arrow"),settings.texts().getOrDefault("previous","Anterior"),settings.lore().getOrDefault("previous",List.of())));actions.put(settings.previousSlot(),()->mod.open(player,module,current-1));}
-        if(current+1<pages){inventory.setStack(settings.nextSlot(),item(settings.icons().getOrDefault("next","minecraft:arrow"),settings.texts().getOrDefault("next","Próxima"),settings.lore().getOrDefault("next",List.of())));actions.put(settings.nextSlot(),()->mod.open(player,module,current+1));}
-        player.openHandledScreen(new SimpleNamedScreenHandlerFactory((sync,inv,p)->new LockedMenu(sync,inv,inventory,actions),Text.literal(settings.title()).formatted(Formatting.AQUA)));
+        if(current>0){inventory.setStack(settings.previousSlot(),item(settings.icons().getOrDefault("previous","minecraft:arrow"),settings.texts().getOrDefault("previous","&bPágina anterior"),settings.lore().getOrDefault("previous",List.of())));actions.put(settings.previousSlot(),()->mod.open(player,module,current-1));}
+        if(current+1<pages){inventory.setStack(settings.nextSlot(),item(settings.icons().getOrDefault("next","minecraft:arrow"),settings.texts().getOrDefault("next","&bPróxima página"),settings.lore().getOrDefault("next",List.of())));actions.put(settings.nextSlot(),()->mod.open(player,module,current+1));}
+        player.openHandledScreen(new SimpleNamedScreenHandlerFactory((sync,inv,p)->new LockedMenu(sync,inv,inventory,actions),styled(settings.title(),Formatting.DARK_GRAY)));
     }
     private static Map<String,String> vars(Object... args){var result=new HashMap<String,String>();for(int i=0;i<args.length;i+=2)result.put(args[i].toString(),String.valueOf(args[i+1]));return result;}
-    private static String render(String template,Map<String,String> values){for(var e:values.entrySet())template=template.replace("{"+e.getKey()+"}",e.getValue());return template;}
+    private static String render(String template,Map<String,String> values){return MenuText.render(template,values);}
     private static Entry entry(Config.Menu settings,String key,Map<String,String> values,String icon,String title,List<String> lore,Runnable action){
         String status=values.getOrDefault("status","");
         values=new HashMap<>(values);
-        values.put("hint",switch(status){case "DISPONÍVEL"->"➜ Clique para resgatar!";case "RESGATADO"->"✓ Recompensa já resgatada";case "EM PROGRESSO"->"Complete o objetivo para resgatar.";default->"Aguarde para desbloquear.";});
+        values.putAll(MenuText.status(status,key));
         String configuredIcon=settings.icons().getOrDefault(key+"."+status,settings.icons().getOrDefault(key,icon));
-        Map<String,String> renderedValues=values;
-        return new Entry(configuredIcon,render(settings.texts().getOrDefault(key,Config.defaultMenu("hunts").texts().getOrDefault(key,title)),values),settings.lore().getOrDefault(key,Config.defaultMenu("hunts").lore().getOrDefault(key,lore)).stream().map(line->render(line,renderedValues)).toList(),action);
+        var defaults=Config.defaultMenu(key);
+        return new Entry(configuredIcon,render(settings.texts().getOrDefault(key,defaults.texts().getOrDefault(key,title)),values),MenuText.renderLines(settings.lore().getOrDefault(key,defaults.lore().getOrDefault(key,lore)),values),action);
     }
     private static String reset(Config config,Instant now){return config.nextReset(now).atZone(ZoneId.of(config.general().zone())).format(java.time.format.DateTimeFormatter.ofPattern("dd/MM HH:mm"));}
     private static String label(String value){
@@ -94,7 +95,7 @@ final class Menus {
     }
     /** Legacy color codes in administrator templates; reset italics on vanilla item text. */
     private static Text styled(String value,Formatting base){
-        var result=Text.empty();var style=net.minecraft.text.Style.EMPTY.withColor(base).withItalic(false);StringBuilder part=new StringBuilder();
+        var style=net.minecraft.text.Style.EMPTY.withColor(base).withItalic(false);var result=Text.empty().setStyle(style);StringBuilder part=new StringBuilder();
         for(int i=0;i<value.length();i++){
             char c=value.charAt(i);Formatting code=(c=='&'||c=='§')&&i+1<value.length()?Formatting.byCode(value.charAt(i+1)):null;
             if(code!=null){result.append(Text.literal(part.toString()).setStyle(style));part.setLength(0);i++;

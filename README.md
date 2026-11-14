@@ -1,6 +1,12 @@
 # ✦ Shirokai Daily
 
-Mod exclusivamente de servidor para Minecraft 1.21.1 / Fabric / Java 21, destinado ao Cobblemon **1.8.3**. Daily, Playtime e Hunts são independentes e possuem resgate manual. Versão **0.1.0-alpha.3 compilada para Fabric; ainda sem validação funcional com cliente Minecraft**.
+Mod exclusivamente de servidor para Minecraft 1.21.1 / Fabric / Java 21, destinado ao Cobblemon **1.8.3**. Daily, Playtime e Hunts são independentes e possuem resgate manual. Versão **0.1.0-alpha.4 compilada para Fabric; ainda sem validação funcional com cliente Minecraft**.
+
+## 0.1.0-alpha.4 — lore clean e estados coerentes
+
+[JAR e checksum no GitHub](https://github.com/istwi/Shirokai-Daily/releases/tag/v0.1.0-alpha.4). Descrições com hierarquia em ciano/cinza/dourado, recompensas em linhas separadas e chances dos bônus elegíveis. Dias anteriores permanecem marcados como resgatados; metas únicas não anunciam reset, e missões semanais mostram a renovação correta. Objetivos descrevem os filtros de espécie e tipo.
+
+Templates padrão exatos da alpha.3 são atualizados em memória, sem regravar arquivos. Textos personalizados, ícones, slots, navegação e modelos permanecem configuráveis. O mod não fornece resource pack nem altera a textura ou os itens do inventário do jogador: a decoração ocupa somente os 54 slots superiores. Uma textura externa que cubra a parte inferior precisa ser ajustada no próprio resource pack.
 
 ## 0.1.0-alpha.3 — menus, bônus e modelos
 
@@ -14,10 +20,10 @@ Para atualizar, pare o servidor, faça backup de `shirokai-daily-data`, substitu
 
 ## Estado real da entrega
 
-- Núcleo Java compilado; **42 verificações passaram** (41 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
+- Núcleo Java compilado; **49 verificações passaram** (48 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
 - Implementados configuração, persistência por UUID, calendário, metas, missões, ledger de recompensas e testes.
 - Entrypoint Fabric, três inventários vanilla bloqueados, comandos, permissões e ponte de eventos Cobblemon compilados com Fabric Loom 1.8.13. Build completa e remapeamento concluídos após a liberação da rede. Ainda sem execução funcional no Minecraft.
-- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.3.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
+- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.4.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
 - A integração real com Cobblemon 1.8.3, LuckPerms e cliente sem Shirokai Daily precisa de teste no servidor. Não foi possível obter/confirmar o artefato Cobblemon 1.8.3 na rede atual.
 - Dollars e Tokens possuem adaptador da API real do Impactor 5.3.5 fornecido pelo usuário; métodos públicos foram conferidos no JAR. O adaptador de fragmentos requer a extensão pública preparada em `integrations/shirokai-crates-grant-fragments.patch`. Sem essa extensão, fragmentos ficam pendentes. As integrações ainda precisam de teste em servidor; nenhum fragmento é falsificado.
 
@@ -42,7 +48,7 @@ source scripts/cloud-env.sh
 
 O helper instala Temurin 21.0.13+9 com SHA-256 verificado, preserva TLS e usa os proxies herdados. Seu cache fica fora do checkout. Use o checkout existente; tarefas na nuvem já são isoladas e não precisam de worktree.
 
-Após a build completa, o artefato é `server/build/libs/shirokai_daily-0.1.0-alpha.3.jar` (sem `-sources`/`-dev`). Instale somente no servidor junto com Fabric API e Cobblemon 1.8.3 e suas dependências oficiais. Clientes precisam dos mods exigidos pelo próprio Cobblemon, mas não do Shirokai Daily. Os menus usam exclusivamente o protocolo vanilla de baú; isso ainda precisa de teste funcional real.
+Após a build completa, o artefato é `server/build/libs/shirokai_daily-0.1.0-alpha.4.jar` (sem `-sources`/`-dev`). Instale somente no servidor junto com Fabric API e Cobblemon 1.8.3 e suas dependências oficiais. Clientes precisam dos mods exigidos pelo próprio Cobblemon, mas não do Shirokai Daily. Os menus usam exclusivamente o protocolo vanilla de baú; isso ainda precisa de teste funcional real.
 
 ## Configuração
 
@@ -74,7 +80,7 @@ Nos menus, `slots` define a sequência de posições de conteúdo; `profileSlot`
 
 ## Menus e bônus de caçadas
 
-Os menus padrão usam títulos coloridos, lore com seções de objetivo, progresso e prêmios, e instruções conforme o estado do resgate. Daily e Hunts exibem sete entradas por página; Playtime exibe três metas espaçadas. Templates aceitam cores `&`/`§` e o novo placeholder `{hint}`. Configurações próprias de texto, lore, slots e ícones continuam tendo prioridade.
+Os menus padrão usam títulos coloridos, lore com seções de objetivo, progresso e prêmios, e instruções conforme o estado do resgate. Daily e Hunts exibem sete entradas por página; Playtime exibe três metas espaçadas. Templates aceitam cores `&`/`§`, `{hint}`, `{hint_color}`, `{status_text}`, `{status_color}`, `{objective}`, `{renewal}` e `{reward_lines}`. O último expande as recompensas em várias linhas, com cores e chances calculadas após verificar elegibilidade. `{rewards}` continua disponível como resumo. Configurações próprias de texto, lore, slots e ícones continuam tendo prioridade.
 
 Hunts de uma espécie definida usam o item `POKEMON_MODEL` criado pela fábrica oficial `PokemonItem.from` do Cobblemon. A lore e o clique de resgate são mantidos. Missões de qualquer espécie/tipo usam ícone genérico; se a API de modelos estiver ausente ou incompatível, o menu usa bússola e registra um aviso. Um ícone configurado em `icons.hunts` ou `icons.hunts.<ESTADO>` tem prioridade; também é possível definir `pokemon:cobblemon:pikachu` como ícone. A renderização real ainda precisa de validação com cliente Cobblemon 1.8.3.
 

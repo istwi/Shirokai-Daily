@@ -18,56 +18,73 @@
   "nextSlot": 53,
   "icons": {},
   "texts": {
-    "profile": "\u0026b\u0026l{player}",
-    "daily": "\u0026b\u0026lDIA {day} \u00268• \u0026f{status}",
-    "hunts": "\u0026b\u0026l{action} \u0026f{species}",
-    "pending": "\u00266\u0026lEntregas pendentes",
-    "playtime": "\u0026b\u0026l{goal} \u00268• \u0026f{status}"
+    "profile": "\u0026b{player}",
+    "playtime": "\u0026b{goal}",
+    "daily": "\u0026bDia {day}",
+    "pending": "\u00266Entregas pendentes",
+    "previous": "\u0026bPágina anterior",
+    "hunts": "\u0026b{species}",
+    "next": "\u0026bPróxima página"
   },
   "lore": {
     "profile": [
-      "\u00268SHIROKAI DAILY",
+      "\u00268Shirokai Daily",
       "",
-      "\u00267Página \u0026f{page} \u00267de \u0026f{pages}",
-      "\u00267Próximo reset: \u0026f{reset}"
-    ],
-    "daily": [
-      "\u00268RECOMPENSA DIÁRIA",
-      "",
-      "\u00267Sequência: \u0026f{streak} dias \u00268• \u00267Reinícios: \u0026f{resets}",
-      "",
-      "\u00266Prêmios \u00268› \u0026f{rewards}",
-      "\u00267Próximo reset: \u0026f{reset}",
-      "",
-      "\u0026e{hint}"
-    ],
-    "hunts": [
-      "\u00268CAÇADA • {period}",
-      "",
-      "\u00267Objetivo: \u0026f{action} {target}× {species}",
-      "\u00267Tipo: \u0026f{type} \u00268• \u00267Dificuldade: \u0026f{difficulty}",
-      "",
-      "\u00267Progresso: \u0026b{progress} \u00267/ \u0026f{target}",
-      "\u00267Estado: \u0026f{status}",
-      "",
-      "\u00266Prêmios \u00268› \u0026f{rewards}",
-      "",
-      "\u0026e{hint}"
-    ],
-    "pending": [
-      "\u00267Tem prêmios aguardando entrega?",
-      "",
-      "\u0026e➜ Clique para tentar receber."
+      "\u00267Página \u0026b{page} \u00268/ \u0026b{pages}",
+      "\u00267Renovação diária: \u0026b{reset}"
     ],
     "playtime": [
-      "\u00268TEMPO DE JOGO • {period}",
+      "\u00268Tempo de jogo • {period}",
       "",
-      "\u00267Progresso: \u0026b{progress} \u00267/ \u0026f{target} min",
-      "\u00267Tempo elegível: \u0026f{eligible} min",
+      "\u00267Progresso: \u0026b{progress} \u00268/ \u0026b{target} min",
+      "\u00267Situação: {status_color}{status_text}",
       "",
-      "\u00266Prêmios \u00268› \u0026f{rewards}",
+      "\u00266Recompensas",
+      "{reward_lines}",
       "",
-      "\u0026e{hint}"
+      "{renewal}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "daily": [
+      "\u00268Recompensa diária",
+      "",
+      "\u00267Sequência: \u0026b{streak} dias",
+      "\u00267Situação: {status_color}{status_text}",
+      "",
+      "\u00266Recompensas",
+      "{reward_lines}",
+      "",
+      "\u00267Próxima renovação: \u0026b{reset}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "pending": [
+      "\u00267Receba os prêmios que ficaram pendentes.",
+      "\u00267Libere espaço no inventário se necessário.",
+      "",
+      "\u0026eClique para tentar receber."
+    ],
+    "previous": [
+      "\u00267Ver a página anterior."
+    ],
+    "hunts": [
+      "\u00268Caçada • {period}",
+      "",
+      "\u00267{objective}",
+      "\u00267Dificuldade: \u0026b{difficulty}",
+      "\u00267Progresso: \u0026b{progress} \u00268/ \u0026b{target}",
+      "\u00267Situação: {status_color}{status_text}",
+      "",
+      "\u00266Recompensas",
+      "{reward_lines}",
+      "",
+      "{renewal}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "next": [
+      "\u00267Ver a próxima página."
     ]
   }
 }

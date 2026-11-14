@@ -46,7 +46,7 @@ public record Config(General general, Daily daily, Playtime playtime, Hunts hunt
         Map<Integer,List<String>> days=new LinkedHashMap<>();
         for(int i=1;i<=7;i++) days.put(i,List.of("daily_item"));
         Map<String,Menu> menus=new LinkedHashMap<>();
-        for(String m:List.of("daily","playtime","hunts")) menus.put(m,read(path.resolve("menus/"+m+".json"),Menu.class,defaultMenu(m)));
+        for(String m:List.of("daily","playtime","hunts")) menus.put(m,upgradeDefaultMenu(m,read(path.resolve("menus/"+m+".json"),Menu.class,defaultMenu(m))));
         Config c=new Config(
             read(path.resolve("config.json"),General.class,new General("America/Sao_Paulo","00:00",true,true,true)),
             read(path.resolve("daily.json"),Daily.class,new Daily(7,"RESET",1,"RESTART",days,List.of())),
@@ -61,15 +61,31 @@ public record Config(General general, Daily daily, Playtime playtime, Hunts hunt
     }
     public static Menu defaultMenu(String module){
         Menu base=new Menu("✦ "+switch(module){case "daily"->"Recompensas diárias";case "playtime"->"Tempo de jogo";default->"Central de caçadas";},"minecraft:gray_stained_glass_pane",28,49);
-        var texts=Map.of("daily","&b&lDIA {day} &8• &f{status}","playtime","&b&l{goal} &8• &f{status}","hunts","&b&l{action} &f{species}","profile","&b&l{player}","pending","&6&lEntregas pendentes");
+        var texts=Map.of("daily","&bDia {day}","playtime","&b{goal}","hunts","&b{species}","profile","&b{player}","pending","&6Entregas pendentes","previous","&bPágina anterior","next","&bPróxima página");
         var lore=Map.of(
+            "daily",List.of("&8Recompensa diária","","&7Sequência: &b{streak} dias","&7Situação: {status_color}{status_text}","","&6Recompensas","{reward_lines}","","&7Próxima renovação: &b{reset}","","{hint_color}{hint}"),
+            "playtime",List.of("&8Tempo de jogo • {period}","","&7Progresso: &b{progress} &8/ &b{target} min","&7Situação: {status_color}{status_text}","","&6Recompensas","{reward_lines}","","{renewal}","","{hint_color}{hint}"),
+            "hunts",List.of("&8Caçada • {period}","","&7{objective}","&7Dificuldade: &b{difficulty}","&7Progresso: &b{progress} &8/ &b{target}","&7Situação: {status_color}{status_text}","","&6Recompensas","{reward_lines}","","{renewal}","","{hint_color}{hint}"),
+            "profile",List.of("&8Shirokai Daily","","&7Página &b{page} &8/ &b{pages}","&7Renovação diária: &b{reset}"),
+            "pending",List.of("&7Receba os prêmios que ficaram pendentes.","&7Libere espaço no inventário se necessário.","","&eClique para tentar receber."),
+            "previous",List.of("&7Ver a página anterior."),"next",List.of("&7Ver a próxima página."));
+        List<Integer> content=module.equals("playtime")?List.of(20,22,24):List.of(19,20,21,22,23,24,25);
+        return new Menu(base.title,base.icon,content.size(),base.backSlot,content,base.profileSlot,base.pendingSlot,base.previousSlot,base.nextSlot,base.icons,texts,lore);
+    }
+    /** Upgrade only exact shipped templates in memory; never overwrite administrator files. */
+    private static Menu upgradeDefaultMenu(String module,Menu menu){
+        var legacyTexts=Map.of("daily","&b&lDIA {day} &8• &f{status}","playtime","&b&l{goal} &8• &f{status}","hunts","&b&l{action} &f{species}","profile","&b&l{player}","pending","&6&lEntregas pendentes");
+        var legacyLore=Map.of(
             "daily",List.of("&8RECOMPENSA DIÁRIA","","&7Sequência: &f{streak} dias &8• &7Reinícios: &f{resets}","","&6Prêmios &8› &f{rewards}","&7Próximo reset: &f{reset}","","&e{hint}"),
             "playtime",List.of("&8TEMPO DE JOGO • {period}","","&7Progresso: &b{progress} &7/ &f{target} min","&7Tempo elegível: &f{eligible} min","","&6Prêmios &8› &f{rewards}","","&e{hint}"),
             "hunts",List.of("&8CAÇADA • {period}","","&7Objetivo: &f{action} {target}× {species}","&7Tipo: &f{type} &8• &7Dificuldade: &f{difficulty}","","&7Progresso: &b{progress} &7/ &f{target}","&7Estado: &f{status}","","&6Prêmios &8› &f{rewards}","","&e{hint}"),
             "profile",List.of("&8SHIROKAI DAILY","","&7Página &f{page} &7de &f{pages}","&7Próximo reset: &f{reset}"),
             "pending",List.of("&7Tem prêmios aguardando entrega?","","&e➜ Clique para tentar receber."));
-        List<Integer> content=module.equals("playtime")?List.of(20,22,24):List.of(19,20,21,22,23,24,25);
-        return new Menu(base.title,base.icon,content.size(),base.backSlot,content,base.profileSlot,base.pendingSlot,base.previousSlot,base.nextSlot,base.icons,texts,lore);
+        Menu current=defaultMenu(module);
+        var texts=new HashMap<>(menu.texts());var lore=new HashMap<>(menu.lore());
+        legacyTexts.forEach((key,value)->{if(value.equals(texts.get(key)))texts.put(key,current.texts().get(key));});
+        legacyLore.forEach((key,value)->{if(value.equals(lore.get(key)))lore.put(key,current.lore().get(key));});
+        return new Menu(menu.title(),menu.icon(),menu.pageSize(),menu.backSlot(),menu.slots(),menu.profileSlot(),menu.pendingSlot(),menu.previousSlot(),menu.nextSlot(),Map.copyOf(menu.icons()),Map.copyOf(texts),Map.copyOf(lore));
     }
     private static <T> T read(Path p,Class<T> t,T fallback)throws IOException {
         if(!Files.exists(p)) Files.writeString(p,JSON.toJson(fallback),StandardOpenOption.CREATE_NEW);
