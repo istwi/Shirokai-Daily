@@ -1,0 +1,86 @@
+{
+  "title": "✦ Tempo de jogo",
+  "icon": "minecraft:gray_stained_glass_pane",
+  "pageSize": 3,
+  "backSlot": 49,
+  "slots": [
+    20,
+    22,
+    24
+  ],
+  "profileSlot": 4,
+  "pendingSlot": 48,
+  "previousSlot": 45,
+  "nextSlot": 53,
+  "icons": {},
+  "texts": {
+    "profile": "\u0026b{player}",
+    "playtime": "\u0026b{goal}",
+    "daily": "\u0026bDia {day}",
+    "pending": "\u00266Entregas pendentes",
+    "previous": "\u0026bPágina anterior",
+    "hunts": "\u0026b{species}",
+    "next": "\u0026bPróxima página"
+  },
+  "lore": {
+    "profile": [
+      "\u00268Shirokai Daily",
+      "",
+      "\u00267Página \u0026b{page} \u00268/ \u0026b{pages}",
+      "\u00267Renovação diária: \u0026b{reset}"
+    ],
+    "playtime": [
+      "\u00268Tempo de jogo • {period}",
+      "",
+      "\u00267Progresso: \u0026b{progress} \u00268/ \u0026b{target} min",
+      "\u00267Situação: {status_color}{status_text}",
+      "",
+      "\u00266Recompensas",
+      "{reward_lines}",
+      "",
+      "{renewal}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "daily": [
+      "\u00268Recompensa diária",
+      "",
+      "\u00267Sequência: \u0026b{streak} dias",
+      "\u00267Situação: {status_color}{status_text}",
+      "",
+      "\u00266Recompensas",
+      "{reward_lines}",
+      "",
+      "\u00267Próxima renovação: \u0026b{reset}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "pending": [
+      "\u00267Receba os prêmios que ficaram pendentes.",
+      "\u00267Libere espaço no inventário se necessário.",
+      "",
+      "\u0026eClique para tentar receber."
+    ],
+    "previous": [
+      "\u00267Ver a página anterior."
+    ],
+    "hunts": [
+      "\u00268Caçada • {period}",
+      "",
+      "\u00267{objective}",
+      "\u00267Dificuldade: \u0026b{difficulty}",
+      "\u00267Progresso: \u0026b{progress} \u00268/ \u0026b{target}",
+      "\u00267Situação: {status_color}{status_text}",
+      "",
+      "\u00266Recompensas",
+      "{reward_lines}",
+      "",
+      "{renewal}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "next": [
+      "\u00267Ver a próxima página."
+    ]
+  }
+}

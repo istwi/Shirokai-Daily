@@ -17,7 +17,75 @@
   "previousSlot": 18,
   "nextSlot": 26,
   "icons": {},
-  "texts": {},
-  "lore": {},
+  "texts": {
+    "daily": "\u0026bDia {day}",
+    "playtime": "\u0026b{goal}",
+    "profile": "\u0026b{player}",
+    "next": "\u0026bPróxima página",
+    "hunts": "\u0026b{species}",
+    "previous": "\u0026bPágina anterior",
+    "pending": "\u00266Entregas pendentes"
+  },
+  "lore": {
+    "daily": [
+      "\u00268Recompensa diária",
+      "",
+      "\u00267Sequência: \u0026b{streak} dias",
+      "\u00267Situação: {status_color}{status_text}",
+      "",
+      "\u00266Recompensas",
+      "{reward_lines}",
+      "",
+      "\u00267Próxima renovação: \u0026b{reset}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "playtime": [
+      "\u00268Tempo de jogo • {period}",
+      "",
+      "\u00267Progresso: \u0026b{progress} \u00268/ \u0026b{target}",
+      "\u00267Situação: {status_color}{status_text}",
+      "",
+      "\u00266Recompensas",
+      "{reward_lines}",
+      "",
+      "{renewal}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "profile": [
+      "\u00268Shirokai Daily",
+      "",
+      "\u00267Página \u0026b{page} \u00268/ \u0026b{pages}",
+      "\u00267Renovação diária: \u0026b{reset}"
+    ],
+    "next": [
+      "\u00267Ver a próxima página."
+    ],
+    "hunts": [
+      "\u00268Caçada • {period}",
+      "",
+      "\u00267{objective}",
+      "\u00267Dificuldade: \u0026b{difficulty}",
+      "\u00267Progresso: \u0026b{progress} \u00268/ \u0026b{target}",
+      "\u00267Situação: {status_color}{status_text}",
+      "",
+      "\u00266Recompensas",
+      "{reward_lines}",
+      "",
+      "{renewal}",
+      "",
+      "{hint_color}{hint}"
+    ],
+    "previous": [
+      "\u00267Ver a página anterior."
+    ],
+    "pending": [
+      "\u00267Receba os prêmios que ficaram pendentes.",
+      "\u00267Libere espaço no inventário se necessário.",
+      "",
+      "\u0026eClique para tentar receber."
+    ]
+  },
   "rows": 3
 }

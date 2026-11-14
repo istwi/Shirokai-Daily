@@ -110,4 +110,20 @@ class EngineTest {
   engine.begin(player,p);engine.reconcile(player,p.transaction(),p.index(),"DONE");assertTrue(engine.pending(player,"daily").isEmpty());
   assertThrows(IllegalArgumentException.class,()->engine.reconcile(player,p.transaction(),p.index(),"PENDING"));
  }
+ @Test void defaultPlaytimeBonusIsOneDrawAndSurvivesRestart()throws Exception{
+  Config config=Config.load(root.resolve("bonus-config"));Engine engine=new Engine(config,store,new Random(42));
+  Set<String> outcomes=new HashSet<>();
+  for(int i=0;i<40;i++){
+   UUID user=UUID.randomUUID();engine.time(user,3600,3600,now);
+   assertNotNull(engine.claim(user,"playtime","hours_1",permissions,now));
+   var pending=engine.pending(user,"playtime");assertEquals(2,pending.size());
+   assertEquals("minecraft:emerald",pending.getFirst().reward().value());
+   outcomes.add(pending.get(1).reward().value());
+   var restarted=new Engine(config,store,new Random(999));
+   assertEquals(pending,restarted.pending(user,"playtime"));
+   assertNull(restarted.claim(user,"playtime","hours_1",permissions,now));
+  }
+  assertEquals(Set.of("minecraft:emerald","minecraft:diamond","minecraft:golden_apple"),outcomes);
+ }
+
 }

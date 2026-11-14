@@ -2,22 +2,22 @@
 
 Mod exclusivamente de servidor para Minecraft 1.21.1 / Fabric / Java 21, destinado ao Cobblemon **1.8.3**. Daily, Playtime e Hunts são independentes e possuem resgate manual. Versão **alpha compilada para Fabric; ainda sem validação funcional com cliente Minecraft**.
 
-## Novos menus — 0.1.0-alpha.3
+## Novos menus — 0.1.0-alpha.5
 
 - Decoração padrão com `minecraft:gray_stained_glass_pane` nos três menus.
 - Daily: calendário padrão de 30 dias em uma página.
 - Playtime: uma página com metas permanentes de **1h, 6h, 12h, 24h, 60h, 100h, 250h, 500h e 1000h**. O limite configurável é 1000h; o total jogado pode ultrapassar esse valor. Progresso aparece em horas/minutos sem arredondar antecipadamente uma meta.
 - Hunts: baú vanilla de **27 slots**, três alvos de captura diferentes, sorteados de espécies implementadas do registro Cobblemon (incluindo addons), respeitando whitelist/blacklist e exclusão de lendários/míticos. Ícones usam os modelos oficiais via `PokemonItem.from(Species, String...)`, API conferida no JAR oficial 1.8.3 com checksum verificado. Se a API do modelo não estiver disponível, o ícone usa papel e o console informa a falha.
 - Rotação de Hunts nas horas cheias (60 minutos), persistida por UUID e período; reabrir, recarregar ou reiniciar não refaz os alvos da mesma hora. Se o pool permitir, a próxima hora evita os alvos anteriores. O menu aberto é atualizado na primeira amostragem periódica após a troca, em até aproximadamente 10 segundos.
-- Prêmios padrão por dificuldade: **500 / 1000 / 1500 Impactor Dollars**, com uma, duas ou três capturas. Sorteio de dificuldade ponderado e valores editáveis em `hunts.json`/`rewards.json`. É necessário resgatar manualmente antes da troca de hora; concluídas sem resgate expiram por padrão. Recompensas já resgatadas que aguardam entrega permanecem no ledger e no botão de pendências.
+- Prêmios padrão por dificuldade: **500 / 1000 / 1500 Impactor Dollars**, com uma, duas ou três capturas. Os bônus aleatórios da alpha.4 foram preservados em Playtime e Hunts. Sorteio de dificuldade ponderado e valores editáveis em `hunts.json`/`rewards.json`. É necessário resgatar manualmente antes da troca de hora; concluídas sem resgate expiram por padrão. Recompensas já resgatadas que aguardam entrega permanecem no ledger e no botão de pendências.
 
 ### Atualização sem apagar progresso
 
-Pare o servidor e faça backup das configurações e de `shirokai-daily-data`. Substitua apenas o JAR antigo pelo alpha.3. Configurações reconhecidas como os padrões antigos são migradas automaticamente, com cópias `*.pre-alpha3.bak`. Configurações personalizadas são preservadas: use os exemplos atualizados para ajustar essas configurações manualmente. Não remova arquivos por UUID nem o histórico de transações. Metas antigas resgatadas permanecem registradas; os novos IDs de metas representam o novo calendário de prêmios. Missões diárias/semanais antigas permanecem nos dados, mas não são mostradas quando seus contadores estão desativados.
+Pare o servidor e faça backup das configurações e de `shirokai-daily-data`. Substitua apenas o JAR antigo pelo alpha.3. Configurações reconhecidas como os padrões antigos são migradas automaticamente, com cópias `*.pre-alpha5.bak`. Configurações personalizadas são preservadas: use os exemplos atualizados para ajustar essas configurações manualmente. Não remova arquivos por UUID nem o histórico de transações. Metas antigas resgatadas permanecem registradas; os novos IDs de metas representam o novo calendário de prêmios. Missões diárias/semanais antigas permanecem nos dados, mas não são mostradas quando seus contadores estão desativados.
 
 Novos campos: `hunts.json.hourlyCount`, `rotationSeconds`, `randomSpecies`; `menus/*.json.rows` controla o tamanho do inventário. `slots` e os controles precisam estar dentro de `rows * 9` e sem sobreposição. As metas de Playtime devem caber na página para não criar outro menu. Dados de jogador não são alterados pela migração de configuração.
 
-Este JAR foi compilado e testado localmente; não foi publicado no GitHub nem validado visualmente dentro do Minecraft nesta alteração.
+Esta pré-release preserva as melhorias de cores, lore e bônus da alpha.4. O JAR foi compilado e testado localmente, sem validação visual dentro do Minecraft nesta alteração.
 
 ## Correção Windows — 0.1.0-alpha.2
 
@@ -27,10 +27,10 @@ Para atualizar, pare o servidor, faça backup de `shirokai-daily-data`, substitu
 
 ## Estado real da entrega
 
-- Núcleo Java compilado; **54 verificações passaram** (53 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
+- Núcleo Java compilado; **64 verificações passaram** (63 testes de comportamento + 1 de sintaxe Java), zero falhas/erros/ignorados.
 - Implementados configuração, persistência por UUID, calendário, metas, missões, ledger de recompensas e testes.
 - Entrypoint Fabric, três inventários vanilla bloqueados, comandos, permissões e ponte de eventos Cobblemon compilados com Fabric Loom 1.8.13. Build completa e remapeamento concluídos após a liberação da rede. Ainda sem execução funcional no Minecraft.
-- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.3.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
+- O JAR Fabric compilado é `server/build/libs/shirokai_daily-0.1.0-alpha.5.jar`. O JAR em `build/libs` é apenas o núcleo, **não instale esse arquivo como mod**. A versão alpha possui limitações descritas abaixo.
 - A integração real com Cobblemon 1.8.3, LuckPerms e cliente sem Shirokai Daily precisa de teste no servidor. Não foi possível obter/confirmar o artefato Cobblemon 1.8.3 na rede atual.
 - Dollars e Tokens possuem adaptador da API real do Impactor 5.3.5 fornecido pelo usuário; métodos públicos foram conferidos no JAR. O adaptador de fragmentos requer a extensão pública preparada em `integrations/shirokai-crates-grant-fragments.patch`. Sem essa extensão, fragmentos ficam pendentes. As integrações ainda precisam de teste em servidor; nenhum fragmento é falsificado.
 
@@ -55,7 +55,7 @@ source scripts/cloud-env.sh
 
 O helper instala Temurin 21.0.13+9 com SHA-256 verificado, preserva TLS e usa os proxies herdados. Seu cache fica fora do checkout. Use o checkout existente; tarefas na nuvem já são isoladas e não precisam de worktree.
 
-Após a build completa, o artefato é `server/build/libs/shirokai_daily-0.1.0-alpha.3.jar` (sem `-sources`/`-dev`). Instale somente no servidor junto com Fabric API e Cobblemon 1.8.3 e suas dependências oficiais. Clientes precisam dos mods exigidos pelo próprio Cobblemon, mas não do Shirokai Daily. Os menus usam exclusivamente o protocolo vanilla de baú; isso ainda precisa de teste funcional real.
+Após a build completa, o artefato é `server/build/libs/shirokai_daily-0.1.0-alpha.5.jar` (sem `-sources`/`-dev`). Instale somente no servidor junto com Fabric API e Cobblemon 1.8.3 e suas dependências oficiais. Clientes precisam dos mods exigidos pelo próprio Cobblemon, mas não do Shirokai Daily. Os menus usam exclusivamente o protocolo vanilla de baú; isso ainda precisa de teste funcional real.
 
 ## Configuração
 

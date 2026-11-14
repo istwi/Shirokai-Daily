@@ -6,8 +6,8 @@
   "hunts": true,
   "permissions": {},
   "integrations": {
-    "cobblemon": true,
     "rewards": true,
+    "cobblemon": true,
     "luckperms": true
   }
 }

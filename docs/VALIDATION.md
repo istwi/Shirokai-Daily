@@ -1,10 +1,10 @@
 # Validação
 
-## Menus e rotação horária — 0.1.0-alpha.3
+## Menus e rotação horária — 0.1.0-alpha.5
 
 Adicionados testes para: defaults cinza/30 dias/metas até 1000h/baú de 27 slots; ciclo completo de 30 dias; sorteio horário estável após reinício/reload; troca na fronteira da hora sem repetir alvos quando o pool permite; captura somente da espécie correta; resgate manual em Dollars; preservação de entregas pendentes após expiração; ausência temporária de registro sem sortear missões vazias; filtros e pool pequeno sem alvos duplicados; migração com backup sem tocar dados por UUID; preservação de configuração personalizada; migração de Hunts antigos preservando o conteúdo de entregas já sorteadas; limite máximo de meta.
 
-O JAR oficial Cobblemon 1.8.3 foi obtido via HTTPS, conferido contra seu SHA-256 publicado e inspecionado com javap. Confirmadas as assinaturas de `PokemonItem.from(Species, String...)`, `Species.getImplemented()`, `Species.getLabels()` e `PokemonSpecies.getSpecies()`. Não houve teste visual de cliente Minecraft nem teste nativo Windows nesta sessão. Não foi feita publicação remota.
+O JAR oficial Cobblemon 1.8.3 foi obtido via HTTPS, conferido contra seu SHA-256 publicado e inspecionado com javap. Confirmadas as assinaturas de `PokemonItem.from(Species, String...)`, `Species.getImplemented()`, `Species.getLabels()` e `PokemonSpecies.getSpecies()`. Não houve teste visual de cliente Minecraft nem teste nativo Windows nesta sessão. As versões publicadas anteriormente são preservadas; esta alteração usa a numeração alpha.5.
 
 ## Correção Windows — 0.1.0-alpha.2
 
