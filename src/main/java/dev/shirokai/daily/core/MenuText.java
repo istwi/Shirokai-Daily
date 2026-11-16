@@ -42,6 +42,17 @@ public final class MenuText {
         if(lines.isEmpty())lines.add("&8Nenhuma recompensa disponível para você.");
         return List.copyOf(lines);
     }
+    /** Describe the persisted draw, never the list of possible rewards or a new roll. */
+    public static List<String> claimedRewardLines(State.Transaction transaction){
+        var lines=new ArrayList<String>();
+        for(var delivery:transaction.deliveries){
+            var reward=delivery.reward;
+            boolean bonus=reward.weight()>0||reward.chance()<1;
+            String description=prize(reward).replaceAll("&[0-9a-fk-or]", "");
+            lines.add((bonus?"Bônus ganho: ":"Recompensa fixa: ")+description.substring(2));
+        }
+        return List.copyOf(lines);
+    }
     public static String render(String template,Map<String,String> values){
         for(var entry:values.entrySet())template=template.replace("{"+entry.getKey()+"}",entry.getValue());
         return template;

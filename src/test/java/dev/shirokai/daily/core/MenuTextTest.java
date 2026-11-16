@@ -9,6 +9,14 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MenuTextTest {
+    @Test void claimChatOnlyShowsRewardsInTheSavedDraw(){
+        var transaction=new State.Transaction("daily");
+        transaction.deliveries.add(new State.Delivery("fixed",new Config.Reward("ITEM","minecraft:diamond",2,1,0,"","")));
+        assertEquals(List.of("Recompensa fixa: 2× Diamante"),MenuText.claimedRewardLines(transaction));
+        transaction.deliveries.add(new State.Delivery("bonus",new Config.Reward("ITEM","minecraft:emerald",3,0.5,10,"","")));
+        assertEquals(List.of("Recompensa fixa: 2× Diamante","Bônus ganho: 3× Esmeralda"),MenuText.claimedRewardLines(transaction));
+        assertTrue(MenuText.claimedRewardLines(new State.Transaction("daily")).isEmpty());
+    }
     @TempDir Path root;
     @Test void earlierDaysStayClaimedWhenTheNextDayIsAvailable(){
         assertEquals("RESGATADO",MenuText.dailyStatus(false,1,2,3));

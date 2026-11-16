@@ -127,7 +127,18 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
     void claim(ServerPlayerEntity p,String origin,String target){
         if(!enabled(origin)||!Permissions.has(p,"shirokaidaily."+origin))return;
         UUID id=p.getUuid();Set<String> perms=permissions(p);
-        work(()->engine.claim(id,origin,target,perms,Instant.now()),key->{if(key==null)p.sendMessage(Text.literal(config.messages().get("unavailable")),false);else{deliver(p,origin);p.sendMessage(Text.literal(config.messages().get("claimed")),false);}open(p,origin,0);});
+        work(()->{
+            String key=engine.claim(id,origin,target,perms,Instant.now());
+            return key==null?null:MenuText.claimedRewardLines(engine.view(id,Instant.now()).transactions.get(key));
+        },lines->{
+            if(lines==null)p.sendMessage(Text.literal(config.messages().get("unavailable")),false);
+            else{
+                deliver(p,origin);
+                p.sendMessage(Text.literal(config.messages().get("claimed")),false);
+                for(String line:lines)p.sendMessage(Text.literal(line),false);
+            }
+            open(p,origin,0);
+        });
     }
     void deliver(ServerPlayerEntity p,String origin){
         if(!enabled(origin)||!Permissions.has(p,"shirokaidaily."+origin)||!delivering.add(p.getUuid()))return;

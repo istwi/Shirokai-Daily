@@ -1,5 +1,11 @@
 # ✦ Shirokai Daily
 
+## Mensagem de resgate — 0.1.0-alpha.11
+
+Os resgates de Daily, Playtime e Hunts mostram no chat as recompensas fixas e somente os bônus efetivamente sorteados. O resumo usa a transação persistida, sem novo sorteio ou lista de bônus possíveis. A confirmação de resgate preserva o fluxo de entregas pendentes; não significa que uma entrega pendente já foi concluída.
+
+JAR: [shirokai_daily-0.1.0-alpha.11.jar](artifacts/v0.1.0-alpha.11/shirokai_daily-0.1.0-alpha.11.jar), com SHA-256 em `artifacts/v0.1.0-alpha.11/SHA256SUMS`. Validação: 95 testes passaram e build/remapeamento Fabric concluídos. Ainda sem teste funcional dentro do Minecraft.
+
 Mod exclusivamente de servidor para Minecraft 1.21.1 / Fabric / Java 21, destinado ao Cobblemon **1.8.3**. Daily, Playtime e Hunts são independentes e possuem resgate manual. Versão **alpha compilada para Fabric; ainda sem validação funcional com cliente Minecraft**.
 
 ## Compatibilidade com Shirokai Raids — 0.1.0-alpha.7
