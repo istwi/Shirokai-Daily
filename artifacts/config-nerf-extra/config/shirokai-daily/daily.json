@@ -1,0 +1,182 @@
+{
+  "days": 30,
+  "streakPolicy": "RESET",
+  "graceDays": 1,
+  "completion": "RESTART",
+  "rewards": {
+    "1": [
+      "daily_1_fixed_1",
+      "daily_1_bonus_60",
+      "daily_1_bonus_30"
+    ],
+    "2": [
+      "daily_2_fixed_1",
+      "daily_2_bonus_60",
+      "daily_2_bonus_30"
+    ],
+    "3": [
+      "daily_3_fixed_1",
+      "daily_3_bonus_60",
+      "daily_3_bonus_30"
+    ],
+    "4": [
+      "daily_4_fixed_1",
+      "daily_4_bonus_60",
+      "daily_4_bonus_30"
+    ],
+    "5": [
+      "daily_5_fixed_1",
+      "daily_5_bonus_60",
+      "daily_5_bonus_30"
+    ],
+    "6": [
+      "daily_6_fixed_1",
+      "daily_6_bonus_60",
+      "daily_6_bonus_30"
+    ],
+    "7": [
+      "daily_7_fixed_2",
+      "daily_7_bonus_60",
+      "daily_7_bonus_30"
+    ],
+    "8": [
+      "daily_8_fixed_1",
+      "daily_8_bonus_60",
+      "daily_8_bonus_30"
+    ],
+    "9": [
+      "daily_9_fixed_1",
+      "daily_9_bonus_60",
+      "daily_9_bonus_30"
+    ],
+    "10": [
+      "daily_10_fixed_1",
+      "daily_10_bonus_60",
+      "daily_10_bonus_30"
+    ],
+    "11": [
+      "daily_11_fixed_1",
+      "daily_11_bonus_60",
+      "daily_11_bonus_30",
+      "daily_11_bonus_10"
+    ],
+    "12": [
+      "daily_12_fixed_1",
+      "daily_12_bonus_60",
+      "daily_12_bonus_30",
+      "daily_12_bonus_10"
+    ],
+    "13": [
+      "daily_13_fixed_1",
+      "daily_13_bonus_60",
+      "daily_13_bonus_30",
+      "daily_13_bonus_10"
+    ],
+    "14": [
+      "daily_14_fixed_1",
+      "daily_14_fixed_2",
+      "daily_14_bonus_60",
+      "daily_14_bonus_30",
+      "daily_14_bonus_10"
+    ],
+    "15": [
+      "daily_15_fixed_1",
+      "daily_15_bonus_60",
+      "daily_15_bonus_30",
+      "daily_15_bonus_10"
+    ],
+    "16": [
+      "daily_16_fixed_1",
+      "daily_16_bonus_60",
+      "daily_16_bonus_30",
+      "daily_16_bonus_10"
+    ],
+    "17": [
+      "daily_17_fixed_1",
+      "daily_17_bonus_60",
+      "daily_17_bonus_30",
+      "daily_17_bonus_10"
+    ],
+    "18": [
+      "daily_18_fixed_1",
+      "daily_18_bonus_60",
+      "daily_18_bonus_30",
+      "daily_18_bonus_10"
+    ],
+    "19": [
+      "daily_19_fixed_1",
+      "daily_19_bonus_60",
+      "daily_19_bonus_30",
+      "daily_19_bonus_10"
+    ],
+    "20": [
+      "daily_20_fixed_1",
+      "daily_20_bonus_60",
+      "daily_20_bonus_30",
+      "daily_20_bonus_10"
+    ],
+    "21": [
+      "daily_21_fixed_1",
+      "daily_21_fixed_2",
+      "daily_21_bonus_60",
+      "daily_21_bonus_30",
+      "daily_21_bonus_10"
+    ],
+    "22": [
+      "daily_22_fixed_1",
+      "daily_22_bonus_60",
+      "daily_22_bonus_30",
+      "daily_22_bonus_10"
+    ],
+    "23": [
+      "daily_23_fixed_1",
+      "daily_23_bonus_60",
+      "daily_23_bonus_30",
+      "daily_23_bonus_10"
+    ],
+    "24": [
+      "daily_24_fixed_1",
+      "daily_24_bonus_60",
+      "daily_24_bonus_30",
+      "daily_24_bonus_10"
+    ],
+    "25": [
+      "daily_25_fixed_1",
+      "daily_25_bonus_60",
+      "daily_25_bonus_30",
+      "daily_25_bonus_10"
+    ],
+    "26": [
+      "daily_26_fixed_1",
+      "daily_26_bonus_60",
+      "daily_26_bonus_30",
+      "daily_26_bonus_10"
+    ],
+    "27": [
+      "daily_27_fixed_1",
+      "daily_27_bonus_60",
+      "daily_27_bonus_30",
+      "daily_27_bonus_10"
+    ],
+    "28": [
+      "daily_28_fixed_1",
+      "daily_28_bonus_60",
+      "daily_28_bonus_30",
+      "daily_28_bonus_10"
+    ],
+    "29": [
+      "daily_29_fixed_1",
+      "daily_29_bonus_60",
+      "daily_29_bonus_30",
+      "daily_29_bonus_10"
+    ],
+    "30": [
+      "daily_30_fixed_1",
+      "daily_30_fixed_2",
+      "daily_30_bonus_60",
+      "daily_30_bonus_30",
+      "daily_30_bonus_10"
+    ]
+  },
+  "vipRewards": []
+}
