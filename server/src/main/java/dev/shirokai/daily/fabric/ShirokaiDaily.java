@@ -127,19 +127,20 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
     void claim(ServerPlayerEntity p,String origin,String target){
         if(!enabled(origin)||!Permissions.has(p,"shirokaidaily."+origin))return;
         UUID id=p.getUuid();Set<String> perms=permissions(p);
-        work(()->{
-            String key=engine.claim(id,origin,target,perms,Instant.now());
-            return key==null?null:MenuText.claimedRewardLines(engine.view(id,Instant.now()).transactions.get(key));
-        },lines->{
-            if(lines==null)p.sendMessage(Text.literal(config.messages().get("unavailable")),false);
+        work(()->engine.claim(id,origin,target,perms,Instant.now()),key->{
+            if(key==null)p.sendMessage(Text.literal(config.messages().get("unavailable")),false);
             else{
+                rewardMessage(p,"Resgate registrado. As entregas serão confirmadas abaixo; confira também Entregas pendentes.");
                 deliver(p,origin);
-                p.sendMessage(Text.literal(config.messages().get("claimed")),false);
-                for(String line:lines)p.sendMessage(Text.literal(line),false);
             }
             open(p,origin,0);
         });
     }
+    private void rewardMessage(ServerPlayerEntity p,String body){
+        p.sendMessage(Text.literal("✦ SHIROKAI ").formatted(Formatting.WHITE,Formatting.BOLD)
+            .append(Text.literal(body).setStyle(net.minecraft.text.Style.EMPTY.withColor(Formatting.GRAY).withBold(false))),false);
+    }
+
     void deliver(ServerPlayerEntity p,String origin){
         if(!enabled(origin)||!Permissions.has(p,"shirokaidaily."+origin)||!delivering.add(p.getUuid()))return;
         work(()->engine.pending(p.getUuid(),origin),list->deliverNext(p,list,0));
@@ -157,7 +158,10 @@ public final class ShirokaiDaily implements DedicatedServerModInitializer {
             catch(Exception|LinkageError e){LOG.error("Entrega incerta {} {}",id,pending,e);result=CompletableFuture.completedFuture("UNCERTAIN");}
             result.whenComplete((outcome,error)->{
                 String finalResult=error!=null||!Set.of("DONE","PENDING","UNCERTAIN").contains(outcome==null?"":outcome)?"UNCERTAIN":outcome;
-                work(()->{engine.finish(id,pending,finalResult);LOG.info("Entrega {} {} {}",id,pending.transaction()+"/"+pending.index(),finalResult);return true;},ok->deliverNext(p,list,index+1));
+                work(()->{engine.finish(id,pending,finalResult);LOG.info("Entrega {} {} {}",id,pending.transaction()+"/"+pending.index(),finalResult);return true;},ok->{
+                    if(!p.isDisconnected())rewardMessage(p,MenuText.deliveryLine(pending.reward(),finalResult));
+                    deliverNext(p,list,index+1);
+                });
             });
         });
     }

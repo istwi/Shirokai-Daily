@@ -37,7 +37,9 @@ public final class MenuText {
         long total=weighted.stream().mapToLong(Config.Reward::weight).sum();
         if(total>0){
             lines.add(weighted.stream().allMatch(r->r.chance()==1)?"&7Bônus &8• &7uma destas opções:":"&7Bônus &8• &7até uma opção:");
-            for(var reward:weighted)lines.add(reward.chance()==0?"&8• &7Sem bônus &8("+percent(100.0*reward.weight()/total)+"%)":prize(reward)+" &8("+percent(100.0*reward.weight()/total*reward.chance())+"%)");
+            for(var reward:weighted)if(reward.chance()>0)lines.add(prize(reward)+" &8("+percent(100.0*reward.weight()/total*reward.chance())+"%)");
+            double noBonus=weighted.stream().mapToDouble(r->1.0*r.weight()/total*(1-r.chance())).sum();
+            if(noBonus>0)lines.add("&8• &7Sem bônus &8("+percent(100*noBonus)+"%)");
         }
         if(lines.isEmpty())lines.add("&8Nenhuma recompensa disponível para você.");
         return List.copyOf(lines);
@@ -52,6 +54,17 @@ public final class MenuText {
             lines.add((bonus?"Bônus ganho: ":"Recompensa fixa: ")+description.substring(2));
         }
         return List.copyOf(lines);
+    }
+    /** Delivery messages are emitted only after the outcome is persisted. */
+    public static String deliveryLine(Config.Reward reward,String outcome){
+        String prize=prize(reward).replaceAll("&[0-9a-fk-or]", "").substring(2);
+        String label=reward.weight()>0||reward.chance()<1?"Bônus":"Recompensa fixa";
+        return switch(outcome){
+            case "DONE" -> label+" entregue: "+prize;
+            case "PENDING" -> label+" pendente: "+prize+". Tente novamente em Entregas pendentes.";
+            case "UNCERTAIN" -> label+" com entrega incerta: "+prize+". Peça ao administrador para conferir antes de repetir.";
+            default -> throw new IllegalArgumentException("Resultado de entrega inválido: "+outcome);
+        };
     }
     public static String render(String template,Map<String,String> values){
         for(var entry:values.entrySet())template=template.replace("{"+entry.getKey()+"}",entry.getValue());

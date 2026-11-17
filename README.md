@@ -1,5 +1,13 @@
 # ✦ Shirokai Daily
 
+## Chaves e chances — 0.1.0-alpha.12
+
+Corrigido o ID da Básica para `caixa_inicial_rara`, com compatibilidade para entregas antigas pendentes com `inicial_rara`. Os 32 prêmios de chaves do Daily e 43 do Playtime foram conferidos contra a lista do servidor. As mensagens agora distinguem entrega confirmada, pendência e resultado incerto; o sorteio sozinho não anuncia mais uma entrega.
+
+No perfil do servidor, bônus reduzidos para um quarto das chances anteriores (60%/30%/10% → 15%/7,5%/2,5%); fixas preservadas. Para aplicar no servidor existente, faça backup e substitua somente `config/shirokai-daily/rewards.json` pelo [arquivo atualizado](reward-profiles/tabelas-usuario/config/shirokai-daily/rewards.json), além do JAR. Não apague o progresso. Retente a chave antiga pelo botão **Entregas pendentes**.
+
+99 testes passaram e build/remapeamento Fabric concluídos. A entrega ainda precisa ser conferida no servidor real; veja as [instruções do perfil](reward-profiles/tabelas-usuario/README.md).
+
 ## Mensagem de resgate — 0.1.0-alpha.11
 
 Os resgates de Daily, Playtime e Hunts mostram no chat as recompensas fixas e somente os bônus efetivamente sorteados. O resumo usa a transação persistida, sem novo sorteio ou lista de bônus possíveis. A confirmação de resgate preserva o fluxo de entregas pendentes; não significa que uma entrega pendente já foi concluída.

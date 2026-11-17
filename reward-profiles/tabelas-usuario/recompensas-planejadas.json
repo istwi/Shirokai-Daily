@@ -4,8 +4,9 @@
   "bonusPolicy": "ONE_WEIGHTED_OPTION_IN_ADDITION_TO_ALL_FIXED_REWARDS",
   "notes": [
     "5000h: VIP removido; alternativa de peso 10 permanece sem bônus.",
-    "Básica = inicial_rara; Shiny = shiny.",
-    "Runtime: Daily alpha.8; instalar somente os arquivos na pasta config/shirokai-daily."
+    "Básica = caixa_inicial_rara; Shiny = shiny.",
+    "Bônus: chance de cada opção reduzida para um quarto da original; fixas preservadas.",
+    "Runtime: Daily alpha.12; instalar somente os arquivos na pasta config/shirokai-daily."
   ],
   "daily": [
     {
@@ -44,7 +45,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 1
             }
           ]
@@ -87,7 +88,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 1
             }
           ]
@@ -130,7 +131,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 1
             }
           ]
@@ -173,7 +174,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 1
             }
           ]
@@ -272,7 +273,7 @@
         {
           "kind": "CRATE_KEY",
           "name": "basica",
-          "id": "inicial_rara",
+          "id": "caixa_inicial_rara",
           "amount": 1
         },
         {
@@ -351,7 +352,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 1
             }
           ]
@@ -394,7 +395,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 1
             }
           ]
@@ -1358,7 +1359,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 1
             }
           ]
@@ -1401,7 +1402,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 2
             }
           ]
@@ -1444,7 +1445,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 3
             }
           ]
@@ -1487,7 +1488,7 @@
             {
               "kind": "CRATE_KEY",
               "name": "basica",
-              "id": "inicial_rara",
+              "id": "caixa_inicial_rara",
               "amount": 3
             }
           ]

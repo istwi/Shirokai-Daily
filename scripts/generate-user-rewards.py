@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
-"""Convert the reviewed user table into the alpha.8 runtime reward profile."""
+"""Convert the reviewed user table into the alpha.12 runtime reward profile."""
 import json
 from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 profile = root / 'reward-profiles/tabelas-usuario'
 plan = json.loads((profile / 'recompensas-planejadas.json').read_text())
-ids = {'basica':'inicial_rara','epica':'caixa_epica','paradoxo':'caixa_paradoxo','ultra_beast':'caixa_ultra_beasts','mitica':'caixa_mitica','lendaria':'caixa_lendaria','shiny':'shiny'}
+ids = {'basica':'caixa_inicial_rara','epica':'caixa_epica','paradoxo':'caixa_paradoxo','ultra_beast':'caixa_ultra_beasts','mitica':'caixa_mitica','lendaria':'caixa_lendaria','shiny':'shiny'}
 for module in ('daily','playtime','hunts'):
     for row in plan[module]:
         for r in row['fixed'] + [r for bonus in row['bonus'] for r in bonus['rewards']]:
             if r['kind'] == 'CRATE_KEY': r['id'] = ids[r['name']]
 plan['status'] = 'REVIEWED_SOURCE_TABLE_NOT_RUNTIME_CONFIG'
-plan['notes'] = ['5000h: VIP removido; alternativa de peso 10 permanece sem bônus.','Básica = inicial_rara; Shiny = shiny.','Runtime: Daily alpha.8; instalar somente os arquivos na pasta config/shirokai-daily.']
+plan['notes'] = ['5000h: VIP removido; alternativa de peso 10 permanece sem bônus.','Básica = caixa_inicial_rara; Shiny = shiny.','Bônus: chance de cada opção reduzida para um quarto da original; fixas preservadas.','Runtime: Daily alpha.12; instalar somente os arquivos na pasta config/shirokai-daily.']
 (profile/'recompensas-planejadas.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2)+'\n')
 out = profile/'config/shirokai-daily'
 out.mkdir(parents=True,exist_ok=True)
 rewards={}
 def spec(r,weight):
-    kind=r['kind']; value=r.get('id',r.get('currency','')); chance=1.0
+    kind=r['kind']; value=r.get('id',r.get('currency','')); chance=0.25 if weight>0 else 1.0
     if kind=='LUCKPERMS_GROUP':
         kind='COMMAND';value=f"lp user {{uuid}} parent addtemp {r['group']} {r['durationDays']}d accumulate"
     elif kind=='POKEMON': kind='RANDOM_LEGENDARY_SHINY_6IV';value='legendary'

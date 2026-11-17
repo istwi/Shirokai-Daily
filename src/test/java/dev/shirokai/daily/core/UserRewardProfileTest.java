@@ -22,9 +22,12 @@ class UserRewardProfileTest {
   for(var row:c.daily().rewards().values())checkOdds(c,row);
   for(var goal:c.playtime().goals())checkOdds(c,goal.rewards());
   for(var hunt:c.hunts().pool())checkOdds(c,hunt.rewards());
-  assertEquals(Set.of("inicial_rara","caixa_epica","caixa_paradoxo","caixa_ultra_beasts","caixa_mitica","caixa_lendaria","shiny"),new HashSet<>(c.rewards().values().stream().filter(r->r.type().equals("CRATE_KEY")).map(Config.Reward::value).toList()));
+  assertEquals(Set.of("caixa_inicial_rara","caixa_epica","caixa_paradoxo","caixa_ultra_beasts","caixa_mitica","caixa_lendaria","shiny"),new HashSet<>(c.rewards().values().stream().filter(r->r.type().equals("CRATE_KEY")).map(Config.Reward::value).toList()));
  }
- void checkOdds(Config c,List<String> ids){assertEquals(List.of(60,30,10),ids.stream().map(c.rewards()::get).filter(r->r.weight()>0).map(Config.Reward::weight).toList());}
+ void checkOdds(Config c,List<String> ids){
+  assertEquals(List.of(60,30,10),ids.stream().map(c.rewards()::get).filter(r->r.weight()>0).map(Config.Reward::weight).toList());
+  for(var id:ids){var r=c.rewards().get(id);assertEquals(r.weight()==0?1:r.chance()==0?0:0.25,r.chance());}
+ }
  @Test void milestone5000KeepsBothFixedPrizesAndDoesNotRedistributeRemovedVipOdds()throws Exception{
   var c=profile();var store=new Store(root.resolve("data"));var now=Instant.parse("2026-11-14T15:00:00Z");int empty=0;Set<String> bonuses=new HashSet<>();
   var engine=new Engine(c,store,new Random(42));
@@ -38,11 +41,24 @@ class UserRewardProfileTest {
   }
   assertTrue(empty>0);assertEquals(Set.of("TOKENS","CRATE_KEY"),bonuses);
  }
+ @Test void quarterChancePreservesFixedPrizesAndNeverRerollsSavedClaims()throws Exception{
+  var c=profile();var now=Instant.parse("2026-11-17T15:00:00Z");
+  for(double draw:List.of(0.1,0.3)){
+   UUID id=UUID.randomUUID();var store=new Store(root.resolve("quarter-"+draw));
+   var engine=new Engine(c,store,new Random(7){public double nextDouble(){return draw;}public long nextLong(long bound){return 0;}});
+   String key=engine.claim(id,"daily","",Set.of("shirokaidaily.daily"),now);assertNotNull(key);
+   var transaction=store.load(id).transactions.get(key);
+   assertEquals(draw<0.25?2:1,transaction.deliveries.size());
+   assertEquals("daily_1_fixed_1",transaction.deliveries.getFirst().rewardId);
+   assertEquals(engine.pending(id,"daily"),new Engine(c,store,new Random(99)).pending(id,"daily"));
+   assertNull(engine.claim(id,"daily","",Set.of("shirokaidaily.daily"),now));
+  }
+ }
  @Test void combinedDailyPrizesAndTemporaryVipGroupsArePreserved()throws Exception{
   var c=profile();for(int day:List.of(7,14,21,30))assertEquals(2,c.daily().rewards().get(day).stream().map(c.rewards()::get).filter(r->r.weight()==0).count());
   var commands=c.rewards().values().stream().filter(r->r.type().equals("COMMAND")).map(Config.Reward::value).toList();assertEquals(8,commands.size());
   assertTrue(commands.contains("lp user {uuid} parent addtemp magma 7d accumulate"));assertTrue(commands.contains("lp user {uuid} parent addtemp aqua 30d accumulate"));assertTrue(commands.contains("lp user {uuid} parent addtemp plasma 60d accumulate"));
   var lines=MenuText.rewardLines(c,c.playtime().goals().getLast().rewards(),Set.of());
-  assertTrue(lines.stream().anyMatch(s->s.contains("Sem bônus")&&s.contains("10%")));
+  assertTrue(lines.stream().anyMatch(s->s.contains("Sem bônus")&&s.contains("77.5%")));
  }
 }

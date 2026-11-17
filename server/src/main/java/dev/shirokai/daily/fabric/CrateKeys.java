@@ -1,6 +1,7 @@
 package dev.shirokai.daily.fabric;
 
 import dev.shirokai.daily.core.Config;
+import dev.shirokai.daily.core.CrateKeyIds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.WorldSavePath;
@@ -18,8 +19,10 @@ final class CrateKeys {
             Object service=Class.forName("dev.shirokaicrates.ShirokaiCrates").getMethod("service").invoke(null);
             if(service==null||!(boolean)service.getClass().getMethod("healthy").invoke(service))return "PENDING";
             Object snapshot=service.getClass().getMethod("snapshot").invoke(service);
-            Object crate=((Map<?,?>)snapshot.getClass().getMethod("crates").invoke(snapshot)).get(reward.value());
-            if(crate==null)return "PENDING";
+            Map<?,?> crates=(Map<?,?>)snapshot.getClass().getMethod("crates").invoke(snapshot);
+            String crateId=CrateKeyIds.resolve(reward.value(),crates.keySet());
+            Object crate=crateId==null?null:crates.get(crateId);
+            if(crate==null){ShirokaiDaily.LOG.warn("Chave pendente para {}: caixa '{}' inexistente no Crates",player.getUuid(),reward.value());return "PENDING";}
             // Refuse to initialize or replace Crates' own world secret. Only its factory opens it.
             var secret=player.getServer().getSavePath(WorldSavePath.ROOT).resolve("shirokaicrates/token-secret.bin");
             if(!Files.isRegularFile(secret)||Files.isSymbolicLink(secret))return "PENDING";
@@ -45,6 +48,7 @@ final class CrateKeys {
             return "DONE";
         } catch(ReflectiveOperationException|LinkageError|RuntimeException error) {
             if(mutated)ShirokaiDaily.LOG.error("Entrega de chave incerta para {}",player.getUuid(),error);
+            else ShirokaiDaily.LOG.warn("Chave pendente para {}: API do Crates indisponível/incompatível",player.getUuid(),error);
             return mutated?"UNCERTAIN":"PENDING";
         }
     }

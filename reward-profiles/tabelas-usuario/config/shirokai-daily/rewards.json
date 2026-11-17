@@ -12,7 +12,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 5000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -21,16 +21,16 @@
     "type": "ITEM",
     "value": "cobblemon:great_ball",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "daily_1_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -48,7 +48,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 7000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -57,16 +57,16 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "daily_2_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -84,7 +84,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 8000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -93,16 +93,16 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "daily_3_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -120,7 +120,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 10000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -129,16 +129,16 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "daily_4_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -156,7 +156,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 12000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -165,7 +165,7 @@
     "type": "ITEM",
     "value": "cobblemon:great_ball",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -174,7 +174,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -192,7 +192,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 15000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -201,7 +201,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -210,14 +210,14 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
   },
   "daily_7_fixed_1": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 1,
     "chance": 1.0,
     "weight": 0,
@@ -237,7 +237,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 20000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -246,7 +246,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -255,7 +255,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -273,7 +273,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 15000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -282,16 +282,16 @@
     "type": "ITEM",
     "value": "cobblemon:great_ball",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "daily_8_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -309,7 +309,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 18000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -318,16 +318,16 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 4,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "daily_9_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -345,7 +345,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 20000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -354,7 +354,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -363,7 +363,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -381,7 +381,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 22000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -390,7 +390,7 @@
     "type": "ITEM",
     "value": "cobblemon:great_ball",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -399,7 +399,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -417,7 +417,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 25000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -426,7 +426,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -435,7 +435,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -453,7 +453,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 28000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -462,7 +462,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 6,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -471,7 +471,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -498,7 +498,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -507,7 +507,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 40000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -516,7 +516,7 @@
     "type": "ITEM",
     "value": "cobblemon:master_ball",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -534,7 +534,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 30000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -543,7 +543,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -552,7 +552,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -570,7 +570,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 32000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -579,7 +579,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 6,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -588,7 +588,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -606,7 +606,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 35000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -615,7 +615,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -624,7 +624,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -642,7 +642,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 38000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -651,7 +651,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 8,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -660,7 +660,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -678,7 +678,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 40000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -687,7 +687,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 8,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -696,7 +696,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -714,7 +714,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 45000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -723,7 +723,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 10,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -732,7 +732,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_paradoxo",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -759,7 +759,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -768,7 +768,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 60000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -777,7 +777,7 @@
     "type": "ITEM",
     "value": "cobblemon:master_ball",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -795,7 +795,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 50000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -804,7 +804,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 8,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -813,7 +813,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -831,7 +831,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 55000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -840,7 +840,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 10,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -849,7 +849,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -867,7 +867,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 60000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -876,7 +876,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 10,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -885,7 +885,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_paradoxo",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -903,7 +903,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 65000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -912,7 +912,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 12,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -921,7 +921,7 @@
     "type": "CRATE_KEY",
     "value": "shiny",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -939,7 +939,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 70000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -948,7 +948,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 10,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -957,7 +957,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_paradoxo",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -975,7 +975,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 80000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -984,7 +984,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 15,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -993,7 +993,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_paradoxo",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1011,7 +1011,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 90000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1020,7 +1020,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 12,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1029,7 +1029,7 @@
     "type": "CRATE_KEY",
     "value": "shiny",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1047,7 +1047,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 100000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1056,7 +1056,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 15,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1065,7 +1065,7 @@
     "type": "CRATE_KEY",
     "value": "shiny",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1092,7 +1092,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1101,7 +1101,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 150000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1110,7 +1110,7 @@
     "type": "CRATE_KEY",
     "value": "shiny",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1128,7 +1128,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 10000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1137,16 +1137,16 @@
     "type": "ITEM",
     "value": "cobblemon:great_ball",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "playtime_1_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1164,7 +1164,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 15000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1173,16 +1173,16 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "playtime_2_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1200,7 +1200,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1209,16 +1209,16 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 25000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "playtime_3_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1236,7 +1236,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 30000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1245,16 +1245,16 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
   },
   "playtime_5_bonus_10": {
     "type": "CRATE_KEY",
-    "value": "inicial_rara",
+    "value": "caixa_inicial_rara",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1272,7 +1272,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 50000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1281,7 +1281,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 10,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1290,7 +1290,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1308,7 +1308,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 75000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1317,7 +1317,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 8,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1326,7 +1326,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1344,7 +1344,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 100000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1353,7 +1353,7 @@
     "type": "ITEM",
     "value": "cobblemon:ultra_ball",
     "amount": 16,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1362,7 +1362,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1380,7 +1380,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 150000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1389,7 +1389,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 12,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1398,7 +1398,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_paradoxo",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1416,7 +1416,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 200000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1425,7 +1425,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_epica",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1434,7 +1434,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_paradoxo",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1452,7 +1452,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 250000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1461,7 +1461,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 20,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1470,7 +1470,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_paradoxo",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1488,7 +1488,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 350000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1497,7 +1497,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 25,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1506,7 +1506,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_ultra_beasts",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1524,7 +1524,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1533,7 +1533,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 500000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1542,7 +1542,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_ultra_beasts",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1560,7 +1560,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 8,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1569,7 +1569,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 30,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1578,7 +1578,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_mitica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1596,7 +1596,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 10,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1605,7 +1605,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 750000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1614,7 +1614,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_mitica",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1632,7 +1632,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 15,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1641,7 +1641,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_ultra_beasts",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1650,7 +1650,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_lendaria",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1668,7 +1668,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 20,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1677,7 +1677,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 50,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1686,7 +1686,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_lendaria",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1704,7 +1704,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 30,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1713,7 +1713,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 1500000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1722,7 +1722,7 @@
     "type": "CRATE_KEY",
     "value": "shiny",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1740,7 +1740,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 40,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1749,7 +1749,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_lendaria",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1758,7 +1758,7 @@
     "type": "CRATE_KEY",
     "value": "shiny",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1776,7 +1776,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 60,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1785,7 +1785,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 100,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1794,7 +1794,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_lendaria",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1812,7 +1812,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 70,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1821,7 +1821,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 3000000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1830,7 +1830,7 @@
     "type": "COMMAND",
     "value": "lp user {uuid} parent addtemp magma 7d accumulate",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1848,7 +1848,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 90,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1857,7 +1857,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_lendaria",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1866,7 +1866,7 @@
     "type": "COMMAND",
     "value": "lp user {uuid} parent addtemp magma 15d accumulate",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1884,7 +1884,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 120,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1893,7 +1893,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 150,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1902,7 +1902,7 @@
     "type": "COMMAND",
     "value": "lp user {uuid} parent addtemp aqua 15d accumulate",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1920,7 +1920,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 150,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1929,7 +1929,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 5000000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1938,7 +1938,7 @@
     "type": "COMMAND",
     "value": "lp user {uuid} parent addtemp aqua 30d accumulate",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1956,7 +1956,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 200,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -1965,7 +1965,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_lendaria",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -1974,7 +1974,7 @@
     "type": "COMMAND",
     "value": "lp user {uuid} parent addtemp plasma 15d accumulate",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -1992,7 +1992,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 250,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2001,7 +2001,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 8000000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2010,7 +2010,7 @@
     "type": "COMMAND",
     "value": "lp user {uuid} parent addtemp plasma 30d accumulate",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -2028,7 +2028,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 300,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2037,7 +2037,7 @@
     "type": "ITEM",
     "value": "cobblemon:rare_candy",
     "amount": 200,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2046,7 +2046,7 @@
     "type": "COMMAND",
     "value": "lp user {uuid} parent addtemp plasma 30d accumulate",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -2064,7 +2064,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 400,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2073,7 +2073,7 @@
     "type": "CRATE_KEY",
     "value": "caixa_lendaria",
     "amount": 8,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2082,7 +2082,7 @@
     "type": "COMMAND",
     "value": "lp user {uuid} parent addtemp plasma 60d accumulate",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -2109,7 +2109,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 750,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2118,7 +2118,7 @@
     "type": "CRATE_KEY",
     "value": "shiny",
     "amount": 7,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2145,7 +2145,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 450,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2154,7 +2154,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 900,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2163,7 +2163,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 2000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -2181,7 +2181,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 600,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2190,7 +2190,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 1200,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2199,7 +2199,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 1,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -2217,7 +2217,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 1000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2226,7 +2226,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 2000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2235,7 +2235,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -2253,7 +2253,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 1800,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2262,7 +2262,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 3500,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2271,7 +2271,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 3,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""
@@ -2289,7 +2289,7 @@
     "type": "DOLLARS",
     "value": "impactor:dollars",
     "amount": 3000,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 60,
     "permission": "",
     "condition": ""
@@ -2298,7 +2298,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 2,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 30,
     "permission": "",
     "condition": ""
@@ -2307,7 +2307,7 @@
     "type": "TOKENS",
     "value": "impactor:tokens",
     "amount": 5,
-    "chance": 1.0,
+    "chance": 0.25,
     "weight": 10,
     "permission": "",
     "condition": ""

@@ -17,6 +17,15 @@ class MenuTextTest {
         assertEquals(List.of("Recompensa fixa: 2× Diamante","Bônus ganho: 3× Esmeralda"),MenuText.claimedRewardLines(transaction));
         assertTrue(MenuText.claimedRewardLines(new State.Transaction("daily")).isEmpty());
     }
+    @Test void deliveryChatDistinguishesConfirmedPendingAndUncertainPrizes(){
+        var key=new Config.Reward("CRATE_KEY","caixa_inicial_rara",1,0.25,10,"","");
+        assertEquals("Bônus entregue: 1× Chave: Básica",MenuText.deliveryLine(key,"DONE"));
+        String pending=MenuText.deliveryLine(key,"PENDING");
+        assertTrue(pending.contains("Bônus pendente:"));assertTrue(pending.contains("Entregas pendentes"));assertFalse(pending.contains("entregue:"));
+        assertTrue(MenuText.deliveryLine(key,"UNCERTAIN").contains("administrador"));
+        assertThrows(IllegalArgumentException.class,()->MenuText.deliveryLine(key,"EXECUTING"));
+        assertTrue(MenuText.deliveryLine(new Config.Reward("ITEM","minecraft:diamond",2,1,0,"",""),"DONE").startsWith("Recompensa fixa entregue:"));
+    }
     @TempDir Path root;
     @Test void earlierDaysStayClaimedWhenTheNextDayIsAvailable(){
         assertEquals("RESGATADO",MenuText.dailyStatus(false,1,2,3));
