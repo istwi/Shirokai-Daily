@@ -24,7 +24,8 @@ class ProfileUpdateTest {
  @Test void thirtyDayCycleHasNoDuplicateClaim()throws Exception{
   for(int day=0;day<30;day++){Instant now=before.plusSeconds(day*86400L);assertNotNull(engine.claim(player,"daily","",permissions,now));assertNull(engine.claim(player,"daily","",permissions,now));}
   assertEquals(30,engine.view(player,before.plusSeconds(29*86400L)).daily.day);
-  engine.claim(player,"daily","",permissions,before.plusSeconds(30*86400L));assertEquals(1,engine.view(player,before.plusSeconds(30*86400L)).daily.day);
+  assertNull(engine.claim(player,"daily","",permissions,before.plusSeconds(30*86400L)));
+  assertEquals(30,engine.view(player,before.plusSeconds(30*86400L)).daily.claimedThrough());
  }
  @Test void savedHourlyDrawSurvivesReopenReloadAndRestart()throws Exception{
   State s=engine.view(player,before);var targets=s.hunts.quests.values().stream().map(q->q.mission.species()).toList();assertEquals(3,new HashSet<>(targets).size());

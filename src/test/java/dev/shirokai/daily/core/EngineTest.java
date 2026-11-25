@@ -18,12 +18,23 @@ class EngineTest {
   Instant before=Instant.parse("2026-11-14T02:59:59Z"),after=before.plusSeconds(1);
   assertNotNull(engine.claim(player,"daily","",permissions,before));assertNotNull(engine.claim(player,"daily","",permissions,after));assertEquals(2,engine.view(player,after).daily.streak);
  }
- @Test void resetStreakAfterMiss()throws Exception{engine.claim(player,"daily","",permissions,now);engine.claim(player,"daily","",permissions,now.plusSeconds(3*86400));var s=engine.view(player,now.plusSeconds(3*86400));assertEquals(1,s.daily.streak);assertEquals(1,s.daily.resets);}
+ @Test void resetStreakAfterMissKeepsClaimHistory()throws Exception{
+  assertNotNull(engine.claim(player,"daily","",permissions,now));
+  Instant later=now.plusSeconds(3*86400);
+  assertNotNull(engine.claim(player,"daily","",permissions,later));
+  engine=new Engine(config,store,new Random(3));
+  var daily=engine.view(player,later).daily;
+  assertEquals(1,daily.streak);
+  assertEquals(1,daily.resets);
+  assertEquals(2,daily.claimedThrough());
+  assertEquals(3,daily.nextRewardDay(7));
+ }
  @Test void pausePreservesStreak()throws Exception{engine.reload(withDaily("PAUSE",0,"RESTART"));engine.claim(player,"daily","",permissions,now);engine.claim(player,"daily","",permissions,now.plusSeconds(3*86400));assertEquals(2,engine.view(player,now.plusSeconds(3*86400)).daily.streak);}
  @Test void graceAllowsOneMissingDay()throws Exception{engine.reload(withDaily("GRACE",1,"RESTART"));engine.claim(player,"daily","",permissions,now);engine.claim(player,"daily","",permissions,now.plusSeconds(2*86400));assertEquals(2,engine.view(player,now.plusSeconds(2*86400)).daily.streak);engine.claim(player,"daily","",permissions,now.plusSeconds(5*86400));assertEquals(1,engine.view(player,now.plusSeconds(5*86400)).daily.streak);}
  @Test void cyclesRestartAndStop()throws Exception{
-  for(int i=0;i<8;i++)assertNotNull(engine.claim(player,"daily","",permissions,now.plusSeconds(i*86400L)));
-  assertEquals(1,engine.view(player,now.plusSeconds(7*86400)).daily.day);
+  for(int i=0;i<7;i++)assertNotNull(engine.claim(player,"daily","",permissions,now.plusSeconds(i*86400L)));
+  assertNull(engine.claim(player,"daily","",permissions,now.plusSeconds(7*86400L)));
+  assertEquals(7,engine.view(player,now.plusSeconds(7*86400)).daily.day);
   engine.reload(withDaily("RESET",1,"STOP"));UUID other=UUID.randomUUID();for(int i=0;i<7;i++)assertNotNull(engine.claim(other,"daily","",permissions,now.plusSeconds(i*86400L)));assertNull(engine.claim(other,"daily","",permissions,now.plusSeconds(7*86400L)));
  }
  @Test void vipEvaluatedAtClaim()throws Exception{

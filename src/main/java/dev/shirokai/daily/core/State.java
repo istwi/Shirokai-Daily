@@ -6,7 +6,19 @@ public final class State {
     public Playtime playtime=new Playtime();
     public Hunts hunts=new Hunts();
     public Map<String,Transaction> transactions=new LinkedHashMap<>();
-    public static final class Daily { public int day,streak; public String last=""; public long resets; }
+    public static final class Daily {
+        public int day, streak, highestClaimedDay;
+        public String last="";
+        public long resets;
+
+        public int claimedThrough() {
+            return Math.max(day, highestClaimedDay);
+        }
+
+        public int nextRewardDay(int calendarDays) {
+            return claimedThrough() >= calendarDays ? -1 : claimedThrough() + 1;
+        }
+    }
     public static final class Playtime { public long total,eligible,daily,weekly; public String day="",week=""; public Set<String> claimed=new HashSet<>(); }
     public static final class Hunts { public String day="",week="",hour=""; public Map<String,Quest> quests=new LinkedHashMap<>(); public Set<String> seen=new HashSet<>(); }
     public static final class Quest { public Config.Mission mission; public String period,epoch; public int progress; public boolean claimed; public Quest(Config.Mission m,String p,String e){mission=m;period=p;epoch=e;} }

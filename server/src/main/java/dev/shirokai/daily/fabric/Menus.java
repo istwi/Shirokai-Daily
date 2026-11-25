@@ -23,10 +23,8 @@ final class Menus {
         switch(module){
             case "daily" -> {
                 var daily=state.daily;boolean today=daily.last.equals(config.day(now).toString());
-                long gap=daily.last.isEmpty()?0:java.time.temporal.ChronoUnit.DAYS.between(LocalDate.parse(daily.last),config.day(now));
-                boolean missed=gap>1&&(config.daily().streakPolicy().equals("RESET")||config.daily().streakPolicy().equals("GRACE")&&gap-1>config.daily().graceDays());
-                int previous=missed?0:daily.day;
-                int next=previous>=config.daily().days()?(config.daily().completion().equals("STOP")?-1:1):previous+1;
+                int previous=daily.claimedThrough();
+                int next=daily.nextRewardDay(config.daily().days());
                 for(int i=1;i<=config.daily().days();i++){
                     int day=i;boolean available=!today&&day==next;
                     String status=MenuText.dailyStatus(today,day,previous,next);

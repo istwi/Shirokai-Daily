@@ -107,7 +107,7 @@ Primeira inicialização gera `config/shirokai-daily/`:
 | Arquivo | Conteúdo |
 | --- | --- |
 | `config.json` | Módulos, fuso, hora de reset, mapeamento de permissões e integrações |
-| `daily.json` | 7/14/30 dias, RESET/PAUSE/GRACE, tolerância, RESTART/STOP, recompensas por dia e VIP |
+| `daily.json` | 7/14/30 dias, RESET/PAUSE/GRACE, tolerância, recompensas únicas por dia do calendário e VIP |
 | `playtime.json` | AFK e metas com IDs estáveis, segundos e períodos PERMANENT/DAILY/WEEKLY |
 | `hunts.json` | Pools ponderados/fixos, quantidades, filtros e retenção de concluídas |
 | `rewards.json` | IDs estáveis, tipos, valor, quantidade, chance, peso, permissão e condição |

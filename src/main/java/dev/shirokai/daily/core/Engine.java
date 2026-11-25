@@ -109,13 +109,14 @@ public final class Engine {
             case "daily" -> {
                 if(!config.general().daily())return null;
                 var d=s.daily;LocalDate today=config.day(now);if(d.last.equals(today.toString()))return null;
-                if(d.day>=config.daily().days()&&config.daily().completion().equals("STOP"))return null;
+                int nextDay=d.nextRewardDay(config.daily().days());
+                if(nextDay<0)return null;
                 long gap=d.last.isEmpty()?0:ChronoUnit.DAYS.between(LocalDate.parse(d.last),today);
                 if(gap<0)return null;
                 boolean reset=gap>1&&(config.daily().streakPolicy().equals("RESET")||config.daily().streakPolicy().equals("GRACE")&&gap-1>config.daily().graceDays());
-                if(reset){d.day=0;d.streak=0;d.resets++;}
-                if(d.day>=config.daily().days())d.day=0;
-                d.day++;d.streak++;d.last=today.toString();rewards.addAll(config.daily().rewards().get(d.day));
+                if(reset){d.streak=0;d.resets++;}
+                d.day=nextDay;d.highestClaimedDay=nextDay;
+                d.streak++;d.last=today.toString();rewards.addAll(config.daily().rewards().get(nextDay));
                 if(permissions.contains("shirokaidaily.vip"))rewards.addAll(config.daily().vipRewards());
                 key="daily/"+today;
             }
@@ -161,6 +162,7 @@ public final class Engine {
     }
     public void admin(UUID id,String operation,long seconds,Instant now)throws IOException{
         State s=store.load(id);roll(s,now);
+        s.daily.highestClaimedDay=s.daily.claimedThrough();
         switch(operation){case "daily-reset"->{s.daily.day=0;s.daily.streak=0;s.daily.resets++;}case "playtime-add"->{s.playtime.total=Math.addExact(s.playtime.total,seconds);s.playtime.eligible=Math.addExact(s.playtime.eligible,seconds);s.playtime.daily=Math.addExact(s.playtime.daily,seconds);s.playtime.weekly=Math.addExact(s.playtime.weekly,seconds);}case "playtime-set"->{s.playtime.total=seconds;s.playtime.eligible=seconds;}case "hunts-reset","hunts-reroll"->{s.hunts.quests.clear();renew(s,"DAILY",s.hunts.day,config.hunts().dailyCount());renew(s,"WEEKLY",s.hunts.week,config.hunts().weeklyCount());if(config.hunts().hourlyCount()>0)renew(s,"HOURLY",config.huntEpoch(now),config.hunts().hourlyCount());}default->throw new IllegalArgumentException(operation);}
         store.save(id,s);
     }
